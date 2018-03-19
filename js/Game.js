@@ -124,8 +124,8 @@ LegendOfAdlez.Game.prototype = {
             result.forEach(function(element) {
                 this.goon = this.enemies.create(element.x, element.y, 'goon');
                 this.goon.anchor.setTo(0.5, 0.5);
-                this.goon.animations.add('down', [0, 1, 2, 3], 10, true);
-                this.goon.animations.add('up', [4, 5, 6, 7], 10, true);
+                this.goon.animations.add('down', [6, 7, 8], 10, true);
+                this.goon.animations.add('up', [0, 1, 2], 10, true);
                 this.goon.prevY = this.goon.y;
                 this.goon.body.moves = false;
                 this.goon.anchor.x = 0.5;
