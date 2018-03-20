@@ -49,7 +49,7 @@ CommandoZombi.Game.prototype = {
       this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
 
 
-        this.createAdlezBullets();
+        this.createPlayerBullets();
         this.createNonagBullets();
         this.createExplosions();
 
@@ -65,7 +65,7 @@ CommandoZombi.Game.prototype = {
     //move player with cursor keys
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
-        this.adlezBulletTime = 0;
+        this.playerBulletTime = 0;
         this.nonagBulletTime = 0;
 
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -75,10 +75,10 @@ CommandoZombi.Game.prototype = {
         this.player.animations.add('right', [3, 4 , 5], 7, true);
         this.player.animations.add('down', [6, 7, 8], 7, true);
         this.player.animations.add('up', [0, 1, 2], 7, true);
-        this.adlezBullets.callAll('animations.add', 'animations', 'left', [8, 9, 10, 11], 7, true);
-        this.adlezBullets.callAll('animations.add', 'animations', 'right', [4, 5, 6, 7], 7, true);
-        this.adlezBullets.callAll('animations.add', 'animations', 'down', [12, 13, 14, 15], 7, true);
-        this.adlezBullets.callAll('animations.add', 'animations', 'up', [0, 1, 2, 3], 7, true);
+        this.playerBullets.callAll('animations.add', 'animations', 'left', [8, 9, 10, 11], 7, true);
+        this.playerBullets.callAll('animations.add', 'animations', 'right', [4, 5, 6, 7], 7, true);
+        this.playerBullets.callAll('animations.add', 'animations', 'down', [12, 13, 14, 15], 7, true);
+        this.playerBullets.callAll('animations.add', 'animations', 'up', [0, 1, 2, 3], 7, true);
         this.nonagBullets.callAll('animations.add', 'animations', 'shoot', [0, 1, 2, 3, 4, 5], 10, true);
         this.explosions.callAll('animations.add', 'animations', 'kaboom', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], 15, true);
 
@@ -93,7 +93,7 @@ CommandoZombi.Game.prototype = {
             this.game.add.tween(this.nonag).to( { x: this.nonag.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     //add non-player spritesheets
-        this.adlezBullet = this.game.add.sprite('adlezBullet');
+        this.playerBullet = this.game.add.sprite('playerBullet');
         this.nonagBullet = this.game.add.sprite('nonagBullet');
 
     },
@@ -104,34 +104,34 @@ CommandoZombi.Game.prototype = {
             this.enemies.physicsBodyType = Phaser.Physics.ARCADE;
             var enemy;
 
-            //chicken!
-            result = this.findObjectsByType('chicken', this.map, 'basicEnemyLayer');
+            //devil!
+            result = this.findObjectsByType('devil', this.map, 'basicEnemyLayer');
             result.forEach(function(element) {
-                this.chicken = this.enemies.create(element.x, element.y, 'chicken');
-                this.chicken.anchor.setTo(0.5, 0.5);
-                this.chicken.animations.add('right', [3, 4, 5], 6, true);
-                this.chicken.animations.add('left', [9, 10, 11], 6, true);
-                this.chicken.prevX = this.chicken.x;
-                this.chicken.body.moves = false;
-                this.chicken.anchor.x = 0.5;
-                this.chicken.anchor.y = 0.5;
-                this.chicken.health = 1;
-                this.tween = this.game.add.tween(this.chicken).to( { x: this.chicken.x+randomIntFromInterval(80,100) }, randomIntFromInterval(7000,20000), Phaser.Easing.Linear.None, true, 0, 1000, true);
+                this.devil = this.enemies.create(element.x, element.y, 'devil');
+                this.devil.anchor.setTo(0.5, 0.5);
+                this.devil.animations.add('right', [3, 4, 5], 6, true);
+                this.devil.animations.add('left', [9, 10, 11], 6, true);
+                this.devil.prevX = this.devil.x;
+                this.devil.body.moves = false;
+                this.devil.anchor.x = 0.5;
+                this.devil.anchor.y = 0.5;
+                this.devil.health = 1;
+                this.tween = this.game.add.tween(this.devil).to( { x: this.devil.x+randomIntFromInterval(80,100) }, randomIntFromInterval(7000,20000), Phaser.Easing.Linear.None, true, 0, 1000, true);
             }, this);
 
-            //goon
-            result = this.findObjectsByType('goon', this.map, 'basicEnemyLayer');
+            //guard
+            result = this.findObjectsByType('guard', this.map, 'basicEnemyLayer');
             result.forEach(function(element) {
-                this.goon = this.enemies.create(element.x, element.y, 'goon');
-                this.goon.anchor.setTo(0.5, 0.5);
-                this.goon.animations.add('down', [6, 7, 8], 10, true);
-                this.goon.animations.add('up', [0, 1, 2], 10, true);
-                this.goon.prevY = this.goon.y;
-                this.goon.body.moves = false;
-                this.goon.anchor.x = 0.5;
-                this.goon.anchor.y = 0.5;
-                this.goon.health = 5;
-                this.tween = this.game.add.tween(this.goon).to( { y: this.goon.y+randomIntFromInterval(60,80) }, randomIntFromInterval(800,1000), Phaser.Easing.Linear.None, true, 0, 1000, true);
+                this.guard = this.enemies.create(element.x, element.y, 'guard');
+                this.guard.anchor.setTo(0.5, 0.5);
+                this.guard.animations.add('down', [6, 7, 8], 10, true);
+                this.guard.animations.add('up', [0, 1, 2], 10, true);
+                this.guard.prevY = this.guard.y;
+                this.guard.body.moves = false;
+                this.guard.anchor.x = 0.5;
+                this.guard.anchor.y = 0.5;
+                this.guard.health = 5;
+                this.tween = this.game.add.tween(this.guard).to( { y: this.guard.y+randomIntFromInterval(60,80) }, randomIntFromInterval(800,1000), Phaser.Easing.Linear.None, true, 0, 1000, true);
             }, this);
 
         },
@@ -161,15 +161,15 @@ CommandoZombi.Game.prototype = {
 
 //BULLETS
     //player bullets
-        createAdlezBullets: function() {
-            this.adlezBullets = this.game.add.group();
-            this.adlezBullets.enableBody = true;
-            this.adlezBullets.physicsBodyType = Phaser.Physics.ARCADE;
-            this.adlezBullets.createMultiple(40, 'adlezBullet');
-            this.adlezBullets.setAll('anchor.x', 0.5);
-            this.adlezBullets.setAll('anchor.y', 1);
-            this.adlezBullets.setAll('outOfBoundsKill', true);
-            this.adlezBullets.setAll('checkWorldBounds', true);
+        createPlayerBullets: function() {
+            this.playerBullets = this.game.add.group();
+            this.playerBullets.enableBody = true;
+            this.playerBullets.physicsBodyType = Phaser.Physics.ARCADE;
+            this.playerBullets.createMultiple(40, 'playerBullet');
+            this.playerBullets.setAll('anchor.x', 0.5);
+            this.playerBullets.setAll('anchor.y', 1);
+            this.playerBullets.setAll('outOfBoundsKill', true);
+            this.playerBullets.setAll('checkWorldBounds', true);
         },
 
     //boss bullets
@@ -186,35 +186,35 @@ CommandoZombi.Game.prototype = {
 
     //fire player bullets
         fireBullet: function() {
-            if (this.game.time.now > this.adlezBulletTime) {
+            if (this.game.time.now > this.playerBulletTime) {
                 //  Grab the first bullet we can from the pool
-                this.adlezBullet = this.adlezBullets.getFirstExists(false);
-                if (this.adlezBullet) {
+                this.playerBullet = this.playerBullets.getFirstExists(false);
+                if (this.playerBullet) {
                 //  And fire it
                     if (this.player.facing == "right") {
-                        this.adlezBullets.callAllExists('play', false, 'right');
-                        this.adlezBullet.reset(this.player.x + 30, this.player.y + 30);
-                        this.adlezBullet.body.velocity.x = 200;
-                        this.adlezBulletTime = this.game.time.now + 200;
-                        this.adlezBullet.lifespan = 1000;
+                        this.playerBullets.callAllExists('play', false, 'right');
+                        this.playerBullet.reset(this.player.x + 30, this.player.y + 30);
+                        this.playerBullet.body.velocity.x = 200;
+                        this.playerBulletTime = this.game.time.now + 200;
+                        this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "up") {
-                        this.adlezBullets.callAllExists('play', false, 'up');
-                        this.adlezBullet.reset(this.player.x + 16, this.player.y + 10);
-                        this.adlezBullet.body.velocity.y = -200;
-                        this.adlezBulletTime = this.game.time.now + 200;
-                        this.adlezBullet.lifespan = 1000;
+                        this.playerBullets.callAllExists('play', false, 'up');
+                        this.playerBullet.reset(this.player.x + 16, this.player.y + 10);
+                        this.playerBullet.body.velocity.y = -200;
+                        this.playerBulletTime = this.game.time.now + 200;
+                        this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "left") {
-                        this.adlezBullets.callAllExists('play', false, 'left');
-                        this.adlezBullet.reset(this.player.x + 5, this.player.y + 30);
-                        this.adlezBullet.body.velocity.x = -200;
-                        this.adlezBulletTime = this.game.time.now + 200;
-                        this.adlezBullet.lifespan = 1000;
+                        this.playerBullets.callAllExists('play', false, 'left');
+                        this.playerBullet.reset(this.player.x + 5, this.player.y + 30);
+                        this.playerBullet.body.velocity.x = -200;
+                        this.playerBulletTime = this.game.time.now + 200;
+                        this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "down") {
-                        this.adlezBullets.callAllExists('play', false, 'down');
-                        this.adlezBullet.reset(this.player.x + 16, this.player.y + 40);
-                        this.adlezBullet.body.velocity.y = 200;
-                        this.adlezBulletTime = this.game.time.now + 200;
-                        this.adlezBullet.lifespan = 1000;
+                        this.playerBullets.callAllExists('play', false, 'down');
+                        this.playerBullet.reset(this.player.x + 16, this.player.y + 40);
+                        this.playerBullet.body.velocity.y = 200;
+                        this.playerBulletTime = this.game.time.now + 200;
+                        this.playerBullet.lifespan = 1000;
                     }
                 }
             }
@@ -240,17 +240,17 @@ CommandoZombi.Game.prototype = {
         },
 
     //remove enemy from map
-        enemyKiller: function(adlezBullet, enemy) {
-            this.adlezBullet.kill();
+        enemyKiller: function(playerBullet, enemy) {
+            this.playerBullet.kill();
 
-            if (enemy.key == "chicken") {
+            if (enemy.key == "devil") {
                 this.explosion = this.explosions.getFirstExists(false);
                 this.explosion.reset(enemy.body.x, enemy.body.y);
                 this.explosion.play('kaboom', 30, false, true);
                 enemy.kill();
-            } else if (enemy.key == "goon") {
+            } else if (enemy.key == "guard") {
                 enemy.health -=1;
-                this.adlezBullet.kill();
+                this.playerBullet.kill();
 
                 if(enemy.health <= 0){
                     enemy.kill();
@@ -261,7 +261,7 @@ CommandoZombi.Game.prototype = {
             } else if (enemy.key == "nonag") {
                 enemy.health -=1;
                 console.log(enemy.health);
-                this.adlezBullet.kill();
+                this.playerBullet.kill();
                 if(enemy.health <= 0){
                     enemy.kill();
                     this.explosion = this.explosions.getFirstExists(false);
@@ -283,7 +283,7 @@ CommandoZombi.Game.prototype = {
                   player.health -=1;
                   $('img:last-child').remove();
                 }
-                if (enemy.key == "goon") {
+                if (enemy.key == "guard") {
                   player.health -=1;
                   $('img:last-child').remove();
                 }
@@ -304,8 +304,8 @@ CommandoZombi.Game.prototype = {
         },
 
     //remove bullet if offscreen
-        resetAdlezBullet: function() {
-          this.adlezBullet.kill();
+        resetPlayerBullet: function() {
+          this.playerBullet.kill();
         },
 
     //remove bullet if offscreen
@@ -313,41 +313,41 @@ CommandoZombi.Game.prototype = {
             this.nonagBullet.kill();
         },
 
-    //Updates chickens animation. First, we search for all chickens and put them in array. Then, we see which direction they're moving and set the animation.
-        updateChickenAnimation: function() {
-          var chickensArray = [];
+    //Updates devils animation. First, we search for all devils and put them in array. Then, we see which direction they're moving and set the animation.
+        updateDevilAnimation: function() {
+          var devilsArray = [];
           this.enemies.forEach(function(enemy) {
-            if (enemy.key == "chicken") {
-              chickensArray.push(enemy);
+            if (enemy.key == "devil") {
+              devilsArray.push(enemy);
             }
           });
 
-          chickensArray.forEach(function(chicken) {
-            if (chicken.x > chicken.prevX) {
-              chicken.play('right');
+          devilsArray.forEach(function(devil) {
+            if (devil.x > devil.prevX) {
+              devil.play('right');
             } else {
-              chicken.play('left');
+              devil.play('left');
             }
-            chicken.prevX = chicken.x;
+            devil.prevX = devil.x;
           });
         },
 
-    //Updates chickens animation. First, we search for all chickens and put them in array. Then, we see which direction they're moving and set the animation.
-        updateGoonAnimation: function() {
-          var goonsArray = [];
+    //Updates guards animation. First, we search for all guards and put them in array. Then, we see which direction they're moving and set the animation.
+        updateGuardAnimation: function() {
+          var guardsArray = [];
           this.enemies.forEach(function(enemy) {
-            if (enemy.key == "goon") {
-              goonsArray.push(enemy);
+            if (enemy.key == "guard") {
+              guardsArray.push(enemy);
             }
           });
 
-          goonsArray.forEach(function(goon) {
-            if (goon.y > goon.prevY) {
-              goon.play('down');
+          guardsArray.forEach(function(guard) {
+            if (guard.y > guard.prevY) {
+              guard.play('down');
             } else {
-              goon.play('up');
+              guard.play('up');
             }
-            goon.prevY = goon.y;
+            guard.prevY = guard.y;
           });
         },
 
@@ -400,20 +400,20 @@ CommandoZombi.Game.prototype = {
         }
 
         //Update NPC animations
-          this.updateChickenAnimation();
-          this.updateGoonAnimation();
+          this.updateDevilAnimation();
+          this.updateGuardAnimation();
 
         //collision
             this.game.physics.arcade.collide(this.player, this.blockedLayer);
             this.game.physics.arcade.collide(this.nonagBullet, this.blockedLayer, this.resetNonagBullet, null, this);
-            this.game.physics.arcade.collide(this.adlezBullet, this.blockedLayer, this.resetAdlezBullet, null, this);
+            this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
             this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
         //Player interactions (magic, running into enemies, etc)
-            this.game.physics.arcade.overlap(this.adlezBullet, this.goon, this.goonKiller, null, this);
+            this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
             this.game.physics.arcade.overlap(this.player, this.nonagBullet, this.adlezKiller, null, this);
-            this.game.physics.arcade.overlap(this.adlezBullet, this.enemies.children, this.enemyKiller, null, this);
+            this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
             this.game.physics.arcade.overlap(this.player, this.enemies.children, this.adlezKiller, null, this);
-            this.game.physics.arcade.overlap(this.adlezBullet, this.nonag, this.enemyKiller, null, this);
+            this.game.physics.arcade.overlap(this.playerBullet, this.nonag, this.enemyKiller, null, this);
     },
 }
