@@ -94,14 +94,26 @@ CommandoZombi.Game.prototype = {
 //Non-Playable Characters
     //create boss
         var blacklordResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
-            this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
-            this.game.physics.arcade.enable(this.blacklord);
-            this.blacklord.health = 10;
-            this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
+        this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
+        this.game.physics.arcade.enable(this.blacklord);
+        this.blacklord.health = 10;
+        this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     //add non-player spritesheets
         this.playerBullet = this.game.add.sprite('playerBullet');
         this.blacklordBullet = this.game.add.sprite('blacklordBullet');
+
+
+    // HUD
+        var t1 = this.game.add.text(10, 10, "Agent:", { font: "16px Arial", fill: "#000000", align: "left" });
+        t1.fixedToCamera = true;
+        t1.cameraOffset.setTo(10, 10);
+
+        var t2 = this.game.add.text(10, 30, "Mission:", { font: "16px Arial", fill: "#000000", align: "left" });
+        t2.fixedToCamera = true;
+        t2.cameraOffset.setTo(10, 30);
+
+
 
     },
     //create NPC's
