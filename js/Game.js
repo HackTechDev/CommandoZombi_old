@@ -352,7 +352,7 @@ CommandoZombi.Game.prototype = {
         },
 
         gameOver: function() {
-          var text = "Eluryh will fall if you don't"
+          var text = "Zombis eat you!!!"
           var text2 = "press SPACE to restart!";
           var style = { font: "30px Arial", fill: "#fff", align: "center" };
           var t = this.game.add.text(this.player.x, this.player.y, text, style);
