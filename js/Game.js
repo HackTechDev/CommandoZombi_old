@@ -27,7 +27,7 @@ CommandoZombi.Game.prototype = {
             this.game.physics.arcade.enable(this.player);
             this.player.health = 10;
             for (i = 1; i <= 10; i++) {
-                $('#game-frame').append('<img src="http://localhost/util06/adlez1/assets/images/heart.png" height="72em" width="72em">');
+                $('#game-frame').append('<img src="assets/images/heart.png" height="72em" width="72em">');
             }
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
