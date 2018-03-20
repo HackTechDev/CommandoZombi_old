@@ -1,3 +1,9 @@
+Commando Zombi  
+==============  
+  
+Modify by Le Sanglier des Ardennes  
+  
+  
 # The Legend of Adlez
 
 ##### A JavaScript game in the style of an SNES RPG.
