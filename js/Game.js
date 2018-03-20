@@ -109,8 +109,8 @@ LegendOfAdlez.Game.prototype = {
             result.forEach(function(element) {
                 this.chicken = this.enemies.create(element.x, element.y, 'chicken');
                 this.chicken.anchor.setTo(0.5, 0.5);
-                this.chicken.animations.add('right', [3, 4, 5, 6], 6, true);
-                this.chicken.animations.add('left', [7, 8], 6, true);
+                this.chicken.animations.add('right', [3, 4, 5], 6, true);
+                this.chicken.animations.add('left', [9, 10, 11], 6, true);
                 this.chicken.prevX = this.chicken.x;
                 this.chicken.body.moves = false;
                 this.chicken.anchor.x = 0.5;

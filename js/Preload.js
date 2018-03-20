@@ -20,8 +20,10 @@ LegendOfAdlez.Preload.prototype = {
         this.load.image('map', 'assets/images/map.png');
         this.load.spritesheet('player', 'assets/images/player.png', 48, 64);
         this.load.spritesheet('adlezBullet', 'assets/images/adlezBullet.png', 32, 32);
+
         this.load.spritesheet('goon', 'assets/images/nightguardswordnpc.png', 48, 64);
-        this.load.spritesheet('chicken', 'assets/images/chicken.png', 32, 32);
+        this.load.spritesheet('chicken', 'assets/images/buyer2npc.png', 48, 64);
+
         this.load.spritesheet('nonag', 'assets/images/nonag.png', 44, 70);
         this.load.spritesheet('nonagBullet', 'assets/images/nonagBullet.png', 32, 32);
         this.game.load.spritesheet('kaboom', 'assets/images/explosion.png', 64, 64);
