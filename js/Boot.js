@@ -14,11 +14,11 @@ CommandoZombi.Boot.prototype = {
     this.game.stage.backgroundColor = "#fff";
 
     //scaling options:
-    this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
+    //this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
     //Center horizontally
-    this.scale.pageAlignHorizontally = true;
-    this.scale.pageAlignVertically = true;
+    //this.scale.pageAlignHorizontally = true;
+    //this.scale.pageAlignVertically = true;
 
     //set screen size automatically
     //this.scale.setScreenSize(true);
