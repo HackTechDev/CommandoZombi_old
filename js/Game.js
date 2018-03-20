@@ -212,25 +212,25 @@ CommandoZombi.Game.prototype = {
                 //  And fire it
                     if (this.player.facing == "right") {
                         this.playerBullets.callAllExists('play', false, 'right');
-                        this.playerBullet.reset(this.player.x + 30, this.player.y + 30);
+                        this.playerBullet.reset(this.player.x + 30, this.player.y + 60);
                         this.playerBullet.body.velocity.x = 200;
                         this.playerBulletTime = this.game.time.now + 200;
                         this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "up") {
                         this.playerBullets.callAllExists('play', false, 'up');
-                        this.playerBullet.reset(this.player.x + 16, this.player.y + 10);
+                        this.playerBullet.reset(this.player.x + 25, this.player.y + 20);
                         this.playerBullet.body.velocity.y = -200;
                         this.playerBulletTime = this.game.time.now + 200;
                         this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "left") {
                         this.playerBullets.callAllExists('play', false, 'left');
-                        this.playerBullet.reset(this.player.x + 5, this.player.y + 30);
+                        this.playerBullet.reset(this.player.x + 5, this.player.y + 60);
                         this.playerBullet.body.velocity.x = -200;
                         this.playerBulletTime = this.game.time.now + 200;
                         this.playerBullet.lifespan = 1000;
                     } else if (this.player.facing == "down") {
                         this.playerBullets.callAllExists('play', false, 'down');
-                        this.playerBullet.reset(this.player.x + 16, this.player.y + 40);
+                        this.playerBullet.reset(this.player.x + 25, this.player.y + 60);
                         this.playerBullet.body.velocity.y = 200;
                         this.playerBulletTime = this.game.time.now + 200;
                         this.playerBullet.lifespan = 1000;
