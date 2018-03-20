@@ -12,7 +12,7 @@ CommandoZombi.Game.prototype = {
         this.map = this.game.add.tilemap('world_map');
 
         //Add music
-          music = this.add.audio('playerSong');
+          music = this.add.audio('zombieAmbiance');
           music.play();
 
         //First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
