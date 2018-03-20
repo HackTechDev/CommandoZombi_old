@@ -290,8 +290,8 @@ CommandoZombi.Game.prototype = {
             }
         },
 
-    //remove adlez from map
-        adlezKiller: function(player, enemy) {
+    //remove player from map
+        playerKiller: function(player, enemy) {
             this.xdirection = this.player.body.x - enemy.body.x;
             this.ydirection = enemy.body.y - this.player.body.y;
             this.xbounceVelocity = this.xdirection * 40;
@@ -433,9 +433,9 @@ CommandoZombi.Game.prototype = {
 
         //Player interactions (magic, running into enemies, etc)
             this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
-            this.game.physics.arcade.overlap(this.player, this.nonagBullet, this.adlezKiller, null, this);
+            this.game.physics.arcade.overlap(this.player, this.nonagBullet, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
-            this.game.physics.arcade.overlap(this.player, this.enemies.children, this.adlezKiller, null, this);
+            this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.nonag, this.enemyKiller, null, this);
     },
 }
