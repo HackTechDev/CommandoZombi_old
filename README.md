@@ -3,6 +3,17 @@ Commando Zombi
   
 Modify by Le Sanglier des Ardennes  
   
+ 
+## Credit
+ 
+* Music:  
+Zombie Ambience by VeteranOfHell  
+https://www.youtube.com/watch?v=trcp91XTyl8  
+  
+* Sprite  
+Stendhal Game  
+https://stendhalgame.org/  
+  
   
 # The Legend of Adlez
 
