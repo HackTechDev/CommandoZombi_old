@@ -36,6 +36,10 @@ CommandoZombi.Preload.prototype = {
         this.load.audio('playerLaugh', ['assets/audio/playerLaugh.mp3', 'assets/audio/playerLaugh.ogg']);
         this.load.audio('kaboom', ['assets/audio/kaboom.mp3', 'assets/audio/kaboom.ogg']);
 
+        this.load.spritesheet('buttonSniper', 'assets/buttons/button_sniper.png', 104, 40);
+        this.load.spritesheet('buttonBreacher', 'assets/buttons/button_breacher.png', 129, 40);
+        this.load.spritesheet('buttonMedic', 'assets/buttons/button_medic.png', 101, 40);
+
     },
 
     create: function() {
