@@ -5,9 +5,14 @@ CommandoZombi.Game = function(){};
 
     var music;
     var playerSpellSound;
+    var agent;
 
 //create game instance
 CommandoZombi.Game.prototype = {
+    init: function(customParam1) {
+        console.log('Agent: ' + customParam1);       
+        agent = customParam1;
+    },
     create: function() {
         this.map = this.game.add.tilemap('world_map');
 
@@ -105,7 +110,7 @@ CommandoZombi.Game.prototype = {
 
 
     // HUD
-        var t1 = this.game.add.text(10, 10, "Agent:", { font: "16px Arial", fill: "#000000", align: "left" });
+        var t1 = this.game.add.text(10, 10, "Agent: " + agent, { font: "16px Arial", fill: "#000000", align: "left" });
         t1.fixedToCamera = true;
         t1.cameraOffset.setTo(10, 10);
 

@@ -29,19 +29,19 @@ CommandoZombi.MainMenu.prototype = {
   },
   actionsniperOnClick: function() {
     console.log('button sniper');
-    this.game.state.start('Game');
+    this.game.state.start('Game', true, false, "Sniper");
   },
   actionbreacherOnClick: function() {
     console.log('button breacher');
-    this.game.state.start('Game');
+    this.game.state.start('Game', true, false, "Breacher");
   },
   actionmedicOnClick: function() {
     console.log('button medic');
-    this.game.state.start('Game');
+    this.game.state.start('Game', true, false, "Medic");
   },
   update: function() {
     if(this.startButton.isDown) {
-      this.game.state.start('Game');
+      this.game.state.start('Game', true, true, "Sniper");
     }
   }
 }
