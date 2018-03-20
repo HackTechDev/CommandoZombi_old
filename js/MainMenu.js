@@ -1,9 +1,9 @@
-var LegendOfAdlez = LegendOfAdlez || {};
+var CommandoZombi = CommandoZombi || {};
 
 //Title
-LegendOfAdlez.MainMenu = function(){};
+CommandoZombi.MainMenu = function(){};
 
-LegendOfAdlez.MainMenu.prototype = {
+CommandoZombi.MainMenu.prototype = {
   create: function() {
     //show map scrolling in background
     this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'map');

@@ -1,10 +1,10 @@
-var LegendOfAdlez = LegendOfAdlez || {};
+var CommandoZombi = CommandoZombi || {};
 
 //title screen
-LegendOfAdlez.Game = function(){};
+CommandoZombi.Game = function(){};
 
 //create game instance
-LegendOfAdlez.Game.prototype = {
+CommandoZombi.Game.prototype = {
     create: function() {
         this.map = this.game.add.tilemap('world_map');
 

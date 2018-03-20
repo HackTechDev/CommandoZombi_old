@@ -1,9 +1,9 @@
-var LegendOfAdlez = LegendOfAdlez || {};
+var CommandoZombi = CommandoZombi || {};
 
-LegendOfAdlez.Boot = function(){};
+CommandoZombi.Boot = function(){};
 
 //set game config and loading assets for the loading screen:
-LegendOfAdlez.Boot.prototype = {
+CommandoZombi.Boot.prototype = {
   preload: function() {
     //assets for loading screen:
     this.load.image('logo', 'assets/images/logo.png');

@@ -1,9 +1,9 @@
-var LegendOfAdlez = LegendOfAdlez || {};
+var CommandoZombi = CommandoZombi || {};
 
 //Loading the game assets
-LegendOfAdlez.Preload = function(){};
+CommandoZombi.Preload = function(){};
 
-LegendOfAdlez.Preload.prototype = {
+CommandoZombi.Preload.prototype = {
     preload: function() {
         //show loading screen
         this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');

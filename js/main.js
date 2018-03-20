@@ -1,14 +1,14 @@
-var LegendOfAdlez = LegendOfAdlez || {};
+var CommandoZombi = CommandoZombi || {};
 
-LegendOfAdlez.game = new Phaser.Game(450, 450, Phaser.AUTO, 'game');
+CommandoZombi.game = new Phaser.Game(450, 450, Phaser.AUTO, 'game');
 
-LegendOfAdlez.game.state.add('Boot', LegendOfAdlez.Boot);
-LegendOfAdlez.game.state.add('Preload', LegendOfAdlez.Preload);
-LegendOfAdlez.game.state.add('MainMenu', LegendOfAdlez.MainMenu);
-LegendOfAdlez.game.state.add('Game', LegendOfAdlez.Game);
+CommandoZombi.game.state.add('Boot', CommandoZombi.Boot);
+CommandoZombi.game.state.add('Preload', CommandoZombi.Preload);
+CommandoZombi.game.state.add('MainMenu', CommandoZombi.MainMenu);
+CommandoZombi.game.state.add('Game', CommandoZombi.Game);
 
 
-LegendOfAdlez.game.state.start('Boot');
+CommandoZombi.game.state.start('Boot');
 
 //Utilities:
 function randomIntFromInterval(min,max)
