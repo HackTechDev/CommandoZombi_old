@@ -29,6 +29,13 @@ CommandoZombi.Preload.prototype = {
         this.load.spritesheet('nonag', 'assets/images/nonag.png', 44, 70);
         this.load.spritesheet('nonagBullet', 'assets/images/nonagBullet.png', 32, 32);
 
+        this.game.load.spritesheet('kaboom', 'assets/images/explosion.png', 64, 64);
+
+        this.load.audio('playerSong', ['assets/audio/playerSong.mp3', 'assets/audio/playerSong.ogg']);
+        this.load.audio('playerSpell', ['assets/audio/playerSpell.mp3', 'assets/audio/playerSpell.ogg']);
+        this.load.audio('playerLaugh', ['assets/audio/playerLaugh.mp3', 'assets/audio/playerLaugh.ogg']);
+        this.load.audio('kaboom', ['assets/audio/kaboom.mp3', 'assets/audio/kaboom.ogg']);
+
     },
 
     create: function() {

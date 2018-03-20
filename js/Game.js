@@ -3,10 +3,17 @@ var CommandoZombi = CommandoZombi || {};
 //title screen
 CommandoZombi.Game = function(){};
 
+    var music;
+    var playerSpellSound;
+
 //create game instance
 CommandoZombi.Game.prototype = {
     create: function() {
         this.map = this.game.add.tilemap('world_map');
+
+        //Add music
+          music = this.add.audio('playerSong');
+          music.play();
 
         //First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
         this.map.addTilesetImage('tileset', 'gameTiles');
@@ -247,6 +254,10 @@ CommandoZombi.Game.prototype = {
                 this.explosion = this.explosions.getFirstExists(false);
                 this.explosion.reset(enemy.body.x, enemy.body.y);
                 this.explosion.play('kaboom', 30, false, true);
+
+                this.sound.play('kaboom');
+                this.sound.play('playerLaugh');
+
                 enemy.kill();
             } else if (enemy.key == "guard") {
                 enemy.health -=1;
@@ -257,6 +268,10 @@ CommandoZombi.Game.prototype = {
                     this.explosion = this.explosions.getFirstExists(false);
                     this.explosion.reset(enemy.body.x, enemy.body.y);
                     this.explosion.play('kaboom', 30, false, true);
+
+                    this.sound.play('kaboom');
+                    this.sound.play('playerLaugh');
+
                 }
             } else if (enemy.key == "nonag") {
                 enemy.health -=1;
@@ -267,6 +282,10 @@ CommandoZombi.Game.prototype = {
                     this.explosion = this.explosions.getFirstExists(false);
                     this.explosion.reset(enemy.body.x, enemy.body.y);
                     this.explosion.play('kaboom', 30, false, true);
+
+                    this.sound.play('kaboom');
+                    this.sound.play('playerLaugh');
+
                 }
             }
         },
@@ -292,6 +311,9 @@ CommandoZombi.Game.prototype = {
                   this.explosion = this.explosions.getFirstExists(false);
                   this.explosion.reset(this.player.body.x, this.player.body.y);
                   this.explosion.play('kaboom', 30, false, true);
+
+                  this.sound.play('kaboom');
+
                   this.fireButton = [];
                   this.gameOver();
                 }
