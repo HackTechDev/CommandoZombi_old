@@ -26,8 +26,8 @@ CommandoZombi.Preload.prototype = {
 
         this.game.load.spritesheet('kaboom', 'assets/images/kaboom.png', 64, 64);
 
-        this.load.spritesheet('nonag', 'assets/images/nonag.png', 44, 70);
-        this.load.spritesheet('nonagBullet', 'assets/images/nonagBullet.png', 32, 32);
+        this.load.spritesheet('blacklord', 'assets/images/blacklord.png', 48, 64);
+        this.load.spritesheet('blacklordBullet', 'assets/images/blacklordBullet.png', 32, 32);
 
         this.game.load.spritesheet('kaboom', 'assets/images/explosion.png', 64, 64);
 

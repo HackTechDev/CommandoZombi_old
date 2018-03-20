@@ -57,7 +57,7 @@ CommandoZombi.Game.prototype = {
 
 
         this.createPlayerBullets();
-        this.createNonagBullets();
+        this.createBlacklordBullets();
         this.createExplosions();
 
         this.createEnemies();
@@ -73,7 +73,7 @@ CommandoZombi.Game.prototype = {
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.playerBulletTime = 0;
-        this.nonagBulletTime = 0;
+        this.blacklordBulletTime = 0;
 
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
         this.restartButton = [];
@@ -86,22 +86,22 @@ CommandoZombi.Game.prototype = {
         this.playerBullets.callAll('animations.add', 'animations', 'right', [4, 5, 6, 7], 7, true);
         this.playerBullets.callAll('animations.add', 'animations', 'down', [12, 13, 14, 15], 7, true);
         this.playerBullets.callAll('animations.add', 'animations', 'up', [0, 1, 2, 3], 7, true);
-        this.nonagBullets.callAll('animations.add', 'animations', 'shoot', [0, 1, 2, 3, 4, 5], 10, true);
+        this.blacklordBullets.callAll('animations.add', 'animations', 'shoot', [0, 1, 2, 3, 4, 5], 10, true);
         this.explosions.callAll('animations.add', 'animations', 'kaboom', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], 15, true);
 
 
 
 //Non-Playable Characters
     //create boss
-        var nonagResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
-            this.nonag = this.game.add.sprite(nonagResult[0].x-15, nonagResult[0].y, 'nonag');
-            this.game.physics.arcade.enable(this.nonag);
-            this.nonag.health = 10;
-            this.game.add.tween(this.nonag).to( { x: this.nonag.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
+        var blacklordResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
+            this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
+            this.game.physics.arcade.enable(this.blacklord);
+            this.blacklord.health = 10;
+            this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
 
     //add non-player spritesheets
         this.playerBullet = this.game.add.sprite('playerBullet');
-        this.nonagBullet = this.game.add.sprite('nonagBullet');
+        this.blacklordBullet = this.game.add.sprite('blacklordBullet');
 
     },
     //create NPC's
@@ -180,15 +180,15 @@ CommandoZombi.Game.prototype = {
         },
 
     //boss bullets
-        createNonagBullets: function() {
-            this.nonagBullets = this.game.add.group();
-            this.nonagBullets.enableBody = true;
-            this.nonagBullets.physicsBodyType = Phaser.Physics.ARCADE;
-            this.nonagBullets.createMultiple(200, 'nonagBullet');
-            this.nonagBullets.setAll('anchor.x', 0.5);
-            this.nonagBullets.setAll('anchor.y', 1);
-            this.nonagBullets.setAll('outOfBoundsKill', true);
-            this.nonagBullets.setAll('checkWorldBounds', true);
+        createBlacklordBullets: function() {
+            this.blacklordBullets = this.game.add.group();
+            this.blacklordBullets.enableBody = true;
+            this.blacklordBullets.physicsBodyType = Phaser.Physics.ARCADE;
+            this.blacklordBullets.createMultiple(200, 'blacklordBullet');
+            this.blacklordBullets.setAll('anchor.x', 0.5);
+            this.blacklordBullets.setAll('anchor.y', 1);
+            this.blacklordBullets.setAll('outOfBoundsKill', true);
+            this.blacklordBullets.setAll('checkWorldBounds', true);
         },
 
     //fire player bullets
@@ -228,20 +228,20 @@ CommandoZombi.Game.prototype = {
         },
 
     //fire boss bullets
-        fireNonagBullet: function() {
-            if (this.game.time.now > this.nonagBulletTime) {
+        fireBlacklordBullet: function() {
+            if (this.game.time.now > this.blacklordBulletTime) {
                 //  Grab the first bullet we can from the pool
-                this.nonagBullet = this.nonagBullets.getFirstExists(false);
-                if (this.nonag.health <= 0) {
-                  this.nonagBullet = false;
+                this.blacklordBullet = this.blacklordBullets.getFirstExists(false);
+                if (this.blacklord.health <= 0) {
+                  this.blacklordBullet = false;
                 }
-                if (this.nonagBullet) {
-                    this.nonagBullets.callAllExists('play', false, 'shoot');
-                    this.nonagBullet.reset(this.nonag.x+20, this.nonag.y + 30);
-                    this.nonagBullet.body.velocity.y = 200;
+                if (this.blacklordBullet) {
+                    this.blacklordBullets.callAllExists('play', false, 'shoot');
+                    this.blacklordBullet.reset(this.blacklord.x+20, this.blacklord.y + 30);
+                    this.blacklordBullet.body.velocity.y = 200;
 
-                    this.nonagBullet.lifespan = 770;
-                    this.nonagBulletTime = this.game.time.now + randomIntFromInterval(1500,3000);
+                    this.blacklordBullet.lifespan = 770;
+                    this.blacklordBulletTime = this.game.time.now + randomIntFromInterval(1500,3000);
                 }
             }
         },
@@ -273,7 +273,7 @@ CommandoZombi.Game.prototype = {
                     this.sound.play('playerLaugh');
 
                 }
-            } else if (enemy.key == "nonag") {
+            } else if (enemy.key == "blacklord") {
                 enemy.health -=1;
                 console.log(enemy.health);
                 this.playerBullet.kill();
@@ -298,7 +298,7 @@ CommandoZombi.Game.prototype = {
             this.ybounceVelocity = this.ydirection * -40;
             this.player.body.velocity.y = this.ybounceVelocity;
             this.player.body.velocity.x = this.xbounceVelocity;
-                if (enemy.key == "nonagBullet") {
+                if (enemy.key == "blacklordBullet") {
                   player.health -=1;
                   $('img:last-child').remove();
                 }
@@ -331,8 +331,8 @@ CommandoZombi.Game.prototype = {
         },
 
     //remove bullet if offscreen
-        resetNonagBullet: function() {
-            this.nonagBullet.kill();
+        resetBlacklordBullet: function() {
+            this.blacklordBullet.kill();
         },
 
     //Updates devils animation. First, we search for all devils and put them in array. Then, we see which direction they're moving and set the animation.
@@ -389,7 +389,7 @@ CommandoZombi.Game.prototype = {
         this.player.body.velocity.y = 0;
         this.player.body.velocity.x = 0;
 
-        this.fireNonagBullet();
+        this.fireBlacklordBullet();
 
         if(this.restartButton.isDown) {
           this.game.state.start('MainMenu', true, false);
@@ -427,15 +427,15 @@ CommandoZombi.Game.prototype = {
 
         //collision
             this.game.physics.arcade.collide(this.player, this.blockedLayer);
-            this.game.physics.arcade.collide(this.nonagBullet, this.blockedLayer, this.resetNonagBullet, null, this);
+            this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
             this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
             this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
         //Player interactions (magic, running into enemies, etc)
             this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
-            this.game.physics.arcade.overlap(this.player, this.nonagBullet, this.playerKiller, null, this);
+            this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
             this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
-            this.game.physics.arcade.overlap(this.playerBullet, this.nonag, this.enemyKiller, null, this);
+            this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
     },
 }
