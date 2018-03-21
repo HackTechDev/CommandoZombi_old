@@ -469,7 +469,7 @@ CommandoZombi.Game.prototype = {
 
         if(this.LKey.isDown) {
             console.log('Change Level');
-            worldmap = "worldmap1";
+            worldmap = "worldmap2";
             this.game.state.start('Game', true, false, worldmap, gametiles, agent);
         }
 
