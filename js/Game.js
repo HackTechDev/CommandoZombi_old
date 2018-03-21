@@ -5,23 +5,34 @@ CommandoZombi.Game = function(){};
 
     var music;
     var playerSpellSound;
+
+    var worldmap;
+    var gametiles;
     var agent;
 
 //create game instance
 CommandoZombi.Game.prototype = {
-    init: function(customParam1) {
-        console.log('Agent: ' + customParam1);       
-        agent = customParam1;
+
+    init: function(param1, param2, param3) {
+        console.log('Game state');
+        console.log('agent: ' + param3);
+        console.log('worldmap: ' + param1);
+        console.log('gametiles: ' + param2);
+        worldmap = param1;
+        gametiles = param2;
+        agent = param3;
     },
+
+
     create: function() {
-        this.map = this.game.add.tilemap('world_map');
+        this.map = this.game.add.tilemap(worldmap);
 
         //Add music
           music = this.add.audio('zombieAmbiance');
           music.play();
 
         //First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
-        this.map.addTilesetImage('tileset', 'gameTiles');
+        this.map.addTilesetImage('tileset', gametiles);
 
 
 //MAP
