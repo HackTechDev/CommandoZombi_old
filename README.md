@@ -13,6 +13,10 @@ https://www.youtube.com/watch?v=trcp91XTyl8
 * Sprite  
 Stendhal Game  
 https://stendhalgame.org/  
+   
+* Tiled  
+Version 0.14.2  
+https://github.com/bjorn/tiled/archive/v0.14.2.tar.gz   
   
   
 # The Legend of Adlez
