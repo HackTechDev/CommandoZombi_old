@@ -125,10 +125,11 @@ CommandoZombi.Game.prototype = {
         t1.fixedToCamera = true;
         t1.cameraOffset.setTo(10, 10);
 
-        var t2 = this.game.add.text(10, 30, "Mission:", { font: "16px Arial", fill: "#000000", align: "left" });
+        var t2 = this.game.add.text(10, 30, "Worldmap: " + worldmap, { font: "16px Arial", fill: "#000000", align: "left" });
         t2.fixedToCamera = true;
         t2.cameraOffset.setTo(10, 30);
 
+        this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
 
 
     },
@@ -465,5 +466,12 @@ CommandoZombi.Game.prototype = {
             this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
             this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
+
+        if(this.LKey.isDown) {
+            console.log('Change Level');
+            worldmap = "worldmap1";
+            this.game.state.start('Game', true, false, worldmap, gametiles, agent);
+        }
+
     },
 }
