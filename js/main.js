@@ -1,6 +1,6 @@
 var CommandoZombi = CommandoZombi || {};
 
-CommandoZombi.game = new Phaser.Game(450, 450, Phaser.AUTO, 'game');
+CommandoZombi.game = new Phaser.Game(450, 450, Phaser.CANVAS, 'game');
 
 CommandoZombi.game.state.add('Boot', CommandoZombi.Boot);
 CommandoZombi.game.state.add('Preload', CommandoZombi.Preload);
