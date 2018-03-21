@@ -49,9 +49,6 @@ CommandoZombi.Game.prototype = {
             this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
             this.game.physics.arcade.enable(this.player);
             this.player.health = 10;
-            for (i = 1; i <= 10; i++) {
-                $('#game-frame').append('<img src="assets/images/heart.png">');
-            }
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
@@ -329,11 +326,9 @@ CommandoZombi.Game.prototype = {
             this.player.body.velocity.x = this.xbounceVelocity;
                 if (enemy.key == "blacklordBullet") {
                   player.health -=1;
-                  $('img:last-child').remove();
                 }
                 if (enemy.key == "guard") {
                   player.health -=1;
-                  $('img:last-child').remove();
                 }
                 if(player.health <=0) {
                   this.player.kill();
