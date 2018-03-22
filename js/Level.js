@@ -3,21 +3,30 @@ var CommandoZombi = CommandoZombi || {};
 //Title
 CommandoZombi.Level = function(){};
 
+    var pworldmap;
+    var nworldmap;
+    var ngametiles;
     var agent;
-    var worldmap;
-    var gametiles;
-
+    var operator;
+    var health;
 
 CommandoZombi.Level.prototype = {
 
-    init: function(param1, param2, param3) {
+    init: function(param1, param2, param3, param4, param5, param6) {
         console.log('Level state');
-        console.log('worldmap: ' + param1);
-        console.log('gametiles: ' + param2);
-        console.log('agent: ' + param3);
-        worldmap = param1;
-        gametiles = param2;
-        agent = param3;
+        console.log('previous worldmap: ' + param1);
+        console.log('next worldmap: ' + param2);
+        console.log('next gametiles: ' + param3);
+        console.log('agent: ' + param4);
+        console.log('operator: ' + param5);
+        console.log('health: ' + param6);
+
+        pworldmap= param1;
+        nworldmap = param2;
+        ngametiles = param3;
+        agent = param4;
+        operator = param5;
+        health = param6;
     },
 
 
@@ -40,7 +49,7 @@ CommandoZombi.Level.prototype = {
   },
   update: function() {
     if(this.startButton.isDown) {
-      this.game.state.start('Game', true, false, worldmap, gametiles, agent);
+      this.game.state.start('Game', true, false, pworldmap, nworldmap, ngametiles, agent, operator, health);
     }
   }
 }

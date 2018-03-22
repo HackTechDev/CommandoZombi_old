@@ -6,33 +6,47 @@ CommandoZombi.Game = function(){};
     var music;
     var playerSpellSound;
 
-    var worldmap;
-    var gametiles;
+    var pworldmap;
+    var nworldmap;
+    var ngametiles;
     var agent;
+    var operator;
+    var health;
+
+    var t1;
+    var t2;
+    var t3;
 
 //create game instance
 CommandoZombi.Game.prototype = {
 
-    init: function(param1, param2, param3) {
-        console.log('Game state');
-        console.log('agent: ' + param3);
-        console.log('worldmap: ' + param1);
-        console.log('gametiles: ' + param2);
-        worldmap = param1;
-        gametiles = param2;
-        agent = param3;
+    init: function(param1, param2, param3, param4, param5, param6) {
+        console.log('Level state');
+        console.log('previous worldmap: ' + param1);
+        console.log('next worldmap: ' + param2);
+        console.log('next gametiles: ' + param3);
+        console.log('agent: ' + param4);
+        console.log('operator: ' + param5);
+        console.log('health: ' + param6);
+
+        pworldmap= param1;
+        nworldmap = param2;
+        ngametiles = param3;
+        agent = param4;
+        operator = param5;
+        health = param6;
     },
 
 
     create: function() {
-        this.map = this.game.add.tilemap(worldmap);
+        this.map = this.game.add.tilemap(nworldmap);
 
         //Add music
           music = this.add.audio('zombieAmbiance');
           music.play();
 
         //First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
-        this.map.addTilesetImage('tileset', gametiles);
+        this.map.addTilesetImage('tileset', ngametiles);
 
 
 //MAP
@@ -45,10 +59,16 @@ CommandoZombi.Game.prototype = {
         this.backgroundLayer = this.map.createLayer('pathLayer2');
 
         //create player
-            var result = this.findObjectsByType('playerStart', this.map, 'playerStart');
-            this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
-            this.game.physics.arcade.enable(this.player);
-            this.player.health = 10;
+        var result = this.findObjectsByType('playerStart', this.map, 'playerStart');
+        this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
+        this.game.physics.arcade.enable(this.player);
+
+        this.player.health = health;
+        if(pworldmap === "intro") {
+            for (i = 1; i <= 10; i++) {    
+                $('#game-frame').append('<img src="assets/images/heart.png">');    
+            }
+        }
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
@@ -118,13 +138,17 @@ CommandoZombi.Game.prototype = {
 
 
     // HUD
-        var t1 = this.game.add.text(10, 10, "Agent: " + agent, { font: "16px Arial", fill: "#000000", align: "left" });
+        t1 = this.game.add.text(10, 10, "Agent: " + agent, { font: "16px Arial", fill: "#000000", align: "left" });
         t1.fixedToCamera = true;
         t1.cameraOffset.setTo(10, 10);
 
-        var t2 = this.game.add.text(10, 30, "Worldmap: " + worldmap, { font: "16px Arial", fill: "#000000", align: "left" });
+        t2 = this.game.add.text(10, 30, "Operator: " + operator, { font: "16px Arial", fill: "#000000", align: "left" });
         t2.fixedToCamera = true;
         t2.cameraOffset.setTo(10, 30);
+
+        t3 = this.game.add.text(10, 50, "Worldmap: " + nworldmap, { font: "16px Arial", fill: "#000000", align: "left" });
+        t3.fixedToCamera = true;
+        t3.cameraOffset.setTo(10, 50);
 
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
 
@@ -326,9 +350,13 @@ CommandoZombi.Game.prototype = {
             this.player.body.velocity.x = this.xbounceVelocity;
                 if (enemy.key == "blacklordBullet") {
                   player.health -=1;
+                  health -=1;
+                   $('img:last-child').remove();
                 }
                 if (enemy.key == "guard") {
                   player.health -=1;
+                  health -=1;
+                  $('img:last-child').remove();
                 }
                 if(player.health <=0) {
                   this.player.kill();
@@ -462,22 +490,23 @@ CommandoZombi.Game.prototype = {
             this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
+
         if(this.LKey.isDown) {
             console.log('Change Level');
-            console.log('Current worldmap: ' + worldmap);
-            wm = worldmap;
-            if(wm === "worldmap1") {
-                worldmap = "worldmap2";
+            console.log('Current worldmap: ' + nworldmap);
+            cworldmap = nworldmap;
+            if(cworldmap === "worldmap1") {
+                nworldmap = "worldmap2";
             }
-            if(wm === "worldmap2") {
-                worldmap = "worldmap3";
+            if(cworldmap === "worldmap2") {
+                nworldmap = "worldmap3";
             }            
-            if(wm === "worldmap3") {
-                worldmap = "worldmap1";
+            if(cworldmap === "worldmap3") {
+                nworldmap = "worldmap1";
             }
 
-            console.log('Next worldmap: ' + worldmap);
-            this.game.state.start('Game', true, false, worldmap, gametiles, agent);
+            console.log('Next worldmap: ' + nworldmap);
+            this.game.state.start('Game', true, false, cworldmap, nworldmap, ngametiles, agent, operator, health);
         }
 
     },
