@@ -150,8 +150,8 @@ CommandoZombi.Game.prototype = {
         t3.fixedToCamera = true;
         t3.cameraOffset.setTo(10, 50);
 
+        this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
-
 
     },
     //create NPC's
@@ -490,6 +490,24 @@ CommandoZombi.Game.prototype = {
             this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
             this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
+
+        if(this.KKey.isDown) {
+            console.log('Change Level');
+            console.log('Current worldmap: ' + nworldmap);
+            cworldmap = nworldmap;
+            if(cworldmap === "worldmap1") {
+                nworldmap = "worldmap3";
+            }
+            if(cworldmap === "worldmap2") {
+                nworldmap = "worldmap1";
+            }            
+            if(cworldmap === "worldmap3") {
+                nworldmap = "worldmap2";
+            }
+
+            console.log('Next worldmap: ' + nworldmap);
+            this.game.state.start('Game', true, false, cworldmap, nworldmap, ngametiles, agent, operator, health);
+        }
 
         if(this.LKey.isDown) {
             console.log('Change Level');
