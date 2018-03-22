@@ -464,7 +464,19 @@ CommandoZombi.Game.prototype = {
 
         if(this.LKey.isDown) {
             console.log('Change Level');
-            worldmap = "worldmap2";
+            console.log('Current worldmap: ' + worldmap);
+            wm = worldmap;
+            if(wm === "worldmap1") {
+                worldmap = "worldmap2";
+            }
+            if(wm === "worldmap2") {
+                worldmap = "worldmap3";
+            }            
+            if(wm === "worldmap3") {
+                worldmap = "worldmap1";
+            }
+
+            console.log('Next worldmap: ' + worldmap);
             this.game.state.start('Game', true, false, worldmap, gametiles, agent);
         }
 

@@ -17,6 +17,7 @@ CommandoZombi.Preload.prototype = {
         //load game assets
         this.load.tilemap('worldmap1', 'assets/tilemaps/world_map/worldmap1.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.tilemap('worldmap2', 'assets/tilemaps/world_map/worldmap2.json', null, Phaser.Tilemap.TILED_JSON);
+        this.load.tilemap('worldmap3', 'assets/tilemaps/world_map/worldmap3.json', null, Phaser.Tilemap.TILED_JSON);
 
         this.load.image('gameTiles', 'assets/tilemaps/world_map/tileset.png');
         this.load.image('map', 'assets/images/map.png');

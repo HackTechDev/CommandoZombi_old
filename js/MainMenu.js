@@ -32,9 +32,4 @@ CommandoZombi.MainMenu.prototype = {
     console.log('button medic');
     this.game.state.start('Level', true, false, "worldmap1", "gameTiles", "Medic");
   },
-  update: function() {
-    if(this.startButton.isDown) {
-      this.game.state.start('Level', true, true, "worldmap1", "gameTiles", "Sniper");
-    }
-  }
 }
