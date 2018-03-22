@@ -1,7 +1,7 @@
 var CommandoZombi = CommandoZombi || {};
 
 //Title
-CommandoZombi.Level = function(){};
+CommandoZombi.Mission = function(){};
 
     var pworldmap;
     var nworldmap;
@@ -10,10 +10,10 @@ CommandoZombi.Level = function(){};
     var operator;
     var health;
 
-CommandoZombi.Level.prototype = {
+CommandoZombi.Mission.prototype = {
 
     init: function(param1, param2, param3, param4, param5, param6) {
-        console.log('Level state');
+        console.log('Mission state');
         console.log('previous worldmap: ' + param1);
         console.log('next worldmap: ' + param2);
         console.log('next gametiles: ' + param3);
