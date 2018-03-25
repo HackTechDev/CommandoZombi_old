@@ -3,6 +3,8 @@ var CommandoZombi = CommandoZombi || {};
 //Loading the game assets
 CommandoZombi.Preload = function(){};
 
+var slickUI;
+
 CommandoZombi.Preload.prototype = {
     preload: function() {
         //show loading screen
@@ -43,6 +45,10 @@ CommandoZombi.Preload.prototype = {
         this.load.spritesheet('buttonBreacher', 'assets/buttons/button_breacher.png', 129, 40);
         this.load.spritesheet('buttonMedic', 'assets/buttons/button_medic.png', 101, 40);
 
+
+        slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
+        this.game.load.image('backdrop', 'assets/backdrop.png');
+        slickUI.load('assets/ui/kenney/kenney.json');
     },
 
     create: function() {

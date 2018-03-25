@@ -17,6 +17,9 @@ CommandoZombi.Game = function(){};
     var t2;
     var t3;
 
+    var panel;
+    var textField;
+
 //create game instance
 CommandoZombi.Game.prototype = {
 
@@ -149,6 +152,22 @@ CommandoZombi.Game.prototype = {
         t3 = this.game.add.text(10, 50, "Worldmap: " + nworldmap, { font: "16px Arial", fill: "#000000", align: "left" });
         t3.fixedToCamera = true;
         t3.cameraOffset.setTo(10, 50);
+   
+
+    // UI
+        this.world.add(slickUI.container.displayGroup);
+        slickUI.add(panel = new SlickUI.Element.Panel(8, 8, 300, 100));
+        textField = panel.add(new SlickUI.Element.TextField(10,30, 300, 40));
+        textField.events.onOK.add(function () {
+            alert('Your name is: ' + textField.value);
+        });
+        textField.events.onToggle.add(function (open) {
+            console.log('You just ' + (open ? 'opened' : 'closed') + ' the virtual keyboard');
+        });
+        textField.events.onKeyPress.add(function(key) {
+            console.log('You pressed: ' + key);
+        });
+
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
