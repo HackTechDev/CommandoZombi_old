@@ -1,0 +1,22 @@
+{
+"level": [
+     {
+      "name": "worldmap1",
+      "destx": 956,
+      "desty": 2944,
+      "next": "worldmap1"
+     },
+     {
+      "name": "worldmap2",
+      "destx": 956,
+      "desty": 2944,
+      "next": "worldmap3"
+     },
+     {
+      "name": "worldmap3",
+      "destx": 956,
+      "desty": 2944,
+      "next": "worldmap1"
+     }],
+}     
+            

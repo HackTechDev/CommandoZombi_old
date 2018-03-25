@@ -1,0 +1,21 @@
+{
+"level": [
+     {
+      "current": "worldmap1",
+      "x": 956,
+      "y": 2944,
+      "next": "worldmap2"
+     },
+     {
+      "current": "worldmap2",
+      "x": 956,
+      "y": 2944,
+      "next": "worldmap3"
+     },
+     {
+      "current": "worldmap3",
+      "x": 956,
+      "y": 2944,
+      "next": "worldmap1"
+     }]
+}     

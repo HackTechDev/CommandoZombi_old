@@ -590,40 +590,26 @@ CommandoZombi.Game.prototype = {
     
         t4.setText("Position: " + Math.round(this.player.x) + " " + Math.round(this.player.y));
 
-        if(this.KKey.isDown) {
-            console.log('Change Level');
-            console.log('Current worldmap: ' + nworldmap);
-            cworldmap = nworldmap;
-            if(cworldmap === "worldmap1") {
-                nworldmap = "worldmap3";
-            }
-            if(cworldmap === "worldmap2") {
-                nworldmap = "worldmap1";
-            }            
-            if(cworldmap === "worldmap3") {
-                nworldmap = "worldmap2";
-            }
-
-            console.log('Next worldmap: ' + nworldmap);
-            this.game.state.start('Game', true, false, cworldmap, nworldmap, ngametiles, agent, operator, health);
-        }
 
         if(this.LKey.isDown) {
-            console.log('Change Level');
-            console.log('Current worldmap: ' + nworldmap);
-            cworldmap = nworldmap;
-            if(cworldmap === "worldmap1") {
-                nworldmap = "worldmap2";
-            }
-            if(cworldmap === "worldmap2") {
-                nworldmap = "worldmap3";
-            }            
-            if(cworldmap === "worldmap3") {
-                nworldmap = "worldmap1";
-            }
+            console.log('Level');
+            levelJSON = this.game.cache.getJSON('level');
+            var currentObject;
 
-            console.log('Next worldmap: ' + nworldmap);
-            this.game.state.start('Game', true, false, cworldmap, nworldmap, ngametiles, agent, operator, health);
+            cworldmap = nworldmap;
+            for(var i = 0; i < levelJSON.level.length; i++) {
+                levelObject = levelJSON.level[i];
+
+                if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
+                    this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
+                    cworldmap == levelObject.current) {
+                    console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
+                    console.log('Change Level');
+                    console.log('Current worldmap: ' + nworldmap);
+                    console.log('Next worldmap: ' + levelObject.next);
+                    this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health)
+                }
+            }
         }
 
     },
