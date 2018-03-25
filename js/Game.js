@@ -19,6 +19,8 @@ CommandoZombi.Game = function(){};
 
     var panel;
     var textField;
+    var button;
+    var menuButton;
 
 //create game instance
 CommandoZombi.Game.prototype = {
@@ -156,7 +158,9 @@ CommandoZombi.Game.prototype = {
 
     // UI
         this.world.add(slickUI.container.displayGroup);
-        slickUI.add(panel = new SlickUI.Element.Panel(8, 8, 300, 100));
+        slickUI.add(panel = new SlickUI.Element.Panel(this.game.width - 156, 8, 150, this.game.height - 16));
+
+
         textField = panel.add(new SlickUI.Element.TextField(10,30, 300, 40));
         textField.events.onOK.add(function () {
             alert('Your name is: ' + textField.value);
@@ -167,6 +171,74 @@ CommandoZombi.Game.prototype = {
         textField.events.onKeyPress.add(function(key) {
             console.log('You pressed: ' + key);
         });
+
+
+
+   
+        
+        panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
+        panel.add(button = new SlickUI.Element.Button(0,this.game.height - 166, 140, 80)).events.onInputUp.add(function () {
+            console.log('Clicked save game');
+        });
+
+        button.add(new SlickUI.Element.Text(0,0, "Save game")).center();
+
+        panel.add(button = new SlickUI.Element.Button(0,this.game.height - 76, 140, 40));
+        button.add(new SlickUI.Element.Text(0,0, "Close")).center();
+
+        panel.visible = false;
+        var basePosition = panel.x;
+
+        slickUI.add(menuButton = new SlickUI.Element.DisplayObject(this.game.width - 45, 8, this.game.make.sprite(0, 0, 'menu-button')));
+        menuButton.inputEnabled = true;
+        menuButton.input.useHandCursor = true;
+        menuButton.events.onInputDown.add(function () {
+            if(panel.visible) {
+                return;
+            }
+            panel.visible = true;
+            panel.x = basePosition + 156;
+            this.game.add.tween(panel).to( {x: basePosition}, 500, Phaser.Easing.Exponential.Out, true).onComplete.add(function () {
+                menuButton.visible = false;
+            });
+            slickUI.container.displayGroup.bringToTop(panel.container.displayGroup);
+        }, this);
+
+        button.events.onInputUp.add(function () {
+            /*
+            this.game.add.tween(panel).to( {x: basePosition + 156}, 500, Phaser.Easing.Exponential.Out, true).onComplete.add(function () {
+                panel.visible = false;
+                panel.x -= 156;
+            });*/
+            panel.visible = false;
+            menuButton.visible = true;
+        });
+
+        var cb1, cb2;
+        panel.add(cb1 = new SlickUI.Element.Checkbox(0,100, SlickUI.Element.Checkbox.TYPE_RADIO));
+        cb1.events.onInputDown.add(function () {
+            if(cb1.checked && cb2.checked) {
+                cb2.checked = false;
+            }
+            if(!cb1.checked && !cb2.checked) {
+                cb1.checked = true;
+            }
+        }, this);
+
+        panel.add(cb2 = new SlickUI.Element.Checkbox(50,100, SlickUI.Element.Checkbox.TYPE_RADIO));
+        cb2.events.onInputDown.add(function () {
+            if(cb1.checked && cb2.checked) {
+                cb1.checked = false;
+            }
+            if(!cb1.checked && !cb2.checked) {
+                cb2.checked = true;
+            }
+        }, this);
+
+        panel.add(new SlickUI.Element.Checkbox(100,100));
+
+
+
 
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
