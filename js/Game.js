@@ -181,10 +181,10 @@ CommandoZombi.Game.prototype = {
         
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
         panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
-            console.log('Clicked save game');
+            console.log('Clicked save mission');
         });
 
-        button.add(new SlickUI.Element.Text(0,0, "Mission")).center();
+        button.add(new SlickUI.Element.Text(0,0, "Save Mission")).center();
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
