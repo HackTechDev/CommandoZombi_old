@@ -17,5 +17,24 @@
       "x": 956,
       "y": 2944,
       "next": "worldmap1"
+     },
+     {
+      "current": "worldmap1",
+      "x": 314,
+      "y": 2880,
+      "next": "worldmap3"
+     },
+     {
+      "current": "worldmap3",
+      "x": 314,
+      "y": 2880,
+      "next": "worldmap2"
+     },
+     {
+      "current": "worldmap2",
+      "x": 314,
+      "y": 2880,
+      "next": "worldmap1"
      }]
+
 }     
