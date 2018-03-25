@@ -16,6 +16,7 @@ CommandoZombi.Game = function(){};
     var t1;
     var t2;
     var t3;
+    var t4;
 
     var panel;
     var textField;
@@ -155,6 +156,11 @@ CommandoZombi.Game.prototype = {
         t3.fixedToCamera = true;
         t3.cameraOffset.setTo(10, 50);
    
+        t4 = this.game.add.text(10, 70, "Position: ", { font: "16px Arial", fill: "#000000", align: "left" });
+        t4.fixedToCamera = true;
+        t4.cameraOffset.setTo(10, 70);
+ 
+
 
     // UI
         this.world.add(slickUI.container.displayGroup);
@@ -569,18 +575,20 @@ CommandoZombi.Game.prototype = {
           this.updateGuardAnimation();
 
         //collision
-            this.game.physics.arcade.collide(this.player, this.blockedLayer);
-            this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
-            this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
-            this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
+        this.game.physics.arcade.collide(this.player, this.blockedLayer);
+        this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
+        this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
+        this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
         //Player interactions (magic, running into enemies, etc)
-            this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
-            this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
-            this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
-            this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
-            this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
+        this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
+        this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
+        this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
+        this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
+        this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
+    
+        t4.setText("Position: " + Math.round(this.player.x) + " " + Math.round(this.player.y));
 
         if(this.KKey.isDown) {
             console.log('Change Level');
