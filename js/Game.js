@@ -158,12 +158,12 @@ CommandoZombi.Game.prototype = {
 
     // UI
         this.world.add(slickUI.container.displayGroup);
-        slickUI.add(panel = new SlickUI.Element.Panel(this.game.width - 156, 8, 150, this.game.height - 16));
+        slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 380, this.game.height - 170));
 
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 300, 40));
         textField.events.onOK.add(function () {
-            alert('Your name is: ' + textField.value);
+            alert('Command: ' + textField.value);
         });
         textField.events.onToggle.add(function (open) {
             console.log('You just ' + (open ? 'opened' : 'closed') + ' the virtual keyboard');
@@ -177,13 +177,13 @@ CommandoZombi.Game.prototype = {
    
         
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
-        panel.add(button = new SlickUI.Element.Button(0,this.game.height - 166, 140, 80)).events.onInputUp.add(function () {
+        panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
             console.log('Clicked save game');
         });
 
         button.add(new SlickUI.Element.Text(0,0, "Save game")).center();
 
-        panel.add(button = new SlickUI.Element.Button(0,this.game.height - 76, 140, 40));
+        panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
 
         panel.visible = false;
