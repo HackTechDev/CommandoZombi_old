@@ -23,6 +23,8 @@ CommandoZombi.Game = function(){};
     var button;
     var menuButton;
 
+    var basePosition;
+
 //create game instance
 CommandoZombi.Game.prototype = {
 
@@ -160,11 +162,9 @@ CommandoZombi.Game.prototype = {
         t4.fixedToCamera = true;
         t4.cameraOffset.setTo(10, 70);
  
-
-
     // UI
         this.world.add(slickUI.container.displayGroup);
-        slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 380, this.game.height - 170));
+        slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 300, 40));
@@ -178,22 +178,19 @@ CommandoZombi.Game.prototype = {
             console.log('You pressed: ' + key);
         });
 
-
-
-   
         
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
         panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
             console.log('Clicked save game');
         });
 
-        button.add(new SlickUI.Element.Text(0,0, "Save game")).center();
+        button.add(new SlickUI.Element.Text(0,0, "Mission")).center();
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
 
         panel.visible = false;
-        var basePosition = panel.x;
+        basePosition = panel.x;
 
         slickUI.add(menuButton = new SlickUI.Element.DisplayObject(this.game.width - 45, 8, this.game.make.sprite(0, 0, 'menu-button')));
         menuButton.inputEnabled = true;
@@ -211,11 +208,6 @@ CommandoZombi.Game.prototype = {
         }, this);
 
         button.events.onInputUp.add(function () {
-            /*
-            this.game.add.tween(panel).to( {x: basePosition + 156}, 500, Phaser.Easing.Exponential.Out, true).onComplete.add(function () {
-                panel.visible = false;
-                panel.x -= 156;
-            });*/
             panel.visible = false;
             menuButton.visible = true;
         });
