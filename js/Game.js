@@ -167,7 +167,7 @@ CommandoZombi.Game.prototype = {
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
 
-        textField = panel.add(new SlickUI.Element.TextField(10,30, 300, 40));
+        textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
         textField.events.onOK.add(function () {
             alert('Command: ' + textField.value);
         });
@@ -181,10 +181,11 @@ CommandoZombi.Game.prototype = {
         
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
         panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
-            console.log('Clicked save mission');
+            console.log('Gear');
+            alert("Gear");
         });
 
-        button.add(new SlickUI.Element.Text(0,0, "Save Mission")).center();
+        button.add(new SlickUI.Element.Text(0,0, "Gear")).center();
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
@@ -212,32 +213,38 @@ CommandoZombi.Game.prototype = {
             menuButton.visible = true;
         });
 
-        var cb1, cb2;
-        panel.add(cb1 = new SlickUI.Element.Checkbox(0,100, SlickUI.Element.Checkbox.TYPE_RADIO));
+
+        panel.add(new SlickUI.Element.Text(210,105, "Left Hand Weapon"));
+        panel.add(new SlickUI.Element.Text(210,155, "Right Hand Weapon"));
+        panel.add(new SlickUI.Element.Text(210,205, "Body Armor"));
+
+        var cb1, cb2, cb3;
+        panel.add(cb1 = new SlickUI.Element.Checkbox(160,100));
         cb1.events.onInputDown.add(function () {
-            if(cb1.checked && cb2.checked) {
-                cb2.checked = false;
-            }
-            if(!cb1.checked && !cb2.checked) {
-                cb1.checked = true;
-            }
+            if( cb1.checked ) {
+                alert("Weapon on the left hand");
+            } else {
+                alert("No equipment on the left hand");
+            }   
         }, this);
 
-        panel.add(cb2 = new SlickUI.Element.Checkbox(50,100, SlickUI.Element.Checkbox.TYPE_RADIO));
+        panel.add(cb2 = new SlickUI.Element.Checkbox(160,150));
         cb2.events.onInputDown.add(function () {
-            if(cb1.checked && cb2.checked) {
-                cb1.checked = false;
-            }
-            if(!cb1.checked && !cb2.checked) {
-                cb2.checked = true;
-            }
+            if( cb2.checked ) {
+                alert("Weapon on the right hand");
+            } else {
+                alert("No equipment on the right hand");
+            }   
         }, this);
 
-        panel.add(new SlickUI.Element.Checkbox(100,100));
-
-
-
-
+        panel.add(cb3 = new SlickUI.Element.Checkbox(160,200));
+        cb3.events.onInputDown.add(function () {
+            if( cb3.checked ) {
+                alert("Full body protection");
+            } else {
+                alert("No body protection");
+            }   
+        }, this);
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
