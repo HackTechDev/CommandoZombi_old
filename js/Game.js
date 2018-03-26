@@ -196,7 +196,8 @@ CommandoZombi.Game.prototype = {
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
         panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
             console.log('Gear');
-            alert("Gear");
+            bullet -= 10;
+            health -= 10;
         });
 
         button.add(new SlickUI.Element.Text(0,0, "Gear")).center();
