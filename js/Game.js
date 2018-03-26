@@ -12,11 +12,14 @@ CommandoZombi.Game = function(){};
     var agent;
     var operator;
     var health;
+    var bullet;
 
     var t1;
     var t2;
     var t3;
     var t4;
+    var t5;
+    var t6;
 
     var panel;
     var textField;
@@ -28,7 +31,7 @@ CommandoZombi.Game = function(){};
 //create game instance
 CommandoZombi.Game.prototype = {
 
-    init: function(param1, param2, param3, param4, param5, param6) {
+    init: function(param1, param2, param3, param4, param5, param6, param7) {
         console.log('Level state');
         console.log('previous worldmap: ' + param1);
         console.log('next worldmap: ' + param2);
@@ -36,6 +39,7 @@ CommandoZombi.Game.prototype = {
         console.log('agent: ' + param4);
         console.log('operator: ' + param5);
         console.log('health: ' + param6);
+        console.log('bullet: ' + param7);
 
         pworldmap= param1;
         nworldmap = param2;
@@ -43,6 +47,7 @@ CommandoZombi.Game.prototype = {
         agent = param4;
         operator = param5;
         health = param6;
+        bullet = param7;
     },
 
 
@@ -162,6 +167,15 @@ CommandoZombi.Game.prototype = {
         t4.fixedToCamera = true;
         t4.cameraOffset.setTo(10, 70);
  
+        t5 = this.game.add.text(10, 90, "Health: ", { font: "16px Arial", fill: "#000000", align: "left" });
+        t5.fixedToCamera = true;
+        t5.cameraOffset.setTo(10, 90);
+ 
+        t6 = this.game.add.text(10, 110, "Bullet: ", { font: "16px Arial", fill: "#000000", align: "left" });
+        t6.fixedToCamera = true;
+        t6.cameraOffset.setTo(10, 110);
+ 
+
     // UI
         this.world.add(slickUI.container.displayGroup);
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
@@ -223,8 +237,10 @@ CommandoZombi.Game.prototype = {
         cb1.events.onInputDown.add(function () {
             if( cb1.checked ) {
                 alert("Weapon on the left hand");
+                bullet += 20;
             } else {
                 alert("No equipment on the left hand");
+                bullet -= 20;
             }   
         }, this);
 
@@ -232,8 +248,10 @@ CommandoZombi.Game.prototype = {
         cb2.events.onInputDown.add(function () {
             if( cb2.checked ) {
                 alert("Weapon on the right hand");
+                bullet += 20;
             } else {
                 alert("No equipment on the right hand");
+                bullet -= 20;
             }   
         }, this);
 
@@ -241,8 +259,12 @@ CommandoZombi.Game.prototype = {
         cb3.events.onInputDown.add(function () {
             if( cb3.checked ) {
                 alert("Full body protection");
+                health += 20;
+                this.player.health = health;
             } else {
                 alert("No body protection");
+                health -= 20;
+                this.player.health = health;
             }   
         }, this);
 
@@ -343,6 +365,7 @@ CommandoZombi.Game.prototype = {
                 //  Grab the first bullet we can from the pool
                 this.playerBullet = this.playerBullets.getFirstExists(false);
                 if (this.playerBullet) {
+                    bullet -= 1;
                 //  And fire it
                     if (this.player.facing == "right") {
                         this.playerBullets.callAllExists('play', false, 'right');
@@ -445,13 +468,13 @@ CommandoZombi.Game.prototype = {
             this.player.body.velocity.y = this.ybounceVelocity;
             this.player.body.velocity.x = this.xbounceVelocity;
                 if (enemy.key == "blacklordBullet") {
-                  player.health -=1;
-                  health -=1;
+                  player.health -= 1;
+                  health -= 1;
                    $('img:last-child').remove();
                 }
                 if (enemy.key == "guard") {
                   player.health -=1;
-                  health -=1;
+                  health -= 1;
                   $('img:last-child').remove();
                 }
                 if(player.health <=0) {
@@ -588,6 +611,8 @@ CommandoZombi.Game.prototype = {
 
     
         t4.setText("Position: " + Math.round(this.player.x) + " " + Math.round(this.player.y));
+        t5.setText("Health: " + health);
+        t6.setText("Bullet: " + bullet);
 
 
         if(this.LKey.isDown) {
@@ -606,7 +631,7 @@ CommandoZombi.Game.prototype = {
                     console.log('Change Level');
                     console.log('Current worldmap: ' + nworldmap);
                     console.log('Next worldmap: ' + levelObject.next);
-                    this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health)
+                    this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet)
                 }
             }
         }
