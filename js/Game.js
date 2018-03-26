@@ -236,10 +236,10 @@ CommandoZombi.Game.prototype = {
         panel.add(cb1 = new SlickUI.Element.Checkbox(160,100));
         cb1.events.onInputDown.add(function () {
             if( cb1.checked ) {
-                alert("Weapon on the left hand");
+                console.log("Weapon on the left hand");
                 bullet += 20;
             } else {
-                alert("No equipment on the left hand");
+                console.log("No equipment on the left hand");
                 bullet -= 20;
             }   
         }, this);
@@ -247,10 +247,10 @@ CommandoZombi.Game.prototype = {
         panel.add(cb2 = new SlickUI.Element.Checkbox(160,150));
         cb2.events.onInputDown.add(function () {
             if( cb2.checked ) {
-                alert("Weapon on the right hand");
+                console.log("Weapon on the right hand");
                 bullet += 20;
             } else {
-                alert("No equipment on the right hand");
+                console.log("No equipment on the right hand");
                 bullet -= 20;
             }   
         }, this);
@@ -258,11 +258,11 @@ CommandoZombi.Game.prototype = {
         panel.add(cb3 = new SlickUI.Element.Checkbox(160,200));
         cb3.events.onInputDown.add(function () {
             if( cb3.checked ) {
-                alert("Full body protection");
+                console.log("Full body protection");
                 health += 20;
                 this.player.health = health;
             } else {
-                alert("No body protection");
+                console.log("No body protection");
                 health -= 20;
                 this.player.health = health;
             }   
@@ -610,7 +610,7 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
     
-        t4.setText("Position: " + Math.round(this.player.x) + " " + Math.round(this.player.y));
+        t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
         t5.setText("Health: " + health);
         t6.setText("Bullet: " + bullet);
 
