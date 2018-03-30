@@ -229,45 +229,141 @@ CommandoZombi.Game.prototype = {
         });
 
 
-        panel.add(new SlickUI.Element.Text(210,105, "Left Hand Weapon"));
-        panel.add(new SlickUI.Element.Text(210,155, "Right Hand Weapon"));
-        panel.add(new SlickUI.Element.Text(210,205, "Body Armor"));
+        
+        var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
 
-        var cb1, cb2, cb3;
-        panel.add(cb1 = new SlickUI.Element.Checkbox(160,100));
+        panel.add(cb1 = new SlickUI.Element.Checkbox(240,75, SlickUI.Element.Checkbox.TYPE_RADIO));
+        panel.add(cb2 = new SlickUI.Element.Checkbox(240,115, SlickUI.Element.Checkbox.TYPE_RADIO));
+        panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_RADIO));
+
+        panel.add(cb4 = new SlickUI.Element.Checkbox(160,115));
+        panel.add(cb5 = new SlickUI.Element.Checkbox(200,115, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb6 = new SlickUI.Element.Checkbox(280,115, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb7 = new SlickUI.Element.Checkbox(320,115));
+
+
+        panel.add(cb8 = new SlickUI.Element.Checkbox(200,195));
+        panel.add(cb9 = new SlickUI.Element.Checkbox(200,235, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb10 = new SlickUI.Element.Checkbox(280,195));
+        panel.add(cb11 = new SlickUI.Element.Checkbox(280,235, SlickUI.Element.Checkbox.TYPE_CROSS));
+
+
         cb1.events.onInputDown.add(function () {
             if( cb1.checked ) {
-                console.log("Weapon on the left hand");
-                bullet += 20;
+                console.log("Helmet");
+                health += 20;
             } else {
-                console.log("No equipment on the left hand");
-                bullet -= 20;
+                console.log("No Helmet");
+                health -= 20;
             }   
         }, this);
 
-        panel.add(cb2 = new SlickUI.Element.Checkbox(160,150));
+
         cb2.events.onInputDown.add(function () {
             if( cb2.checked ) {
-                console.log("Weapon on the right hand");
-                bullet += 20;
+                console.log("Vest");
+                health += 20;
             } else {
-                console.log("No equipment on the right hand");
-                bullet -= 20;
+                console.log("No Vest");
+                health -= 20;
             }   
         }, this);
 
-        panel.add(cb3 = new SlickUI.Element.Checkbox(160,200));
         cb3.events.onInputDown.add(function () {
             if( cb3.checked ) {
-                console.log("Full body protection");
+                console.log("Vest");
                 health += 20;
-                this.player.health = health;
             } else {
-                console.log("No body protection");
+                console.log("No Vest");
                 health -= 20;
-                this.player.health = health;
             }   
         }, this);
+
+
+        cb4.events.onInputDown.add(function () {
+            if( cb4.checked ) {
+                console.log("Shield");
+                health += 20;
+            } else {
+                console.log("No Shield");
+                health -= 20;
+            }   
+        }, this);
+
+        cb5.events.onInputDown.add(function () {
+            if( cb5.checked ) {
+                console.log("Weapon");
+                bullet += 10;
+            } else {
+                console.log("No Weapon");
+                bullet -= 10;
+            }   
+        }, this);
+
+
+        cb6.events.onInputDown.add(function () {
+            if( cb6.checked ) {
+                console.log("Shield");
+                health += 20;
+            } else {
+                console.log("No Shield");
+                health -= 20;
+            }   
+        }, this);
+
+        cb7.events.onInputDown.add(function () {
+            if( cb7.checked ) {
+                console.log("Weapon");
+                bullet += 10;
+            } else {
+                console.log("No Weapon");
+                bullet -= 10;
+            }   
+        }, this);
+
+
+
+        cb8.events.onInputDown.add(function () {
+            if( cb8.checked ) {
+                console.log("Weapon");
+                health += 20;
+            } else {
+                console.log("No Weapon");
+                health -= 20;
+            }   
+        }, this);
+
+        cb9.events.onInputDown.add(function () {
+            if( cb9.checked ) {
+                console.log("Boot");
+                bullet += 10;
+            } else {
+                console.log("No Boot");
+                bullet -= 10;
+            }   
+        }, this);
+
+
+        cb10.events.onInputDown.add(function () {
+            if( cb10.checked ) {
+                console.log("Weapon");
+                health += 20;
+            } else {
+                console.log("No Weapon");
+                health -= 20;
+            }   
+        }, this);
+
+        cb11.events.onInputDown.add(function () {
+            if( cb11.checked ) {
+                console.log("Boot");
+                bullet += 10;
+            } else {
+                console.log("No Boot");
+                bullet -= 10;
+            }   
+        }, this);
+
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
