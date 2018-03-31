@@ -26,6 +26,14 @@ CommandoZombi.Preload.prototype = {
         this.load.image('gameTiles', 'assets/tilemaps/world_map/tileset.png');
         this.load.image('map', 'assets/images/map.png');
         this.load.spritesheet('player', 'assets/images/player.png', 48, 64);
+        this.load.spritesheet('player_head', 'assets/images/player_head.png', 48, 64);
+        this.load.spritesheet('player_body', 'assets/images/player_body.png', 48, 64);
+        this.load.spritesheet('player_rightarm', 'assets/images/player_rightarm.png', 48, 64);
+        this.load.spritesheet('player_leftarm', 'assets/images/player_leftarm.png', 48, 64);
+        this.load.spritesheet('player_rightleg', 'assets/images/player_rightleg.png', 48, 64);
+        this.load.spritesheet('player_leftleg', 'assets/images/player_leftleg.png', 48, 64);
+
+
         this.load.spritesheet('playerBullet', 'assets/images/playerBullet.png', 32, 32);
 
         this.load.spritesheet('guard', 'assets/images/guard.png', 48, 64);

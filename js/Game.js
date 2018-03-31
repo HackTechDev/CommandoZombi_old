@@ -252,9 +252,38 @@ CommandoZombi.Game.prototype = {
             if( cb1.checked ) {
                 console.log("Helmet");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_head", framefacing, false);
+
             } else {
                 console.log("No Helmet");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);
             }   
         }, this);
 
@@ -263,9 +292,37 @@ CommandoZombi.Game.prototype = {
             if( cb2.checked ) {
                 console.log("Vest");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_body", framefacing, false);                
             } else {
                 console.log("No Vest");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -273,9 +330,37 @@ CommandoZombi.Game.prototype = {
             if( cb3.checked ) {
                 console.log("Vest");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_body", framefacing, false);                
             } else {
                 console.log("No Vest");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -284,9 +369,37 @@ CommandoZombi.Game.prototype = {
             if( cb4.checked ) {
                 console.log("Shield");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_rightarm", framefacing, false);                
             } else {
                 console.log("No Shield");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -294,9 +407,37 @@ CommandoZombi.Game.prototype = {
             if( cb5.checked ) {
                 console.log("Weapon");
                 bullet += 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_rightarm", framefacing, false);                
             } else {
                 console.log("No Weapon");
                 bullet -= 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -305,9 +446,37 @@ CommandoZombi.Game.prototype = {
             if( cb6.checked ) {
                 console.log("Shield");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_leftarm", framefacing, false);                
             } else {
                 console.log("No Shield");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -315,21 +484,75 @@ CommandoZombi.Game.prototype = {
             if( cb7.checked ) {
                 console.log("Weapon");
                 bullet += 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_leftarm", framefacing, false);                
             } else {
                 console.log("No Weapon");
                 bullet -= 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
-
-
 
         cb8.events.onInputDown.add(function () {
             if( cb8.checked ) {
                 console.log("Weapon");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_rightleg", framefacing, false);                
             } else {
                 console.log("No Weapon");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -337,9 +560,37 @@ CommandoZombi.Game.prototype = {
             if( cb9.checked ) {
                 console.log("Boot");
                 bullet += 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_rightleg", framefacing, false);                     
             } else {
                 console.log("No Boot");
                 bullet -= 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -348,9 +599,37 @@ CommandoZombi.Game.prototype = {
             if( cb10.checked ) {
                 console.log("Weapon");
                 health += 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_leftleg", framefacing, false);                     
             } else {
                 console.log("No Weapon");
                 health -= 20;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
@@ -358,9 +637,37 @@ CommandoZombi.Game.prototype = {
             if( cb11.checked ) {
                 console.log("Boot");
                 bullet += 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player_leftleg", framefacing, false);                  
             } else {
                 console.log("No Boot");
                 bullet -= 10;
+                if( this.player.facing == "left" ) {
+                    framefacing = 8;
+                }   
+                if( this.player.facing == "right" ) {
+                    framefacing = 4;
+                }   
+                if( this.player.facing == "down") {
+                    framefacing = 12;
+                }   
+                if( this.player.facing == "up" ) {
+                    framefacing = 0;
+                }   
+
+                this.player.loadTexture("player", framefacing, false);                
             }   
         }, this);
 
