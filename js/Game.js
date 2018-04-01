@@ -245,14 +245,12 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_head');
-           
-                if (playerarm == 1) {
-                    bmd.copy('player_rightarm');
-                }
 
-                if (playerarm == 1) {
-                    bmd.copy('player_rightleg');
-                }
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                 // To add a bitmapdata as a spritesheet to phaser:
                 // https://stackoverflow.com/questions/34401175/loading-spritesheet-from-bitmapdata-in-phaser
@@ -267,7 +265,13 @@ CommandoZombi.Game.prototype = {
 
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
-            
+
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);
@@ -284,6 +288,10 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_body');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }           
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);              
@@ -294,12 +302,19 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);             
                 playerbody = 0;
             }   
         }, this);
+
 
         cb3.events.onInputDown.add(function () {
             if( cb3.checked ) {
@@ -308,6 +323,10 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_body');
+            
+                if (playerhead == 1) { bmd.copy('player_head'); }           
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }             
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -319,13 +338,18 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);                
                 playerbody = 0;
             }   
         }, this);
-
 
         cb4.events.onInputDown.add(function () {
             if( cb4.checked ) {
@@ -334,6 +358,10 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightarm');
+            
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -344,6 +372,11 @@ CommandoZombi.Game.prototype = {
                 health -= 20;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
+            
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerbody == 1) { bmd.copy('player_body'); }                
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -359,6 +392,10 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightarm');
+                
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }         
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -369,7 +406,12 @@ CommandoZombi.Game.prototype = {
                 bullet -= 10;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
-            
+                
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerbody == 1) { bmd.copy('player_body'); }                
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                           
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);               
@@ -386,6 +428,10 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_leftarm');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);              
@@ -396,6 +442,11 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerbody == 1) { bmd.copy('player_body'); }                
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);               
@@ -410,6 +461,10 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_leftarm');
+                
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) {bmd.copy('player_leftleg'); }            
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -420,6 +475,11 @@ CommandoZombi.Game.prototype = {
                 bullet -= 10;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
+                
+                if (playerhead == 1) { bmd.copy('player_head'); }
+                if (playerbody == 1) { bmd.copy('player_body'); }                
+                if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
@@ -436,6 +496,11 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_rightleg');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }             
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);                 
@@ -446,6 +511,11 @@ CommandoZombi.Game.prototype = {
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                           
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);              
@@ -461,6 +531,11 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_rightleg');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);                    
@@ -470,7 +545,12 @@ CommandoZombi.Game.prototype = {
                 bullet -= 10;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
-            
+
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);               
@@ -487,6 +567,11 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_leftleg');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);                    
@@ -496,7 +581,12 @@ CommandoZombi.Game.prototype = {
                 health -= 20;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
-            
+
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);               
@@ -512,6 +602,11 @@ CommandoZombi.Game.prototype = {
                 bmd.copy('player');
                 bmd.copy('player_leftleg');
             
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
+            
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                 this.player.loadTexture("player_new", 0, false);                  
@@ -521,6 +616,11 @@ CommandoZombi.Game.prototype = {
                 bullet -= 10;
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
+
+                if (playerhead == 1) { bmd.copy('player_head'); }                
+                if (playerbody == 1) { bmd.copy('player_body'); }
+                if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                if (playerleg == 1) { bmd.copy('player_leftleg'); }     
             
                 this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
