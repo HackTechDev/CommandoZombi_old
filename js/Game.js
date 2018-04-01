@@ -21,7 +21,7 @@ CommandoZombi.Game = function(){};
 CommandoZombi.Game.prototype = {
 
     init: function(param1, param2, param3, param4, param5, param6, param7) {
-        console.log('Level state');
+        console.log('Game state');
         console.log('previous worldmap: ' + param1);
         console.log('next worldmap: ' + param2);
         console.log('next gametiles: ' + param3);
