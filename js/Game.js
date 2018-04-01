@@ -3,28 +3,15 @@ var CommandoZombi = CommandoZombi || {};
 //title screen
 CommandoZombi.Game = function(){};
 
-    var music;
-    var playerSpellSound;
+    var music, playerSpellSound;
 
-    var pworldmap;
-    var nworldmap;
-    var ngametiles;
-    var agent;
-    var operator;
-    var health;
-    var bullet;
+    var pworldmap, nworldmap, ngametiles;
 
-    var t1;
-    var t2;
-    var t3;
-    var t4;
-    var t5;
-    var t6;
+    var agent, operator, health, bullet; 
 
-    var panel;
-    var textField;
-    var button;
-    var menuButton;
+    var t1, t2, t3, t4, t5, t6;
+
+    var panel, textField, button, menuButton;
 
     var basePosition;
 
