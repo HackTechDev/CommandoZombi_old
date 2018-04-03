@@ -22,14 +22,14 @@ CommandoZombi.MainMenu.prototype = {
   },
   actionsniperOnClick: function() {
     console.log('button sniper');
-    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Lucien", "Sniper", 10, 100);
+    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Lucien", "Sniper", 30, 200);
   },
   actionbreacherOnClick: function() {
     console.log('button breacher');
-    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Marcel", "Breacher", 10, 100);
+    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Marcel", "Breacher", 40, 150);
   },
   actionmedicOnClick: function() {
     console.log('button medic');
-    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Rene", "Medic", 10, 100);
+    this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Rene", "Medic", 50, 100);
   },
 }
