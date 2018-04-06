@@ -60,6 +60,12 @@ CommandoZombi.Preload.prototype = {
         slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
         this.game.load.image('menu-button', 'assets/ui/menu.png');
         slickUI.load('assets/ui/kenney/kenney.json');
+
+        this.load.image('button_pad', 'assets/controllers/button_pad.png');
+        this.load.image('button_a', 'assets/controllers/button_a.png');
+        this.load.image('button_b', 'assets/controllers/button_b.png');
+        this.load.image('button_c', 'assets/controllers/button_c.png');
+
     },
 
     create: function() {

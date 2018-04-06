@@ -17,6 +17,12 @@ CommandoZombi.Game = function(){};
 
     var playerhead, playerbody, playerarm, playerleg;
 
+    var pad;
+
+    var buttonA, buttonB, buttonX, buttonY, buttonDPadLeft, buttonDPadRight, buttonDPadUp, buttonDPadDown;
+
+    var imageA, imageB, imageX, imageY, imageDPad;
+
 //create game instance
 CommandoZombi.Game.prototype = {
 
@@ -164,6 +170,35 @@ CommandoZombi.Game.prototype = {
         t6.fixedToCamera = true;
         t6.cameraOffset.setTo(10, 110);
  
+	// Gamepad
+
+        imagePU = this.game.add.sprite(20,  350, 'button_pad');
+        imagePU.fixedToCamera = true;
+        imagePU.cameraOffset.setTo(20, 350);
+
+        imagePD = this.game.add.sprite(20,  350, 'button_pad');
+        imagePD.fixedToCamera = true;
+        imagePD.cameraOffset.setTo(20, 350);
+
+
+
+
+        imageA = this.game.add.sprite(120, 350, 'button_a');
+        imageA.fixedToCamera = true;
+        imageA.cameraOffset.setTo(120, 350);
+
+        imageB = this.game.add.sprite(220, 350, 'button_b');
+        imageB.fixedToCamera = true;
+        imageB.cameraOffset.setTo(220, 350);
+
+        imageC = this.game.add.sprite(320, 350, 'button_c');
+        imageC.fixedToCamera = true;
+        imageC.cameraOffset.setTo(320, 350);
+
+
+        //imageY = this.game.add.image(360, 350, 'xbox360', '360_Y');
+       
+
 
     // UI
         this.world.add(slickUI.container.displayGroup);
@@ -628,6 +663,7 @@ CommandoZombi.Game.prototype = {
                 playerleg = 0;
             }   
         }, this);
+
 
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
