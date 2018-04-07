@@ -23,6 +23,8 @@ CommandoZombi.Game = function(){};
 
     var imageA, imageB, imageX, imageY, imageDPad;
 
+    var playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
+
 //create game instance
 CommandoZombi.Game.prototype = {
 
@@ -172,28 +174,34 @@ CommandoZombi.Game.prototype = {
  
 	// Gamepad
 
-        buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionbuttonpuOnClick, this, 0);
+        buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
         buttonPU.fixedToCamera = true;
         buttonPU.cameraOffset.setTo(100, 300);
+        buttonPU.onInputOver.add(this.buttonPUonOver, this);
+        buttonPU.onInputOut.add(this.buttonPUonOut, this);
+
+        buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionOnClick, this, 0);
+        buttonPD.fixedToCamera = true;
+        buttonPD.cameraOffset.setTo(100, 400);
+        buttonPD.onInputOver.add(this.buttonPDonOver, this);
+        buttonPD.onInputOut.add(this.buttonPDonOut, this);
+
+        buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionOnClick, this, 0);
+        buttonPL.fixedToCamera = true;
+        buttonPL.cameraOffset.setTo(50, 350);
+        buttonPL.onInputOver.add(this.buttonPLonOver, this);
+        buttonPL.onInputOut.add(this.buttonPLonOut, this);
+
+        buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionOnClick, this, 0);
+        buttonPR.fixedToCamera = true;
+        buttonPR.cameraOffset.setTo(150, 350);
+        buttonPR.onInputOver.add(this.buttonPRonOver, this);
+        buttonPR.onInputOut.add(this.buttonPRonOut, this);
+
 
         buttonPF = this.game.add.button(100, 350, 'button_pad', this.actionbuttonpfOnClick, this, 0);
         buttonPF.fixedToCamera = true;
         buttonPF.cameraOffset.setTo(100, 350);
-
-        buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionbuttonpdOnClick, this, 0);
-        buttonPD.fixedToCamera = true;
-        buttonPD.cameraOffset.setTo(100, 400);
-
-        buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionbuttonplOnClick, this, 0);
-        buttonPL.fixedToCamera = true;
-        buttonPL.cameraOffset.setTo(50, 350);
-
-        buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionbuttonprOnClick, this, 0);
-        buttonPR.fixedToCamera = true;
-        buttonPR.cameraOffset.setTo(150, 350);
-
-
-
 
         buttonA = this.game.add.button(260, 400, 'button_a', this.actionbuttonpaOnClick, this, 0);
         buttonA.fixedToCamera = true;
@@ -672,40 +680,50 @@ CommandoZombi.Game.prototype = {
             }   
         }, this);
 
-
-
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
         this.LKey = this.game.input.keyboard.addKey(Phaser.Keyboard.L);
 
     },
 
-  actionbuttonpuOnClick: function() {
+  buttonPUonOver: function() {
     console.log('button pad up');
-    this.player.facing = "up";
-    this.player.body.velocity.y -= 175; 
-    this.player.animations.play('up');
+    playerMoveUp = true;
   },
+  buttonPUonOut: function() {
+    console.log('button pad up');
+    playerMoveUp = false;
+  },
+
+  buttonPDonOver: function() {
+    console.log('button pad down');
+    playerMoveDown = true;
+  },
+  buttonPDonOut: function() {
+    console.log('button pad down');
+    playerMoveDown = false;
+  },
+
+  buttonPLonOver: function() {
+    console.log('button pad left');
+    playerMoveLeft = true;
+  },
+  buttonPLonOut: function() {
+    console.log('button pad left');
+    playerMoveLeft = false;
+  },
+
+  buttonPRonOver: function() {
+    console.log('button pad right');
+    playerMoveRight = true;
+  },
+  buttonPRonOut: function() {
+    console.log('button pad right');
+    playerMoveRight = false;
+  },
+
   actionbuttonpfOnClick: function() {
     console.log('button pad fire');
     this.fireBullet();
-  },
-  actionbuttonpdOnClick: function() {
-    console.log('button pad down');
-    this.player.facing = "down";
-    this.player.body.velocity.y += 175; 
-    this.player.animations.play('down');
-  },
-  actionbuttonplOnClick: function() {
-    console.log('button pad left');
-    this.player.facing = "left";
-    this.player.body.velocity.x -= 175; 
-    this.player.animations.play('left');
-  },
-  actionbuttonprOnClick: function() {
-    console.log('button pad right');
-    this.player.facing = "right";
-    this.player.body.velocity.x += 175; 
-    this.player.animations.play('right');
   },
    actionbuttonpaOnClick: function() {
     console.log('button pad A');
@@ -1012,22 +1030,22 @@ CommandoZombi.Game.prototype = {
           this.game.state.start('MainMenu', true, false);
         }
 
-        if(this.cursors.up.isDown) {
+        if(this.cursors.up.isDown || playerMoveUp == true) {
             this.player.facing = "up";
             this.player.body.velocity.y -= 175;
             this.player.animations.play('up');
 
-        } else if(this.cursors.down.isDown) {
+        } else if(this.cursors.down.isDown || playerMoveDown == true) {
             this.player.facing = "down";
             this.player.body.velocity.y += 175;
             this.player.animations.play('down');
 
-        } else if(this.cursors.left.isDown) {
+        } else if(this.cursors.left.isDown || playerMoveLeft == true) {
             this.player.facing = "left";
             this.player.body.velocity.x -= 175;
             this.player.animations.play('left');
 
-        } else if(this.cursors.right.isDown) {
+        } else if(this.cursors.right.isDown || playerMoveRight == true) {
             this.player.facing = "right";
             this.player.body.velocity.x += 175;
             this.player.animations.play('right');
