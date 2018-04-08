@@ -1,9 +1,9 @@
 body {
-	background-color: white;
+	background-color: black;
 }
 
 #game-frame {
-	height: 450px;
+	height: 410px;
 	width: 450px;
 	margin: 0 auto;
 	margin-top: 2em;
@@ -16,4 +16,11 @@ body {
 	z-index: 10000000;
 	position: relative;
 	margin-right: .50em;
+}
+
+#credit {
+    height: 100px;
+    width: 450px;
+    margin: 0 auto;
+    color: green;
 }
