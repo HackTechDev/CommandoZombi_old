@@ -733,6 +733,26 @@ CommandoZombi.Game.prototype = {
   },
   actionbuttonpcOnClick: function() {
     console.log('button pad C');
+
+    console.log('Level');
+    levelJSON = this.game.cache.getJSON('level');
+    var currentObject;
+
+    cworldmap = nworldmap;
+    for(var i = 0; i < levelJSON.level.length; i++) {
+        levelObject = levelJSON.level[i];
+
+        if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
+            this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
+            cworldmap == levelObject.current) {
+            console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
+            console.log('Change Level');
+            console.log('Current worldmap: ' + nworldmap);
+            console.log('Next worldmap: ' + levelObject.next);
+            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet)
+        }
+    }
+
   },
  
 
