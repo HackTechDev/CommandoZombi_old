@@ -13,7 +13,7 @@ CommandoZombi.Mission = function(){};
 
 CommandoZombi.Mission.prototype = {
 
-    init: function(param1, param2, param3, param4, param5, param6, param7) {
+    init: function(param1, param2, param3, param4, param5, param6, param7, param8) {
         console.log('Mission state');
         console.log('previous worldmap: ' + param1);
         console.log('next worldmap: ' + param2);
@@ -22,6 +22,7 @@ CommandoZombi.Mission.prototype = {
         console.log('operator: ' + param5);
         console.log('health: ' + param6);
         console.log('bullet: ' + param7);
+        console.log('zombi: ' + param8);
 
         pworldmap= param1;
         nworldmap = param2;
@@ -30,6 +31,7 @@ CommandoZombi.Mission.prototype = {
         operator = param5;
         health = param6;
         bullet = param7;
+        zombi = param8;
     },
 
 
@@ -56,11 +58,11 @@ CommandoZombi.Mission.prototype = {
   },
   actionmissionOnClick: function() {
     console.log('button mission');
-    this.game.state.start('Game', true, false, pworldmap, nworldmap, ngametiles, agent, operator, health, bullet);
+    this.game.state.start('Game', true, false, pworldmap, nworldmap, ngametiles, agent, operator, health, bullet, zombi);
   },
   update: function() {
     if(this.startButton.isDown) {
-      this.game.state.start('Game', true, false, pworldmap, nworldmap, ngametiles, agent, operator, health, bullet);
+      this.game.state.start('Game', true, false, pworldmap, nworldmap, ngametiles, agent, operator, health, bullet, zombi);
     }
   }
 }

@@ -7,9 +7,9 @@ CommandoZombi.Game = function(){};
 
     var pworldmap, nworldmap, ngametiles;
 
-    var agent, operator, health, bullet; 
+    var agent, operator, health, bullet, zombi; 
 
-    var t1, t2, t3, t4, t5, t6;
+    var t1, t2, t3, t4, t5, t6, t7;
 
     var panel, textField, button, menuButton;
 
@@ -28,7 +28,7 @@ CommandoZombi.Game = function(){};
 //create game instance
 CommandoZombi.Game.prototype = {
 
-    init: function(param1, param2, param3, param4, param5, param6, param7) {
+    init: function(param1, param2, param3, param4, param5, param6, param7, param8) {
         console.log('Game state');
         console.log('previous worldmap: ' + param1);
         console.log('next worldmap: ' + param2);
@@ -37,6 +37,7 @@ CommandoZombi.Game.prototype = {
         console.log('operator: ' + param5);
         console.log('health: ' + param6);
         console.log('bullet: ' + param7);
+        console.log('zombi: ' + param8);
 
         pworldmap= param1;
         nworldmap = param2;
@@ -45,6 +46,7 @@ CommandoZombi.Game.prototype = {
         operator = param5;
         health = param6;
         bullet = param7;
+        zombi = param8;
     },
 
 
@@ -171,6 +173,10 @@ CommandoZombi.Game.prototype = {
         t6 = this.game.add.text(10, 110, "Bullet: ", { font: "16px Arial", fill: "#000000", align: "left" });
         t6.fixedToCamera = true;
         t6.cameraOffset.setTo(10, 110);
+ 
+        t7 = this.game.add.text(10, 130, "Zombi: ", { font: "16px Arial", fill: "#000000", align: "left" });
+        t7.fixedToCamera = true;
+        t7.cameraOffset.setTo(10, 130);
  
 	// Gamepad
 
@@ -911,12 +917,14 @@ CommandoZombi.Game.prototype = {
                 this.sound.play('kaboom');
                 this.sound.play('playerLaugh');
 
+                zombi = zombi + 1;
                 enemy.kill();
             } else if (enemy.key == "guard") {
                 enemy.health -=1;
                 this.playerBullet.kill();
 
                 if(enemy.health <= 0){
+                    zombi = zombi + 1;
                     enemy.kill();
                     this.explosion = this.explosions.getFirstExists(false);
                     this.explosion.reset(enemy.body.x, enemy.body.y);
@@ -931,6 +939,7 @@ CommandoZombi.Game.prototype = {
                 console.log(enemy.health);
                 this.playerBullet.kill();
                 if(enemy.health <= 0){
+                    zombi = zombi + 1;
                     enemy.kill();
                     this.explosion = this.explosions.getFirstExists(false);
                     this.explosion.reset(enemy.body.x, enemy.body.y);
@@ -1097,6 +1106,8 @@ CommandoZombi.Game.prototype = {
         t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
         t5.setText("Health: " + health);
         t6.setText("Bullet: " + bullet);
+        t7.setText("Zombi: " + zombi);
+
 
 
         if(this.LKey.isDown) {
