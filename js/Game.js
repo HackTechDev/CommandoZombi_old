@@ -239,6 +239,7 @@ CommandoZombi.Game.prototype = {
             console.log('Gear');
             bullet -= 10;
             health -= 10;
+            player.health -= 10;
         });
 
         button.add(new SlickUI.Element.Text(0,0, "Gear")).center();
@@ -293,7 +294,9 @@ CommandoZombi.Game.prototype = {
             if( cb1.checked ) {
                 console.log("Helmet");
                 health += 20;
-                
+                this.player.health = health;
+                console.log("health: " + this.player.health);
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_head');
@@ -314,6 +317,7 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Helmet");
                 health -= 20;
+                this.player.health = health;
 
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
@@ -336,6 +340,8 @@ CommandoZombi.Game.prototype = {
             if( cb2.checked ) {
                 console.log("Vest");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_body');
@@ -351,6 +357,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Vest");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
@@ -372,6 +380,8 @@ CommandoZombi.Game.prototype = {
             if( cb3.checked ) {
                 console.log("Vest");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_body');
@@ -387,6 +397,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Vest");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
@@ -407,6 +419,8 @@ CommandoZombi.Game.prototype = {
             if( cb4.checked ) {
                 console.log("Shield");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightarm');
@@ -422,6 +436,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Shield");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
@@ -441,6 +457,7 @@ CommandoZombi.Game.prototype = {
             if( cb5.checked ) {
                 console.log("Weapon");
                 bullet += 10;
+        
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightarm');
@@ -456,6 +473,7 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Weapon");
                 bullet -= 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 
@@ -476,6 +494,8 @@ CommandoZombi.Game.prototype = {
             if( cb6.checked ) {
                 console.log("Shield");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_leftarm');
@@ -491,6 +511,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Shield");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
@@ -510,6 +532,7 @@ CommandoZombi.Game.prototype = {
             if( cb7.checked ) {
                 console.log("Weapon");
                 bullet += 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_leftarm');
@@ -544,6 +567,8 @@ CommandoZombi.Game.prototype = {
             if( cb8.checked ) {
                 console.log("Weapon");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightleg');
@@ -560,6 +585,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Weapon");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
             
@@ -579,6 +606,7 @@ CommandoZombi.Game.prototype = {
             if( cb9.checked ) {
                 console.log("Boot");
                 bullet += 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_rightleg');
@@ -595,6 +623,7 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Boot");
                 bullet -= 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
 
@@ -615,6 +644,8 @@ CommandoZombi.Game.prototype = {
             if( cb10.checked ) {
                 console.log("Weapon");
                 health += 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_leftleg');
@@ -631,6 +662,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Weapon");
                 health -= 20;
+                this.player.health = health;
+
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
 
@@ -650,6 +683,7 @@ CommandoZombi.Game.prototype = {
             if( cb11.checked ) {
                 console.log("Boot");
                 bullet += 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
                 bmd.copy('player_leftleg');
@@ -666,6 +700,7 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No Boot");
                 bullet -= 10;
+                
                 var bmd = this.game.add.bitmapData(144, 256);
                 bmd.copy('player');
 
