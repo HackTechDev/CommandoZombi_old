@@ -76,11 +76,6 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.enable(this.player);
 
         this.player.health = health;
-        if(pworldmap === "intro") {
-            for (i = 1; i <= 10; i++) {    
-                $('#game-frame').append('<img src="assets/images/heart.png">');    
-            }
-        }
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
@@ -755,7 +750,7 @@ CommandoZombi.Game.prototype = {
             console.log('Change Level');
             console.log('Current worldmap: ' + nworldmap);
             console.log('Next worldmap: ' + levelObject.next);
-            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet)
+            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet, zombi)
         }
     }
 
@@ -824,7 +819,7 @@ CommandoZombi.Game.prototype = {
                 return result;
             },
 
-//BULLETS
+    //Bullets
     //player bullets
         createPlayerBullets: function() {
             this.playerBullets = this.game.add.group();
@@ -960,27 +955,33 @@ CommandoZombi.Game.prototype = {
             this.ybounceVelocity = this.ydirection * -40;
             this.player.body.velocity.y = this.ybounceVelocity;
             this.player.body.velocity.x = this.xbounceVelocity;
-                if (enemy.key == "blacklordBullet") {
-                  player.health -= 1;
-                  health -= 1;
-                   $('img:last-child').remove();
-                }
-                if (enemy.key == "guard") {
-                  player.health -=1;
-                  health -= 1;
-                  $('img:last-child').remove();
-                }
-                if(player.health <=0) {
-                  this.player.kill();
-                  this.explosion = this.explosions.getFirstExists(false);
-                  this.explosion.reset(this.player.body.x, this.player.body.y);
-                  this.explosion.play('kaboom', 30, false, true);
 
-                  this.sound.play('kaboom');
+            if (enemy.key == "blacklordBullet") {
+              player.health -= 10;
+              health -= 1;
+            }
 
-                  this.fireButton = [];
-                  this.gameOver();
-                }
+            if (enemy.key == "devil") {
+              player.health -= 3;
+              health -= 3;
+            }
+
+            if (enemy.key == "guard") {
+              player.health -= 5;
+              health -= 5;
+            }
+
+            if(player.health <=0) {
+              this.player.kill();
+              this.explosion = this.explosions.getFirstExists(false);
+              this.explosion.reset(this.player.body.x, this.player.body.y);
+              this.explosion.play('kaboom', 30, false, true);
+
+              this.sound.play('kaboom');
+
+              this.fireButton = [];
+              this.gameOver();
+            }
         },
 
     //animation for death
