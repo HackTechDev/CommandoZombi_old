@@ -1126,7 +1126,7 @@ CommandoZombi.Game.prototype = {
                     console.log('Change Level');
                     console.log('Current worldmap: ' + nworldmap);
                     console.log('Next worldmap: ' + levelObject.next);
-                    this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet)
+                    this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet, zombi)
                 }
             }
         }
