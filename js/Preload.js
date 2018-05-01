@@ -36,6 +36,8 @@ CommandoZombi.Preload.prototype = {
 
         this.load.spritesheet('playerBullet', 'assets/images/playerBullet.png', 32, 32);
 
+        this.load.image('star', 'assets/images/star.png', 32, 32);
+
         this.load.spritesheet('guard', 'assets/images/guard.png', 48, 64);
         this.load.spritesheet('devil', 'assets/images/devil.png', 48, 64);
 

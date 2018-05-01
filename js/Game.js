@@ -61,8 +61,8 @@ CommandoZombi.Game.prototype = {
         this.map.addTilesetImage('tileset', ngametiles);
 
 
-//MAP
-    //Create map
+        //Map
+        //Create map
         this.blockedLayer = this.map.createLayer('waterLayer');
         this.backgroundLayer = this.map.createLayer('groundLayer1');
         this.backgroundLayer = this.map.createLayer('groundLayer2');
@@ -88,13 +88,12 @@ CommandoZombi.Game.prototype = {
         //Resizes game world to match the layer dimensions
         this.backgroundLayer.resizeWorld();
 
+        this.createItems();
 
-
-    //collisions
-      //Collision on blocked layer. 2000 is the number of bricks we can collide into - this is found in the json file for the map
-      this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
-      this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
-
+        // collisions
+        // Collision on blocked layer. 2000 is the number of bricks we can collide into - this is found in the json file for the map
+        this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
+        this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
 
         this.createPlayerBullets();
         this.createBlacklordBullets();
@@ -104,12 +103,12 @@ CommandoZombi.Game.prototype = {
 
 
 
-//PLAYER
+    // Player
 
-    //the camera follows player
+    // the camera follows player
         this.game.camera.follow(this.player);
 
-    //move player with cursor keys
+    // move player with cursor keys
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.playerBulletTime = 0;
@@ -721,6 +720,19 @@ CommandoZombi.Game.prototype = {
 
     },
 
+  createItems: function() {
+    console.log("CreateItems()");
+    //create items
+    this.items = this.game.add.group();
+    this.items.enableBody = true;
+    var item;
+    result = this.findObjectsByType('item', this.map, 'itemLayer');
+    console.log(result);
+    result.forEach(function(element){
+      this.createFromTiledObject(element, this.items);
+    }, this);
+  },
+
   buttonPUonOver: function() {
     console.log('button pad up');
     playerMoveUp = true;
@@ -1131,6 +1143,7 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
         this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
+
         //Player interactions (magic, running into enemies, etc)
         this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
         this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
@@ -1168,4 +1181,10 @@ CommandoZombi.Game.prototype = {
         }
 
     },
+  collect: function(player, collectable) {
+    console.log('yummy!');
+
+    //remove sprite
+    collectable.destroy();
+  },
 }
