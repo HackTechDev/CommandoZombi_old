@@ -139,7 +139,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_legs",
+                     "sprite":"black_pant",
                      "type":"item"
                     },
                  "rotation":0,
@@ -190,7 +190,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"chaos_sword",
+                     "sprite":"black_sword",
                      "type":"item"
                     },
                  "rotation":0,
@@ -199,6 +199,23 @@
                  "width":32,
                  "x":975,
                  "y":2921
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":103,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_boot",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":857,
+                 "y":2985
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -1349,7 +1366,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":103,
+ "nextobjectid":104,
  "orientation":"orthogonal",
  "properties":
     {

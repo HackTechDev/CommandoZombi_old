@@ -183,49 +183,49 @@ CommandoZombi.Game.prototype = {
         t7.fixedToCamera = true;
         t7.cameraOffset.setTo(10, 130);
  
-	// Gamepad
-	if(displayGamepad == true) {
-		buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
-		buttonPU.fixedToCamera = true;
-		buttonPU.cameraOffset.setTo(100, 300);
-		buttonPU.onInputOver.add(this.buttonPUonOver, this);
-		buttonPU.onInputOut.add(this.buttonPUonOut, this);
+        // Gamepad
+        if(displayGamepad == true) {
+            buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
+            buttonPU.fixedToCamera = true;
+            buttonPU.cameraOffset.setTo(100, 300);
+            buttonPU.onInputOver.add(this.buttonPUonOver, this);
+            buttonPU.onInputOut.add(this.buttonPUonOut, this);
 
-		buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionOnClick, this, 0);
-		buttonPD.fixedToCamera = true;
-		buttonPD.cameraOffset.setTo(100, 400);
-		buttonPD.onInputOver.add(this.buttonPDonOver, this);
-		buttonPD.onInputOut.add(this.buttonPDonOut, this);
+            buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionOnClick, this, 0);
+            buttonPD.fixedToCamera = true;
+            buttonPD.cameraOffset.setTo(100, 400);
+            buttonPD.onInputOver.add(this.buttonPDonOver, this);
+            buttonPD.onInputOut.add(this.buttonPDonOut, this);
 
-		buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionOnClick, this, 0);
-		buttonPL.fixedToCamera = true;
-		buttonPL.cameraOffset.setTo(50, 350);
-		buttonPL.onInputOver.add(this.buttonPLonOver, this);
-		buttonPL.onInputOut.add(this.buttonPLonOut, this);
+            buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionOnClick, this, 0);
+            buttonPL.fixedToCamera = true;
+            buttonPL.cameraOffset.setTo(50, 350);
+            buttonPL.onInputOver.add(this.buttonPLonOver, this);
+            buttonPL.onInputOut.add(this.buttonPLonOut, this);
 
-		buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionOnClick, this, 0);
-		buttonPR.fixedToCamera = true;
-		buttonPR.cameraOffset.setTo(150, 350);
-		buttonPR.onInputOver.add(this.buttonPRonOver, this);
-		buttonPR.onInputOut.add(this.buttonPRonOut, this);
+            buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionOnClick, this, 0);
+            buttonPR.fixedToCamera = true;
+            buttonPR.cameraOffset.setTo(150, 350);
+            buttonPR.onInputOver.add(this.buttonPRonOver, this);
+            buttonPR.onInputOut.add(this.buttonPRonOut, this);
 
 
-		buttonPF = this.game.add.button(100, 350, 'button_pad', this.actionbuttonpfOnClick, this, 0);
-		buttonPF.fixedToCamera = true;
-		buttonPF.cameraOffset.setTo(100, 350);
+            buttonPF = this.game.add.button(100, 350, 'button_pad', this.actionbuttonpfOnClick, this, 0);
+            buttonPF.fixedToCamera = true;
+            buttonPF.cameraOffset.setTo(100, 350);
 
-		buttonA = this.game.add.button(260, 400, 'button_a', this.actionbuttonpaOnClick, this, 0);
-		buttonA.fixedToCamera = true;
-		buttonA.cameraOffset.setTo(260, 400);
+            buttonA = this.game.add.button(260, 400, 'button_a', this.actionbuttonpaOnClick, this, 0);
+            buttonA.fixedToCamera = true;
+            buttonA.cameraOffset.setTo(260, 400);
 
-		buttonB = this.game.add.button(320, 400, 'button_b', this.actionbuttonpbOnClick, this, 0);
-		buttonB.fixedToCamera = true;
-		buttonB.cameraOffset.setTo(320, 400);
+            buttonB = this.game.add.button(320, 400, 'button_b', this.actionbuttonpbOnClick, this, 0);
+            buttonB.fixedToCamera = true;
+            buttonB.cameraOffset.setTo(320, 400);
 
-		buttonC = this.game.add.button(380, 400, 'button_c', this.actionbuttonpcOnClick, this, 0);
-		buttonC.fixedToCamera = true;
-		buttonC.cameraOffset.setTo(380, 400);
-	}
+            buttonC = this.game.add.button(380, 400, 'button_c', this.actionbuttonpcOnClick, this, 0);
+            buttonC.fixedToCamera = true;
+            buttonC.cameraOffset.setTo(380, 400);
+        }
 
     	// User Interface
         this.world.add(slickUI.container.displayGroup);
@@ -289,25 +289,23 @@ CommandoZombi.Game.prototype = {
 
         // Body
         panel.add(cb2 = new SlickUI.Element.Checkbox(240,115, SlickUI.Element.Checkbox.TYPE_RADIO));
-        panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_RADIO));
+
+        // Leg
+        panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_CROSS));
+
+        // Boot
+        panel.add(cb8 = new SlickUI.Element.Checkbox(240,195, SlickUI.Element.Checkbox.TYPE_CROSS));
 
         // Left arm
-        panel.add(cb4 = new SlickUI.Element.Checkbox(160,130));
-        panel.add(cb5 = new SlickUI.Element.Checkbox(200,115, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb4 = new SlickUI.Element.Checkbox(160,130, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb5 = new SlickUI.Element.Checkbox(200,115));
         
         // Right arm
-        panel.add(cb6 = new SlickUI.Element.Checkbox(280,115, SlickUI.Element.Checkbox.TYPE_CROSS));
-        panel.add(cb7 = new SlickUI.Element.Checkbox(320,130));
+        panel.add(cb7 = new SlickUI.Element.Checkbox(280,115));
+        panel.add(cb6 = new SlickUI.Element.Checkbox(320,130, SlickUI.Element.Checkbox.TYPE_CROSS));
 
-        // Left leg
-        panel.add(cb8 = new SlickUI.Element.Checkbox(215,195));
-        panel.add(cb9 = new SlickUI.Element.Checkbox(215,235, SlickUI.Element.Checkbox.TYPE_CROSS));
 
-        // Right leg
-        panel.add(cb10 = new SlickUI.Element.Checkbox(265,195));
-        panel.add(cb11 = new SlickUI.Element.Checkbox(265,235, SlickUI.Element.Checkbox.TYPE_CROSS));
-
-        
+        // Head / Helmet        
         cb1.events.onInputDown.add(function () {
 
             if(this.player.inventory.indexOf("black_helmet") < 0) {
@@ -344,6 +342,7 @@ CommandoZombi.Game.prototype = {
                     console.log("Take off Helmet");
                     health -= 20;
                     this.player.health = health;
+                    console.log("health: " + this.player.health);
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
@@ -364,384 +363,339 @@ CommandoZombi.Game.prototype = {
         }, this);
         
 
+        // Body / Armor
         cb2.events.onInputDown.add(function () {
-            if( cb2.checked ) {
-                console.log("Vest");
-                health += 20;
-                this.player.health = health;
+        
+            if(this.player.inventory.indexOf("black_armor") < 0) {
+                console.log("No armor in inventory");
+                cb2.checked = false;
+            }
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_body');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }           
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+            if(this.player.inventory.indexOf("black_armor") > 0) {
+                console.log("Armor in inventory");            
+                if( cb2.checked ) {
+                    console.log("Armor");
+                    health += 20;
+                    this.player.health = health;
 
-                this.player.loadTexture("player_new", 0, false);              
-                playerbody = 1;
-            } else {
-                console.log("No Vest");
-                health -= 20;
-                this.player.health = health;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_body');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }           
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    this.player.loadTexture("player_new", 0, false);              
+                    playerbody = 1;
+                } else {
+                    console.log("No armor");
+                    health -= 20;
+                    this.player.health = health;
 
-                this.player.loadTexture("player_new", 0, false);             
-                playerbody = 0;
-            }   
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+
+                    this.player.loadTexture("player_new", 0, false);             
+                    playerbody = 0;
+                }   
+           }     
         }, this);
 
 
+        // Leg / Pant
         cb3.events.onInputDown.add(function () {
-            if( cb3.checked ) {
-                console.log("Vest");
-                health += 20;
-                this.player.health = health;
+            if(this.player.inventory.indexOf("black_pant") < 0) {
+                console.log("No pant in inventory");
+                cb3.checked = false;
+            }
+        
+        
+            if(this.player.inventory.indexOf("black_pant") > 0) {
+                console.log("Pant in inventory");
+                if( cb3.checked ) {
+                    console.log("Pant");
+                    health += 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_body');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }           
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }             
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_body');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }           
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }             
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);                  
-                 playerbody = 1;
-            } else {
-                console.log("No Vest");
-                health -= 20;
-                this.player.health = health;
+                    this.player.loadTexture("player_new", 0, false);                  
+                     playerbody = 1;
+                } else {
+                    console.log("No Pant");
+                    health -= 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);                
-                playerbody = 0;
-            }   
+                    this.player.loadTexture("player_new", 0, false);                
+                    playerbody = 0;
+                }   
+            }
+            
         }, this);
 
+        // Right arm
         cb4.events.onInputDown.add(function () {
-            if( cb4.checked ) {
-                console.log("Shield");
-                health += 20;
-                this.player.health = health;
+            if(this.player.inventory.indexOf("black_shield") < 0) {
+                console.log("No shield in inventory");
+                cb4.checked = false;
+            }
+                
+                
+            if(this.player.inventory.indexOf("black_shield") > 0) {    
+                console.log("Shield in inventory");             
+                if( cb4.checked ) {
+                    console.log("Shield");
+                    health += 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_rightarm');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_rightarm');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);                 
-                playerarm = 1;
-            } else {
-                console.log("No Shield");
-                health -= 20;
-                this.player.health = health;
+                    this.player.loadTexture("player_new", 0, false);                 
+                    playerarm = 1;
+                } else {
+                    console.log("No Shield");
+                    health -= 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerbody == 1) { bmd.copy('player_body'); }                
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);               
-                playerarm = 0;
-            }   
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 0;
+                }
+            }
+               
         }, this);
 
         cb5.events.onInputDown.add(function () {
-            if( cb5.checked ) {
-                console.log("Weapon");
-                bullet += 10;
-        
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_rightarm');
-                
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }         
+            if(this.player.inventory.indexOf("black_sword") < 0) {
+                console.log("No sword in inventory");
+                cb5.checked = false;
+            }
+   
+            if(this.player.inventory.indexOf("black_sword") > 0) {    
+                console.log("Sword in inventory");                             
+                if( cb5.checked ) {
+                    console.log("Sword");
+                    bullet += 10;
             
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);               
-                playerarm = 1;
-            } else {
-                console.log("No Weapon");
-                bullet -= 10;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_rightarm');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }         
                 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerbody == 1) { bmd.copy('player_body'); }                
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                           
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);               
-                playerarm = 0;
-            }   
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 1;
+                } else {
+                    console.log("No Sword");
+                    bullet -= 10;
+                    
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                               
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 0;
+                }   
+             }
         }, this);
 
-
+        // Left Arm
         cb6.events.onInputDown.add(function () {
-            if( cb6.checked ) {
-                console.log("Shield");
-                health += 20;
-                this.player.health = health;
+        
+            if(this.player.inventory.indexOf("black_shield") < 0) {
+                console.log("No shield in inventory");
+                cb6.checked = false;
+            }
+                
+            if(this.player.inventory.indexOf("black_shield") > 0) {   
+                console.log("Shield in inventory");          
+                if( cb6.checked ) {
+                    console.log("Shield");
+                    health += 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_leftarm');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_leftarm');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);              
-                playerarm = 1;
-            } else {
-                console.log("No Shield");
-                health -= 20;
-                this.player.health = health;
+                    this.player.loadTexture("player_new", 0, false);              
+                    playerarm = 1;
+                } else {
+                    console.log("No Shield");
+                    health -= 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerbody == 1) { bmd.copy('player_body'); }                
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);               
-                playerarm = 0;
-            }   
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 0;
+                }   
+            }
         }, this);
 
         cb7.events.onInputDown.add(function () {
-            if( cb7.checked ) {
-                console.log("Weapon");
-                bullet += 10;
+            if(this.player.inventory.indexOf("black_sword") < 0) {
+                console.log("No sword in inventory");
+                cb7.checked = false;
+            }
+                   
+            if(this.player.inventory.indexOf("black_sword") > 0) {    
+                console.log("Swords in inventory");     
+                if( cb7.checked ) {
+                    console.log("Sword");
+                    bullet += 10;
+                    
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_leftarm');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) {bmd.copy('player_leftleg'); }            
                 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_leftarm');
-                
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) {bmd.copy('player_leftleg'); }            
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);               
-                playerarm = 1;
-            } else {
-                console.log("No Weapon");
-                bullet -= 10;
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 1;
+                } else {
+                    console.log("No Sword");
+                    bullet -= 10;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
                 
-                if (playerhead == 1) { bmd.copy('player_head'); }
-                if (playerbody == 1) { bmd.copy('player_body'); }                
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);             
-                playerarm = 0;
-            }   
+                    this.player.loadTexture("player_new", 0, false);             
+                    playerarm = 0;
+                }   
+            }
         }, this);
 
+        
+        // Feet / Boot
         cb8.events.onInputDown.add(function () {
-            if( cb8.checked ) {
-                console.log("Weapon");
-                health += 20;
-                this.player.health = health;
+            if(this.player.inventory.indexOf("black_boot") < 0) {
+                console.log("No Boot in inventory");
+                cb8.checked = false;
+            }
+        
+        
+            if(this.player.inventory.indexOf("black_boot") > 0) {
+                console.log("Boot in inventory");
+                if( cb8.checked ) {
+                    console.log("Boot");
+                    health += 20;
+                    this.player.health = health;
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_rightleg');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }             
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);                 
-                playerleg = 1;
-            } else {
-                console.log("No Weapon");
-                health -= 20;
-                this.player.health = health;
-
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                           
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);              
-                playerleg = 0;
-            }   
-        }, this);
-
-        cb9.events.onInputDown.add(function () {
-            if( cb9.checked ) {
-                console.log("Boot");
-                bullet += 10;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_rightleg');
                 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_rightleg');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);                    
-                playerleg = 1;
-            } else {
-                console.log("No Boot");
-                bullet -= 10;
+                    if (playerhead == 1) { bmd.copy('player_head'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }             
                 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    this.player.loadTexture("player_new", 0, false);                 
+                    playerleg = 1;
+                } else {
+                    console.log("No Boot");
+                    health -= 20;
+                    this.player.health = health;
 
-                this.player.loadTexture("player_new", 0, false);               
-                playerleg = 0;
-            }   
-        }, this);
-
-
-        cb10.events.onInputDown.add(function () {
-            if( cb10.checked ) {
-                console.log("Weapon");
-                health += 20;
-                this.player.health = health;
-
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_leftleg');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);                    
-                playerleg = 1;
-            } else {
-                console.log("No Weapon");
-                health -= 20;
-                this.player.health = health;
-
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);               
-                playerleg = 0;
-            }   
-        }, this);
-
-        cb11.events.onInputDown.add(function () {
-            if( cb11.checked ) {
-                console.log("Boot");
-                bullet += 10;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
                 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_leftleg');
-            
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }              
-            
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    if (playerhead == 1) { bmd.copy('player_head'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                               
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                this.player.loadTexture("player_new", 0, false);                  
-                playerleg = 1;
-            } else {
-                console.log("No Boot");
-                bullet -= 10;
-                
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-
-                if (playerhead == 1) { bmd.copy('player_head'); }                
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }     
+                    this.player.loadTexture("player_new", 0, false);              
+                    playerleg = 0;
+                }   
+            }
             
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                this.player.loadTexture("player_new", 0, false);               
-                playerleg = 0;
-            }   
         }, this);
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
