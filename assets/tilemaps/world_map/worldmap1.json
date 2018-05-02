@@ -122,7 +122,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"star",
+                     "sprite":"black_armor",
                      "type":"item"
                     },
                  "rotation":0,
@@ -139,7 +139,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"star",
+                     "sprite":"black_legs",
                      "type":"item"
                     },
                  "rotation":0,
@@ -156,7 +156,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"star",
+                     "sprite":"black_helmet",
                      "type":"item"
                     },
                  "rotation":0,
@@ -173,7 +173,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"star",
+                     "sprite":"black_shield",
                      "type":"item"
                     },
                  "rotation":0,
@@ -190,7 +190,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"star",
+                     "sprite":"chaos_sword",
                      "type":"item"
                     },
                  "rotation":0,

@@ -2,6 +2,8 @@ var CommandoZombi = CommandoZombi || {};
 
 //title screen
 CommandoZombi.Game = function(){};
+	
+    var displayGamepad = false;
 
     var music, playerSpellSound;
 
@@ -76,6 +78,15 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.enable(this.player);
 
         this.player.health = health;
+	this.player.inventory = [];
+
+	this.player.helmet = "";
+	this.player.armor = "";
+	this.player.shield_left = "";
+	this.player.shield_right = "";
+	this.player.weapon_left = "";
+	this.player.weapon_right = "";
+	this.player.pant = "";
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
@@ -173,50 +184,50 @@ CommandoZombi.Game.prototype = {
         t7.cameraOffset.setTo(10, 130);
  
 	// Gamepad
+	if(displayGamepad == true) {
+		buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
+		buttonPU.fixedToCamera = true;
+		buttonPU.cameraOffset.setTo(100, 300);
+		buttonPU.onInputOver.add(this.buttonPUonOver, this);
+		buttonPU.onInputOut.add(this.buttonPUonOut, this);
 
-        buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
-        buttonPU.fixedToCamera = true;
-        buttonPU.cameraOffset.setTo(100, 300);
-        buttonPU.onInputOver.add(this.buttonPUonOver, this);
-        buttonPU.onInputOut.add(this.buttonPUonOut, this);
+		buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionOnClick, this, 0);
+		buttonPD.fixedToCamera = true;
+		buttonPD.cameraOffset.setTo(100, 400);
+		buttonPD.onInputOver.add(this.buttonPDonOver, this);
+		buttonPD.onInputOut.add(this.buttonPDonOut, this);
 
-        buttonPD = this.game.add.button(100, 400, 'button_pad', this.actionOnClick, this, 0);
-        buttonPD.fixedToCamera = true;
-        buttonPD.cameraOffset.setTo(100, 400);
-        buttonPD.onInputOver.add(this.buttonPDonOver, this);
-        buttonPD.onInputOut.add(this.buttonPDonOut, this);
+		buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionOnClick, this, 0);
+		buttonPL.fixedToCamera = true;
+		buttonPL.cameraOffset.setTo(50, 350);
+		buttonPL.onInputOver.add(this.buttonPLonOver, this);
+		buttonPL.onInputOut.add(this.buttonPLonOut, this);
 
-        buttonPL = this.game.add.button(50, 350, 'button_pad', this.actionOnClick, this, 0);
-        buttonPL.fixedToCamera = true;
-        buttonPL.cameraOffset.setTo(50, 350);
-        buttonPL.onInputOver.add(this.buttonPLonOver, this);
-        buttonPL.onInputOut.add(this.buttonPLonOut, this);
-
-        buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionOnClick, this, 0);
-        buttonPR.fixedToCamera = true;
-        buttonPR.cameraOffset.setTo(150, 350);
-        buttonPR.onInputOver.add(this.buttonPRonOver, this);
-        buttonPR.onInputOut.add(this.buttonPRonOut, this);
-
-
-        buttonPF = this.game.add.button(100, 350, 'button_pad', this.actionbuttonpfOnClick, this, 0);
-        buttonPF.fixedToCamera = true;
-        buttonPF.cameraOffset.setTo(100, 350);
-
-        buttonA = this.game.add.button(260, 400, 'button_a', this.actionbuttonpaOnClick, this, 0);
-        buttonA.fixedToCamera = true;
-        buttonA.cameraOffset.setTo(260, 400);
-
-        buttonB = this.game.add.button(320, 400, 'button_b', this.actionbuttonpbOnClick, this, 0);
-        buttonB.fixedToCamera = true;
-        buttonB.cameraOffset.setTo(320, 400);
-
-        buttonC = this.game.add.button(380, 400, 'button_c', this.actionbuttonpcOnClick, this, 0);
-        buttonC.fixedToCamera = true;
-        buttonC.cameraOffset.setTo(380, 400);
+		buttonPR = this.game.add.button(150, 350, 'button_pad', this.actionOnClick, this, 0);
+		buttonPR.fixedToCamera = true;
+		buttonPR.cameraOffset.setTo(150, 350);
+		buttonPR.onInputOver.add(this.buttonPRonOver, this);
+		buttonPR.onInputOut.add(this.buttonPRonOut, this);
 
 
-    // UI
+		buttonPF = this.game.add.button(100, 350, 'button_pad', this.actionbuttonpfOnClick, this, 0);
+		buttonPF.fixedToCamera = true;
+		buttonPF.cameraOffset.setTo(100, 350);
+
+		buttonA = this.game.add.button(260, 400, 'button_a', this.actionbuttonpaOnClick, this, 0);
+		buttonA.fixedToCamera = true;
+		buttonA.cameraOffset.setTo(260, 400);
+
+		buttonB = this.game.add.button(320, 400, 'button_b', this.actionbuttonpbOnClick, this, 0);
+		buttonB.fixedToCamera = true;
+		buttonB.cameraOffset.setTo(320, 400);
+
+		buttonC = this.game.add.button(380, 400, 'button_c', this.actionbuttonpcOnClick, this, 0);
+		buttonC.fixedToCamera = true;
+		buttonC.cameraOffset.setTo(380, 400);
+	}
+
+    	// User Interface
         this.world.add(slickUI.container.displayGroup);
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
@@ -277,16 +288,16 @@ CommandoZombi.Game.prototype = {
         panel.add(cb2 = new SlickUI.Element.Checkbox(240,115, SlickUI.Element.Checkbox.TYPE_RADIO));
         panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_RADIO));
 
-        panel.add(cb4 = new SlickUI.Element.Checkbox(160,115));
+        panel.add(cb4 = new SlickUI.Element.Checkbox(160,130));
         panel.add(cb5 = new SlickUI.Element.Checkbox(200,115, SlickUI.Element.Checkbox.TYPE_CROSS));
         panel.add(cb6 = new SlickUI.Element.Checkbox(280,115, SlickUI.Element.Checkbox.TYPE_CROSS));
-        panel.add(cb7 = new SlickUI.Element.Checkbox(320,115));
+        panel.add(cb7 = new SlickUI.Element.Checkbox(320,130));
 
 
-        panel.add(cb8 = new SlickUI.Element.Checkbox(200,195));
-        panel.add(cb9 = new SlickUI.Element.Checkbox(200,235, SlickUI.Element.Checkbox.TYPE_CROSS));
-        panel.add(cb10 = new SlickUI.Element.Checkbox(280,195));
-        panel.add(cb11 = new SlickUI.Element.Checkbox(280,235, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb8 = new SlickUI.Element.Checkbox(215,195));
+        panel.add(cb9 = new SlickUI.Element.Checkbox(215,235, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb10 = new SlickUI.Element.Checkbox(265,195));
+        panel.add(cb11 = new SlickUI.Element.Checkbox(265,235, SlickUI.Element.Checkbox.TYPE_CROSS));
 
 
         cb1.events.onInputDown.add(function () {
@@ -1182,9 +1193,11 @@ CommandoZombi.Game.prototype = {
 
     },
   collect: function(player, collectable) {
-    console.log('yummy!');
+    console.log('Item taken');
 
-    //remove sprite
+    console.log(collectable.key);
+    this.player.inventory.push(collectable.key);
+    console.log( this.player.inventory);
     collectable.destroy();
   },
 }
