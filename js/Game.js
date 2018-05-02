@@ -31,15 +31,15 @@ CommandoZombi.Game = function(){};
 CommandoZombi.Game.prototype = {
 
     init: function(param1, param2, param3, param4, param5, param6, param7, param8) {
-        console.log('Game state');
-        console.log('previous worldmap: ' + param1);
-        console.log('next worldmap: ' + param2);
-        console.log('next gametiles: ' + param3);
-        console.log('agent: ' + param4);
-        console.log('operator: ' + param5);
-        console.log('health: ' + param6);
-        console.log('bullet: ' + param7);
-        console.log('zombi: ' + param8);
+        //console.log('Game state');
+        //console.log('previous worldmap: ' + param1);
+        //console.log('next worldmap: ' + param2);
+        //console.log('next gametiles: ' + param3);
+        //console.log('agent: ' + param4);
+        //console.log('operator: ' + param5);
+        //console.log('health: ' + param6);
+        //console.log('bullet: ' + param7);
+        //console.log('zombi: ' + param8);
 
         pworldmap= param1;
         nworldmap = param2;
@@ -78,15 +78,15 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.enable(this.player);
 
         this.player.health = health;
-	this.player.inventory = [];
+	    this.player.inventory = [];
 
-	this.player.helmet = "";
-	this.player.armor = "";
-	this.player.shield_left = "";
-	this.player.shield_right = "";
-	this.player.weapon_left = "";
-	this.player.weapon_right = "";
-	this.player.pant = "";
+        this.player.helmet = "";
+        this.player.armor = "";
+        this.player.shield_left = "";
+        this.player.shield_right = "";
+        this.player.weapon_left = "";
+        this.player.weapon_right = "";
+        this.player.pant = "";
 
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
@@ -141,20 +141,20 @@ CommandoZombi.Game.prototype = {
 
 
 
-//Non-Playable Characters
-    //create boss
+        //Non-Playable Characters
+        //create boss
         var blacklordResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
         this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
         this.game.physics.arcade.enable(this.blacklord);
         this.blacklord.health = 10;
         this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
 
-    //add non-player spritesheets
+        //add non-player spritesheets
         this.playerBullet = this.game.add.sprite('playerBullet');
         this.blacklordBullet = this.game.add.sprite('blacklordBullet');
 
 
-    // HUD
+        // HUD
         t1 = this.game.add.text(10, 10, "Agent: " + agent, { font: "16px Arial", fill: "#000000", align: "left" });
         t1.fixedToCamera = true;
         t1.cameraOffset.setTo(10, 10);
@@ -284,67 +284,85 @@ CommandoZombi.Game.prototype = {
         
         var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
 
+        // Head
         panel.add(cb1 = new SlickUI.Element.Checkbox(240,75, SlickUI.Element.Checkbox.TYPE_RADIO));
+
+        // Body
         panel.add(cb2 = new SlickUI.Element.Checkbox(240,115, SlickUI.Element.Checkbox.TYPE_RADIO));
         panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_RADIO));
 
+        // Left arm
         panel.add(cb4 = new SlickUI.Element.Checkbox(160,130));
         panel.add(cb5 = new SlickUI.Element.Checkbox(200,115, SlickUI.Element.Checkbox.TYPE_CROSS));
+        
+        // Right arm
         panel.add(cb6 = new SlickUI.Element.Checkbox(280,115, SlickUI.Element.Checkbox.TYPE_CROSS));
         panel.add(cb7 = new SlickUI.Element.Checkbox(320,130));
 
-
+        // Left leg
         panel.add(cb8 = new SlickUI.Element.Checkbox(215,195));
         panel.add(cb9 = new SlickUI.Element.Checkbox(215,235, SlickUI.Element.Checkbox.TYPE_CROSS));
+
+        // Right leg
         panel.add(cb10 = new SlickUI.Element.Checkbox(265,195));
         panel.add(cb11 = new SlickUI.Element.Checkbox(265,235, SlickUI.Element.Checkbox.TYPE_CROSS));
 
-
+        
         cb1.events.onInputDown.add(function () {
-            if( cb1.checked ) {
-                console.log("Helmet");
-                health += 20;
-                this.player.health = health;
-                console.log("health: " + this.player.health);
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
-                bmd.copy('player_head');
+            if(this.player.inventory.indexOf("black_helmet") < 0) {
+                console.log("No helmet in inventory");
+                cb1.checked = false;
+            }
 
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+            if(this.player.inventory.indexOf("black_helmet") > 0) {
+                console.log("Helmet in inventory");
+                if( cb1.checked ) {
+                    console.log("Wear helmet");
+                    health += 20;
+                    this.player.health = health;
+                    console.log("health: " + this.player.health);
 
-                // To add a bitmapdata as a spritesheet to phaser:
-                // https://stackoverflow.com/questions/34401175/loading-spritesheet-from-bitmapdata-in-phaser
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_head');
 
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    if (playerbody == 1) { bmd.copy('player_body'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
-                this.player.loadTexture("player_new", 0, false);
-                playerhead = 1;
-            } else {
-                console.log("No Helmet");
-                health -= 20;
-                this.player.health = health;
+                    // To add a bitmapdata as a spritesheet to phaser:
+                    // https://stackoverflow.com/questions/34401175/loading-spritesheet-from-bitmapdata-in-phaser
 
-                var bmd = this.game.add.bitmapData(144, 256);
-                bmd.copy('player');
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                if (playerbody == 1) { bmd.copy('player_body'); }
-                if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                if (playerarm == 1) { bmd.copy('player_rightarm'); }
-                if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                if (playerleg == 1) { bmd.copy('player_leftleg'); }
+                    this.player.loadTexture("player_new", 0, false);
+                    playerhead = 1;
+                } else {
+                    console.log("Take off Helmet");
+                    health -= 20;
+                    this.player.health = health;
 
-                this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
 
-                this.player.loadTexture("player_new", 0, false);
-                playerhead = 0;
-            }   
+                    if (playerbody == 1) { bmd.copy('player_body'); }
+                    if (playerarm == 1) { bmd.copy('player_leftarm'); }
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
+
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+
+                    this.player.loadTexture("player_new", 0, false);
+                    playerhead = 0;
+                }   
+            }
+
         }, this);
-
+        
 
         cb2.events.onInputDown.add(function () {
             if( cb2.checked ) {
@@ -732,13 +750,13 @@ CommandoZombi.Game.prototype = {
     },
 
   createItems: function() {
-    console.log("CreateItems()");
+    //console.log("CreateItems()");
     //create items
     this.items = this.game.add.group();
     this.items.enableBody = true;
     var item;
     result = this.findObjectsByType('item', this.map, 'itemLayer');
-    console.log(result);
+    //console.log(result);
     result.forEach(function(element){
       this.createFromTiledObject(element, this.items);
     }, this);
@@ -804,10 +822,10 @@ CommandoZombi.Game.prototype = {
         if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
             this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
             cworldmap == levelObject.current) {
-            console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
-            console.log('Change Level');
-            console.log('Current worldmap: ' + nworldmap);
-            console.log('Next worldmap: ' + levelObject.next);
+            //console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
+            //console.log('Change Level');
+            //console.log('Current worldmap: ' + nworldmap);
+            //console.log('Next worldmap: ' + levelObject.next);
             this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet, zombi)
         }
     }
