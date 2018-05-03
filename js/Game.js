@@ -617,13 +617,31 @@ CommandoZombi.Game.prototype = {
 
 
         cb6.events.onInputDown.add(function () {
-        
-            if(this.player.inventory.indexOf("black_shield") < 0) {
+            console.log("Right arm");
+            console.log(this.player.inventory.indexOf( "black_shield" ));
+            if (cb4.checked == true && this.player.inventory.indexOf( "black_shield" ) >= 0 && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
+                console.log("1 shield in inventory, Shield is already wear");
+                cb6.checked = false;
+            } 
+
+            if ( this.player.inventory.indexOf( "black_shield" ) < 0 ) {
                 console.log("No shield in inventory");
                 cb6.checked = false;
             } else {
-                console.log("Shield in inventory");          
+                
                 if( cb6.checked ) {
+                    console.log("Shield");
+                    if (cb4.checked == true && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("2 shield in inventory, another 1 Shield wear");
+                    }
+
+                    if (cb4.checked == false && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("1 shield in inventory, unique shield wear");
+                    } 
+
+                    if (cb4.checked == false && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("2 shield in inventory, 1 of 2 Shield wear");
+                    } 
                     console.log("Shield");
                     health += 20;
                     this.player.health = health;
@@ -640,6 +658,7 @@ CommandoZombi.Game.prototype = {
 
                     this.player.loadTexture("player_new", 0, false);              
                     playerarm = 1;
+
                 } else {
                     console.log("No Shield");
                     health -= 20;
@@ -657,8 +676,10 @@ CommandoZombi.Game.prototype = {
 
                     this.player.loadTexture("player_new", 0, false);               
                     playerarm = 0;
-                }   
+                }
+
             }
+
         }, this);
         
         // Feet / Boot
