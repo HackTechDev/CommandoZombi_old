@@ -313,7 +313,7 @@ CommandoZombi.Game.prototype = {
                 cb1.checked = false;
             }
 
-            if(this.player.inventory.indexOf("black_helmet") > 0) {
+            if(this.player.inventory.indexOf("black_helmet") >= 0) {
                 console.log("Helmet in inventory");
                 if( cb1.checked ) {
                     console.log("Wear helmet");
@@ -371,7 +371,7 @@ CommandoZombi.Game.prototype = {
                 cb2.checked = false;
             }
 
-            if(this.player.inventory.indexOf("black_armor") > 0) {
+            if(this.player.inventory.indexOf("black_armor") >= 0) {
                 console.log("Armor in inventory");            
                 if( cb2.checked ) {
                     console.log("Armor");
@@ -421,7 +421,7 @@ CommandoZombi.Game.prototype = {
             }
         
         
-            if(this.player.inventory.indexOf("black_pant") > 0) {
+            if(this.player.inventory.indexOf("black_pant") >= 0) {
                 console.log("Pant in inventory");
                 if( cb3.checked ) {
                     console.log("Pant");
@@ -463,17 +463,33 @@ CommandoZombi.Game.prototype = {
             
         }, this);
 
-        // Right arm
+        // Left arm
         cb4.events.onInputDown.add(function () {
-            if(this.player.inventory.indexOf("black_shield") < 0) {
+            console.log("Left arm");
+            console.log(this.player.inventory.indexOf( "black_shield" ));
+            if (cb6.checked == true && this.player.inventory.indexOf( "black_shield" ) >= 0 && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
+                console.log("1 shield in inventory, Shield is already wear");
+                cb4.checked = false;
+            } 
+
+            if ( this.player.inventory.indexOf( "black_shield" ) < 0 ) {
                 console.log("No shield in inventory");
                 cb4.checked = false;
-            }
+            } else {
                 
-                
-            if(this.player.inventory.indexOf("black_shield") > 0) {    
-                console.log("Shield in inventory");             
                 if( cb4.checked ) {
+                    console.log("Shield");
+                    if (cb6.checked == true && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("2 shield in inventory, another 1 Shield wear");
+                    }
+
+                    if (cb6.checked == false && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("1 shield in inventory, unique shield wear");
+                    } 
+
+                    if (cb6.checked == false && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
+                        console.log("2 shield in inventory, 1 of 2 Shield wear");
+                    } 
                     console.log("Shield");
                     health += 20;
                     this.player.health = health;
@@ -490,6 +506,7 @@ CommandoZombi.Game.prototype = {
 
                     this.player.loadTexture("player_new", 0, false);                 
                     playerarm = 1;
+
                 } else {
                     console.log("No Shield");
                     health -= 20;
@@ -508,17 +525,16 @@ CommandoZombi.Game.prototype = {
                     this.player.loadTexture("player_new", 0, false);               
                     playerarm = 0;
                 }
+
             }
-               
+
         }, this);
 
         cb5.events.onInputDown.add(function () {
             if(this.player.inventory.indexOf("black_sword") < 0) {
                 console.log("No sword in inventory");
                 cb5.checked = false;
-            }
-   
-            if(this.player.inventory.indexOf("black_sword") > 0) {    
+            } else {
                 console.log("Sword in inventory");                             
                 if( cb5.checked ) {
                     console.log("Sword");
@@ -556,15 +572,56 @@ CommandoZombi.Game.prototype = {
              }
         }, this);
 
-        // Left Arm
+        // Right Arm
+
+        cb7.events.onInputDown.add(function () {
+            if(this.player.inventory.indexOf("black_sword") < 0) {
+                console.log("No sword in inventory");
+                cb7.checked = false;
+            } else {
+                console.log("Swords in inventory");     
+                if( cb7.checked ) {
+                    console.log("Sword");
+                    bullet += 10;
+                    
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    bmd.copy('player_leftarm');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) {bmd.copy('player_leftleg'); }            
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+
+                    this.player.loadTexture("player_new", 0, false);               
+                    playerarm = 1;
+                } else {
+                    console.log("No Sword");
+                    bullet -= 10;
+                    var bmd = this.game.add.bitmapData(144, 256);
+                    bmd.copy('player');
+                    
+                    if (playerhead == 1) { bmd.copy('player_head'); }
+                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                
+                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
+
+                    this.player.loadTexture("player_new", 0, false);             
+                    playerarm = 0;
+                }   
+            }
+        }, this);
+
+
         cb6.events.onInputDown.add(function () {
         
             if(this.player.inventory.indexOf("black_shield") < 0) {
                 console.log("No shield in inventory");
                 cb6.checked = false;
-            }
-                
-            if(this.player.inventory.indexOf("black_shield") > 0) {   
+            } else {
                 console.log("Shield in inventory");          
                 if( cb6.checked ) {
                     console.log("Shield");
@@ -603,50 +660,6 @@ CommandoZombi.Game.prototype = {
                 }   
             }
         }, this);
-
-        cb7.events.onInputDown.add(function () {
-            if(this.player.inventory.indexOf("black_sword") < 0) {
-                console.log("No sword in inventory");
-                cb7.checked = false;
-            }
-                   
-            if(this.player.inventory.indexOf("black_sword") > 0) {    
-                console.log("Swords in inventory");     
-                if( cb7.checked ) {
-                    console.log("Sword");
-                    bullet += 10;
-                    
-                    var bmd = this.game.add.bitmapData(144, 256);
-                    bmd.copy('player');
-                    bmd.copy('player_leftarm');
-                    
-                    if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) {bmd.copy('player_leftleg'); }            
-                
-                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                    this.player.loadTexture("player_new", 0, false);               
-                    playerarm = 1;
-                } else {
-                    console.log("No Sword");
-                    bullet -= 10;
-                    var bmd = this.game.add.bitmapData(144, 256);
-                    bmd.copy('player');
-                    
-                    if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerbody == 1) { bmd.copy('player_body'); }                
-                    if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-                
-                    this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                    this.player.loadTexture("player_new", 0, false);             
-                    playerarm = 0;
-                }   
-            }
-        }, this);
-
         
         // Feet / Boot
         cb8.events.onInputDown.add(function () {
@@ -1165,11 +1178,16 @@ CommandoZombi.Game.prototype = {
 
     },
   collect: function(player, collectable) {
-    console.log('Item taken');
-
-    console.log(collectable.key);
-    this.player.inventory.push(collectable.key);
-    console.log( this.player.inventory);
-    collectable.destroy();
+    if(this.player.inventory.length < 6) {
+        // Can take only 2 items
+        // In inventory, there are always 2 same items
+        if(this.player.inventory.indexOf(collectable.key) == this.player.inventory.lastIndexOf(collectable.key) ) {
+            console.log('Item taken');
+            console.log(collectable.key);
+            this.player.inventory.push(collectable.key);
+            console.log( this.player.inventory);
+            collectable.destroy();
+        }
+    }
   },
 }

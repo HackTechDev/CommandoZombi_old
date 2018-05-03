@@ -61,7 +61,7 @@
          "name":"pathLayer2",
          "opacity":1,
          "type":"tilelayer",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -89,7 +89,7 @@
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -216,10 +216,146 @@
                  "width":32,
                  "x":857,
                  "y":2985
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":104,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_sword",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":857,
+                 "y":2985
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":105,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_shield",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":768,
+                 "y":2978
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":106,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_sword",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":690,
+                 "y":3139
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":107,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_shield",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":705,
+                 "y":3030
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":108,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_sword",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":877,
+                 "y":3053
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":109,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_sword",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1103,
+                 "y":2984
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":110,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_shield",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":1021,
+                 "y":3104
+                }, 
+                {
+                 "gid":459,
+                 "height":32,
+                 "id":111,
+                 "name":"",
+                 "properties":
+                    {
+                     "sprite":"black_sword",
+                     "type":"item"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":866,
+                 "y":3130
                 }],
          "opacity":1,
          "type":"objectgroup",
-         "visible":false,
+         "visible":true,
          "width":100,
          "x":0,
          "y":0
@@ -230,7 +366,7 @@
          "name":"CANTGOHERE",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":100,
          "x":0,
          "y":0
@@ -241,7 +377,7 @@
          "name":"topLayer1",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":100,
          "x":0,
          "y":0
@@ -252,7 +388,7 @@
          "name":"topLayer2",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":100,
          "x":0,
          "y":0
@@ -263,7 +399,7 @@
          "name":"topLayer3",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":100,
          "x":0,
          "y":0
@@ -274,7 +410,7 @@
          "name":"topLayer4",
          "opacity":1,
          "type":"tilelayer",
-         "visible":true,
+         "visible":false,
          "width":100,
          "x":0,
          "y":0
@@ -1366,7 +1502,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":104,
+ "nextobjectid":112,
  "orientation":"orthogonal",
  "properties":
     {
