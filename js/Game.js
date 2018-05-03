@@ -531,12 +531,33 @@ CommandoZombi.Game.prototype = {
         }, this);
 
         cb5.events.onInputDown.add(function () {
+        
+            console.log("Left arm");
+            console.log(this.player.inventory.indexOf( "black_sword"));
+            if (cb7.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
+                console.log("1 sword in inventory, sword is already wear");
+                cb5.checked = false;
+            } 
+            
+                    
             if(this.player.inventory.indexOf("black_sword") < 0) {
                 console.log("No sword in inventory");
                 cb5.checked = false;
             } else {
-                console.log("Sword in inventory");                             
                 if( cb5.checked ) {
+                    console.log("sword");
+                    if (cb7.checked == true && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("2 sword in inventory, another 1 sword wear");
+                    }
+
+                    if (cb7.checked == false && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("1 sword in inventory, unique sword wear");
+                    } 
+
+                    if (cb7.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("2 sword in inventory, 1 of 2 sword wear");
+                    } 
+                                                 
                     console.log("Sword");
                     bullet += 10;
             
@@ -575,12 +596,32 @@ CommandoZombi.Game.prototype = {
         // Right Arm
 
         cb7.events.onInputDown.add(function () {
+        
+            console.log("Right arm");
+            console.log(this.player.inventory.indexOf( "black_sword"));
+            if (cb5.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
+                console.log("1 sword in inventory, sword is already wear");
+                cb7.checked = false;
+            } 
+            
+                    
             if(this.player.inventory.indexOf("black_sword") < 0) {
                 console.log("No sword in inventory");
                 cb7.checked = false;
             } else {
-                console.log("Swords in inventory");     
                 if( cb7.checked ) {
+                    console.log("sword");
+                    if (cb5.checked == true && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("2 sword in inventory, another 1 sword wear");
+                    }
+
+                    if (cb5.checked == false && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("1 sword in inventory, unique sword wear");
+                    } 
+
+                    if (cb5.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
+                        console.log("2 sword in inventory, 1 of 2 sword wear");
+                    } 
                     console.log("Sword");
                     bullet += 10;
                     
@@ -593,8 +634,7 @@ CommandoZombi.Game.prototype = {
                     if (playerleg == 1) {bmd.copy('player_leftleg'); }            
                 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-
-                    this.player.loadTexture("player_new", 0, false);               
+                    this.player.loadTexture("player_new", 0, false);                        
                     playerarm = 1;
                 } else {
                     console.log("No Sword");
@@ -612,7 +652,7 @@ CommandoZombi.Game.prototype = {
                     this.player.loadTexture("player_new", 0, false);             
                     playerarm = 0;
                 }   
-            }
+             }
         }, this);
 
 
