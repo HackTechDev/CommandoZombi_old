@@ -228,12 +228,23 @@ CommandoZombi.Game.prototype = {
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
         textField.events.onOK.add(function () {
-            if( textField.value == "inv") {
+            arg = textField.value.split(" ");
+            if( arg[0] == "inv") {
+                console.log("inventory");
                 result = "";
                 for(i=0;i<inventory.length;i++) {
                     result += i + ": " + inventory[i] + "\n";
                 }
                 alert("== Inventory ==\n" + result);  
+            } else if (arg[0]  == "rem") {
+                console.log("remove");
+                inventory.splice(arg[1], 1);
+                result = "";
+                for(i=0;i<inventory.length;i++) {
+                    result += i + ": " + inventory[i] + "\n";
+                }
+                alert("== Inventory ==\n" + result);  
+               
             } else {
                 alert('Command unknown: ' + textField.value);
             }
