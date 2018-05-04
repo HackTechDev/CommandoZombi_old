@@ -69,34 +69,6 @@
         {
          "draworder":"topdown",
          "height":100,
-         "name":"playerStart",
-         "objects":[
-                {
-                 "gid":971,
-                 "height":32,
-                 "id":1,
-                 "name":"",
-                 "properties":
-                    {
-                     "type":"playerStart"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":32,
-                 "x":714.033581544751,
-                 "y":2544.83632647102
-                }],
-         "opacity":1,
-         "type":"objectgroup",
-         "visible":true,
-         "width":100,
-         "x":0,
-         "y":0
-        }, 
-        {
-         "draworder":"topdown",
-         "height":100,
          "name":"itemLayer",
          "objects":[
                 {
@@ -352,6 +324,34 @@
                  "width":32,
                  "x":866,
                  "y":3130
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "width":100,
+         "x":0,
+         "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "height":100,
+         "name":"playerStart",
+         "objects":[
+                {
+                 "gid":971,
+                 "height":32,
+                 "id":1,
+                 "name":"",
+                 "properties":
+                    {
+                     "type":"playerStart"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":714.033581544751,
+                 "y":2544.83632647102
                 }],
          "opacity":1,
          "type":"objectgroup",
