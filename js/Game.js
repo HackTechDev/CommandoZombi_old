@@ -27,20 +27,12 @@ CommandoZombi.Game = function(){};
 
     var playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
 
+    var inventory = [];
+
 //create game instance
 CommandoZombi.Game.prototype = {
 
     init: function(param1, param2, param3, param4, param5, param6, param7, param8) {
-        //console.log('Game state');
-        //console.log('previous worldmap: ' + param1);
-        //console.log('next worldmap: ' + param2);
-        //console.log('next gametiles: ' + param3);
-        //console.log('agent: ' + param4);
-        //console.log('operator: ' + param5);
-        //console.log('health: ' + param6);
-        //console.log('bullet: ' + param7);
-        //console.log('zombi: ' + param8);
-
         pworldmap= param1;
         nworldmap = param2;
         ngametiles = param3;
@@ -236,13 +228,21 @@ CommandoZombi.Game.prototype = {
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
         textField.events.onOK.add(function () {
-            alert('Command: ' + textField.value);
+            if( textField.value == "inv") {
+                result = "";
+                for(i=0;i<inventory.length;i++) {
+                    result += i + ": " + inventory[i] + "\n";
+                }
+                alert("== Inventory ==\n" + result);  
+            } else {
+                alert('Command unknown: ' + textField.value);
+            }
         });
         textField.events.onToggle.add(function (open) {
-            console.log('You just ' + (open ? 'opened' : 'closed') + ' the virtual keyboard');
+            console.log('Virtual Keyboard ' + (open ? 'opened' : 'closed'));
         });
         textField.events.onKeyPress.add(function(key) {
-            console.log('You pressed: ' + key);
+            console.log('Key pressed: ' + key);
         });
 
         
@@ -1246,6 +1246,7 @@ CommandoZombi.Game.prototype = {
             console.log(collectable.key);
             this.player.inventory.push(collectable.key);
             console.log( this.player.inventory);
+            inventory = this.player.inventory;
             collectable.destroy();
         }
     }
