@@ -88,6 +88,8 @@ CommandoZombi.Game.prototype = {
         this.player.weapon_right = "";
         this.player.pant = "";
 
+        this.player.bullet = bullet;
+
         this.blockedLayer = this.map.createLayer('CANTGOHERE');
         this.foregroundLayer = this.map.createLayer('topLayer1');
         this.foregroundLayer = this.map.createLayer('topLayer2');
@@ -245,14 +247,6 @@ CommandoZombi.Game.prototype = {
 
         
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
-        panel.add(button = new SlickUI.Element.Button(0, 170, 140, 40)).events.onInputUp.add(function () {
-            console.log('Gear');
-            bullet -= 10;
-            health -= 10;
-            player.health -= 10;
-        });
-
-        button.add(new SlickUI.Element.Text(0,0, "Gear")).center();
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
@@ -559,7 +553,7 @@ CommandoZombi.Game.prototype = {
                     } 
                                                  
                     console.log("Sword");
-                    bullet += 10;
+                    this.player.bullet += 10;
             
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
@@ -575,7 +569,7 @@ CommandoZombi.Game.prototype = {
                     playerarm = 1;
                 } else {
                     console.log("No Sword");
-                    bullet -= 10;
+                    this.player.bullet -= 10;
                     
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
@@ -623,7 +617,7 @@ CommandoZombi.Game.prototype = {
                         console.log("2 sword in inventory, 1 of 2 sword wear");
                     } 
                     console.log("Sword");
-                    bullet += 10;
+                    this.player.bullet += 10;
                     
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
@@ -638,7 +632,7 @@ CommandoZombi.Game.prototype = {
                     playerarm = 1;
                 } else {
                     console.log("No Sword");
-                    bullet -= 10;
+                    this.player.bullet -= 10;
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     
@@ -854,7 +848,7 @@ CommandoZombi.Game.prototype = {
             //console.log('Change Level');
             //console.log('Current worldmap: ' + nworldmap);
             //console.log('Next worldmap: ' + levelObject.next);
-            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, bullet, zombi)
+            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, this.player.bullet, zombi)
         }
     }
 
@@ -954,7 +948,6 @@ CommandoZombi.Game.prototype = {
                 //  Grab the first bullet we can from the pool
                 this.playerBullet = this.playerBullets.getFirstExists(false);
                 if (this.playerBullet) {
-                    bullet -= 1;
                 //  And fire it
                     if (this.player.facing == "right") {
                         this.playerBullets.callAllExists('play', false, 'right');
@@ -1185,7 +1178,13 @@ CommandoZombi.Game.prototype = {
             this.player.animations.play('right');
 
         } else if (this.fireButton.isDown) {
-            this.fireBullet();
+            if( this.player.bullet > 0 ) {
+                this.player.bullet -= 1;
+                this.fireBullet();
+            } else {
+                console.log("No more ammo");
+                
+            }
         }else {
             this.player.animations.stop();
         }
@@ -1211,7 +1210,7 @@ CommandoZombi.Game.prototype = {
     
         t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
         t5.setText("Health: " + health);
-        t6.setText("Bullet: " + bullet);
+        t6.setText("Bullet: " + this.player.bullet);
         t7.setText("Zombi: " + zombi);
 
 
