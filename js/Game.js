@@ -1,6 +1,6 @@
 var CommandoZombi = CommandoZombi || {};
 
-//title screen
+// Title screen
 CommandoZombi.Game = function(){};
 	
     var displayGamepad = false;
@@ -29,7 +29,7 @@ CommandoZombi.Game = function(){};
 
     var inventory = [];
 
-//create game instance
+// Create game instance
 CommandoZombi.Game.prototype = {
 
     init: function(param1, param2, param3, param4, param5, param6, param7, param8) {
@@ -47,16 +47,16 @@ CommandoZombi.Game.prototype = {
     create: function() {
         this.map = this.game.add.tilemap(nworldmap);
 
-        //Add music
-          music = this.add.audio('zombieAmbiance');
-          music.play();
+        // Add music
+        music = this.add.audio('zombieAmbiance');
+        music.play();
 
-        //First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
+        // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
         this.map.addTilesetImage('tileset', ngametiles);
 
 
-        //Map
-        //Create map
+        // Map
+        // Create map
         this.blockedLayer = this.map.createLayer('waterLayer');
         this.backgroundLayer = this.map.createLayer('groundLayer1');
         this.backgroundLayer = this.map.createLayer('groundLayer2');
@@ -64,7 +64,7 @@ CommandoZombi.Game.prototype = {
         this.backgroundLayer = this.map.createLayer('pathLayer1');
         this.backgroundLayer = this.map.createLayer('pathLayer2');
 
-        //create player
+        // Create player
         var result = this.findObjectsByType('playerStart', this.map, 'playerStart');
         this.player = this.game.add.sprite(result[0].x, result[0].y, 'player');
         this.game.physics.arcade.enable(this.player);
@@ -90,12 +90,12 @@ CommandoZombi.Game.prototype = {
 
         this.foregroundLayer.bringToTop();
 
-        //Resizes game world to match the layer dimensions
+        // Resizes game world to match the layer dimensions
         this.backgroundLayer.resizeWorld();
 
         this.createItems();
 
-        // collisions
+        // Collisions
         // Collision on blocked layer. 2000 is the number of bricks we can collide into - this is found in the json file for the map
         this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
         this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
@@ -106,14 +106,12 @@ CommandoZombi.Game.prototype = {
 
         this.createEnemies();
 
+        // Player
 
-
-    // Player
-
-    // the camera follows player
+        // The camera follows player
         this.game.camera.follow(this.player);
 
-    // move player with cursor keys
+        // Move player with cursor keys
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         this.playerBulletTime = 0;
@@ -133,22 +131,20 @@ CommandoZombi.Game.prototype = {
         this.blacklordBullets.callAll('animations.add', 'animations', 'shoot', [0, 1, 2, 3, 4, 5], 10, true);
         this.explosions.callAll('animations.add', 'animations', 'kaboom', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], 15, true);
 
-
-
-        //Non-Playable Characters
-        //create boss
+        // Non-Playable Characters
+        // Create boss
         var blacklordResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
         this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
         this.game.physics.arcade.enable(this.blacklord);
         this.blacklord.health = 10;
         this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
 
-        //add non-player spritesheets
+        // Add non-player spritesheets
         this.playerBullet = this.game.add.sprite('playerBullet');
         this.blacklordBullet = this.game.add.sprite('blacklordBullet');
 
 
-        // HUD
+        // Head-Up Display
         t1 = this.game.add.text(10, 10, "Agent: " + agent, { font: "16px Arial", fill: "#000000", align: "left" });
         t1.fixedToCamera = true;
         t1.cameraOffset.setTo(10, 10);
@@ -240,7 +236,7 @@ CommandoZombi.Game.prototype = {
                 console.log("remove");
                 inventory.splice(arg[1], 1);
                 result = "";
-                for(i=0;i<inventory.length;i++) {
+                for(i=0; i < inventory.length; i++) {
                     result += i + ": " + inventory[i] + "\n";
                 }
                 alert("== Inventory ==\n" + result);  
@@ -866,7 +862,7 @@ CommandoZombi.Game.prototype = {
   },
  
 
-    //create NPC's
+        //create NPC's
         createEnemies: function() {
             this.enemies = this.game.add.group();
             this.enemies.enableBody = true;
@@ -905,17 +901,17 @@ CommandoZombi.Game.prototype = {
 
         },
 
-        //create a sprite from an object
+        // Create a sprite from an object
         createFromTiledObject: function(element, group) {
             var sprite = group.create(element.x, element.y, element.properties.sprite);
 
-            //copy all properties to the sprite
+            // Copy all properties to the sprite
             Object.keys(element.properties).forEach(function(key){
                 sprite[key] = element.properties[key];
             });
         },
 
-        //places sprite in designated area
+            // Places sprite in designated area
             findObjectsByType: function(type, map, layer) {
                 var result = new Array();
                     map.objects[layer].forEach(function(element) {
@@ -928,8 +924,8 @@ CommandoZombi.Game.prototype = {
                 return result;
             },
 
-    //Bullets
-    //player bullets
+        // Bullets
+        // Player bullets
         createPlayerBullets: function() {
             this.playerBullets = this.game.add.group();
             this.playerBullets.enableBody = true;
@@ -941,7 +937,7 @@ CommandoZombi.Game.prototype = {
             this.playerBullets.setAll('checkWorldBounds', true);
         },
 
-    //boss bullets
+        // Boss bullets
         createBlacklordBullets: function() {
             this.blacklordBullets = this.game.add.group();
             this.blacklordBullets.enableBody = true;
@@ -953,13 +949,13 @@ CommandoZombi.Game.prototype = {
             this.blacklordBullets.setAll('checkWorldBounds', true);
         },
 
-    //fire player bullets
+        // Fire player bullets
         fireBullet: function() {
             if (this.game.time.now > this.playerBulletTime) {
-                //  Grab the first bullet we can from the pool
+                // Grab the first bullet we can from the pool
                 this.playerBullet = this.playerBullets.getFirstExists(false);
                 if (this.playerBullet) {
-                //  And fire it
+                // And fire it
                     if (this.player.facing == "right") {
                         this.playerBullets.callAllExists('play', false, 'right');
                         this.playerBullet.reset(this.player.x + 30, this.player.y + 60);
@@ -989,7 +985,7 @@ CommandoZombi.Game.prototype = {
             }
         },
 
-    //fire boss bullets
+        // Fire boss bullets
         fireBlacklordBullet: function() {
             if (this.game.time.now > this.blacklordBulletTime) {
                 //  Grab the first bullet we can from the pool
@@ -1008,7 +1004,7 @@ CommandoZombi.Game.prototype = {
             }
         },
 
-    //remove enemy from map
+        // Remove enemy from map
         enemyKiller: function(playerBullet, enemy) {
             this.playerBullet.kill();
 
@@ -1055,7 +1051,7 @@ CommandoZombi.Game.prototype = {
             }
         },
 
-    //remove player from map
+        // Remove player from map
         playerKiller: function(player, enemy) {
             this.xdirection = this.player.body.x - enemy.body.x;
             this.ydirection = enemy.body.y - this.player.body.y;
@@ -1092,23 +1088,24 @@ CommandoZombi.Game.prototype = {
             }
         },
 
-    //animation for death
+        // Animation for death
         createExplosions: function() {
             this.explosions = this.game.add.group();
             this.explosions.createMultiple(30, 'kaboom');
         },
 
-    //remove bullet if offscreen
+        // Remove bullet if offscreen
         resetPlayerBullet: function() {
           this.playerBullet.kill();
         },
 
-    //remove bullet if offscreen
+        // Remove bullet if offscreen
         resetBlacklordBullet: function() {
             this.blacklordBullet.kill();
         },
 
-    //Updates devils animation. First, we search for all devils and put them in array. Then, we see which direction they're moving and set the animation.
+        // Updates devils animation. First, we search for all devils and put them in array. 
+        // Then, we see which direction they're moving and set the animation.
         updateDevilAnimation: function() {
           var devilsArray = [];
           this.enemies.forEach(function(enemy) {
@@ -1127,7 +1124,8 @@ CommandoZombi.Game.prototype = {
           });
         },
 
-    //Updates guards animation. First, we search for all guards and put them in array. Then, we see which direction they're moving and set the animation.
+        // Updates guards animation. First, we search for all guards and put them in array. 
+        // Then, we see which direction they're moving and set the animation.
         updateGuardAnimation: function() {
           var guardsArray = [];
           this.enemies.forEach(function(enemy) {
@@ -1158,7 +1156,7 @@ CommandoZombi.Game.prototype = {
         },
 
     update: function() {
-        //player movement
+        // Player movement
         this.player.body.velocity.y = 0;
         this.player.body.velocity.x = 0;
 
@@ -1200,18 +1198,18 @@ CommandoZombi.Game.prototype = {
             this.player.animations.stop();
         }
 
-        //Update NPC animations
-          this.updateDevilAnimation();
-          this.updateGuardAnimation();
+        // Update NPC animations
+        this.updateDevilAnimation();
+        this.updateGuardAnimation();
 
-        //collision
+        // Collision
         this.game.physics.arcade.collide(this.player, this.blockedLayer);
         this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
         this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
         this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
 
-        //Player interactions (magic, running into enemies, etc)
+        // Player interactions (magic, running into enemies, etc)
         this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
         this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
         this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
