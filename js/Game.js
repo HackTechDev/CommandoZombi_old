@@ -955,7 +955,8 @@ CommandoZombi.Game.prototype = {
                 // Grab the first bullet we can from the pool
                 this.playerBullet = this.playerBullets.getFirstExists(false);
                 if (this.playerBullet) {
-                // And fire it
+                    this.player.bullet -= 1;
+                    // And fire it
                     if (this.player.facing == "right") {
                         this.playerBullets.callAllExists('play', false, 'right');
                         this.playerBullet.reset(this.player.x + 30, this.player.y + 60);
@@ -1188,7 +1189,6 @@ CommandoZombi.Game.prototype = {
 
         } else if (this.fireButton.isDown) {
             if( this.player.bullet > 0 ) {
-                this.player.bullet -= 1;
                 this.fireBullet();
             } else {
                 console.log("No more ammo");
