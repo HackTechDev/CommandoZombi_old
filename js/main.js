@@ -11,8 +11,7 @@ CommandoZombi.game.state.add('Game', CommandoZombi.Game);
 
 CommandoZombi.game.state.start('Boot');
 
-//Utilities:
-function randomIntFromInterval(min,max)
-{
+// Utilities
+function randomIntFromInterval(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }

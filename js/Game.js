@@ -2,32 +2,32 @@ var CommandoZombi = CommandoZombi || {};
 
 // Title screen
 CommandoZombi.Game = function(){};
-	
-    var displayGamepad = false;
 
-    var music, playerSpellSound;
+var displayGamepad = false;
 
-    var pworldmap, nworldmap, ngametiles;
+var music, playerSpellSound;
 
-    var agent, operator, health, bullet, zombi; 
+var pworldmap, nworldmap, ngametiles;
 
-    var t1, t2, t3, t4, t5, t6, t7;
+var agent, operator, health, bullet, zombi; 
 
-    var panel, textField, button, menuButton;
+var t1, t2, t3, t4, t5, t6, t7;
 
-    var basePosition;
+var panel, textField, button, menuButton;
 
-    var playerhead, playerbody, playerarm, playerleg;
+var basePosition;
 
-    var pad;
+var playerhead, playerbody, playerarm, playerleg;
 
-    var buttonA, buttonB, buttonX, buttonY, buttonDPadLeft, buttonDPadRight, buttonDPadUp, buttonDPadDown;
+var pad;
 
-    var imageA, imageB, imageX, imageY, imageDPad;
+var buttonA, buttonB, buttonX, buttonY, buttonDPadLeft, buttonDPadRight, buttonDPadUp, buttonDPadDown;
 
-    var playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
+var imageA, imageB, imageX, imageY, imageDPad;
 
-    var inventory = [];
+var playerMoveUp, playerMoveDown, playerMoveLeft, playerMoveRight;
+
+var inventory = [];
 
 // Create game instance
 CommandoZombi.Game.prototype = {
@@ -70,7 +70,7 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.enable(this.player);
 
         this.player.health = health;
-	    this.player.inventory = [];
+        this.player.inventory = [];
 
         this.player.helmet = "";
         this.player.armor = "";
@@ -156,23 +156,23 @@ CommandoZombi.Game.prototype = {
         t3 = this.game.add.text(10, 50, "Worldmap: " + nworldmap, { font: "16px Arial", fill: "#000000", align: "left" });
         t3.fixedToCamera = true;
         t3.cameraOffset.setTo(10, 50);
-   
+
         t4 = this.game.add.text(10, 70, "Position: ", { font: "16px Arial", fill: "#000000", align: "left" });
         t4.fixedToCamera = true;
         t4.cameraOffset.setTo(10, 70);
- 
+
         t5 = this.game.add.text(10, 90, "Health: ", { font: "16px Arial", fill: "#000000", align: "left" });
         t5.fixedToCamera = true;
         t5.cameraOffset.setTo(10, 90);
- 
+
         t6 = this.game.add.text(10, 110, "Bullet: ", { font: "16px Arial", fill: "#000000", align: "left" });
         t6.fixedToCamera = true;
         t6.cameraOffset.setTo(10, 110);
- 
+
         t7 = this.game.add.text(10, 130, "Zombi: ", { font: "16px Arial", fill: "#000000", align: "left" });
         t7.fixedToCamera = true;
         t7.cameraOffset.setTo(10, 130);
- 
+
         // Gamepad
         if(displayGamepad == true) {
             buttonPU = this.game.add.button(100, 300, 'button_pad', this.actionOnClick, this, 0);
@@ -217,7 +217,7 @@ CommandoZombi.Game.prototype = {
             buttonC.cameraOffset.setTo(380, 400);
         }
 
-    	// User Interface
+        // User Interface
         this.world.add(slickUI.container.displayGroup);
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
@@ -240,7 +240,7 @@ CommandoZombi.Game.prototype = {
                     result += i + ": " + inventory[i] + "\n";
                 }
                 alert("== Inventory ==\n" + result);  
-               
+
             } else {
                 alert('Command unknown: ' + textField.value);
             }
@@ -252,7 +252,7 @@ CommandoZombi.Game.prototype = {
             console.log('Key pressed: ' + key);
         });
 
-        
+
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
@@ -282,7 +282,7 @@ CommandoZombi.Game.prototype = {
         });
 
 
-        
+
         var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
 
         // Head
@@ -300,7 +300,7 @@ CommandoZombi.Game.prototype = {
         // Left arm
         panel.add(cb4 = new SlickUI.Element.Checkbox(160,130, SlickUI.Element.Checkbox.TYPE_CROSS));
         panel.add(cb5 = new SlickUI.Element.Checkbox(200,115));
-        
+
         // Right arm
         panel.add(cb7 = new SlickUI.Element.Checkbox(280,115));
         panel.add(cb6 = new SlickUI.Element.Checkbox(320,130, SlickUI.Element.Checkbox.TYPE_CROSS));
@@ -362,11 +362,11 @@ CommandoZombi.Game.prototype = {
             }
 
         }, this);
-        
+
 
         // Body / Armor
         cb2.events.onInputDown.add(function () {
-        
+
             if(this.player.inventory.indexOf("black_armor") < 0) {
                 console.log("No armor in inventory");
                 cb2.checked = false;
@@ -382,11 +382,11 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_body');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }           
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);              
@@ -398,19 +398,19 @@ CommandoZombi.Game.prototype = {
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerarm == 1) { bmd.copy('player_rightarm'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);             
                     playerbody = 0;
                 }   
-           }     
+               }     
         }, this);
 
 
@@ -420,8 +420,8 @@ CommandoZombi.Game.prototype = {
                 console.log("No pant in inventory");
                 cb3.checked = false;
             }
-        
-        
+
+
             if(this.player.inventory.indexOf("black_pant") >= 0) {
                 console.log("Pant in inventory");
                 if( cb3.checked ) {
@@ -432,15 +432,15 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_body');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }           
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }             
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);                  
-                     playerbody = 1;
+                    playerbody = 1;
                 } else {
                     console.log("No Pant");
                     health -= 20;
@@ -448,20 +448,20 @@ CommandoZombi.Game.prototype = {
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerarm == 1) { bmd.copy('player_rightarm'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);                
                     playerbody = 0;
                 }   
             }
-            
+
         }, this);
 
         // Left arm
@@ -477,7 +477,7 @@ CommandoZombi.Game.prototype = {
                 console.log("No shield in inventory");
                 cb4.checked = false;
             } else {
-                
+
                 if( cb4.checked ) {
                     console.log("Shield");
                     if (cb6.checked == true && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
@@ -498,11 +498,11 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_rightarm');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);                 
@@ -515,12 +515,12 @@ CommandoZombi.Game.prototype = {
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }                
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);               
@@ -532,15 +532,15 @@ CommandoZombi.Game.prototype = {
         }, this);
 
         cb5.events.onInputDown.add(function () {
-        
+
             console.log("Left arm");
             console.log(this.player.inventory.indexOf( "black_sword"));
             if (cb7.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
                 console.log("1 sword in inventory, sword is already wear");
                 cb5.checked = false;
             } 
-            
-                    
+
+
             if(this.player.inventory.indexOf("black_sword") < 0) {
                 console.log("No sword in inventory");
                 cb5.checked = false;
@@ -558,18 +558,18 @@ CommandoZombi.Game.prototype = {
                     if (cb7.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
                         console.log("2 sword in inventory, 1 of 2 sword wear");
                     } 
-                                                 
+
                     console.log("Sword");
                     this.player.bullet += 10;
-            
+
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_rightarm');
-                    
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }         
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);               
@@ -577,35 +577,34 @@ CommandoZombi.Game.prototype = {
                 } else {
                     console.log("No Sword");
                     this.player.bullet -= 10;
-                    
+
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                    
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }                
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                               
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);               
                     playerarm = 0;
                 }   
-             }
+            }
         }, this);
 
         // Right Arm
 
         cb7.events.onInputDown.add(function () {
-        
+
             console.log("Right arm");
             console.log(this.player.inventory.indexOf( "black_sword"));
             if (cb5.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
                 console.log("1 sword in inventory, sword is already wear");
                 cb7.checked = false;
             } 
-            
-                    
+
             if(this.player.inventory.indexOf("black_sword") < 0) {
                 console.log("No sword in inventory");
                 cb7.checked = false;
@@ -625,15 +624,15 @@ CommandoZombi.Game.prototype = {
                     } 
                     console.log("Sword");
                     this.player.bullet += 10;
-                    
+
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_leftarm');
-                    
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) {bmd.copy('player_leftleg'); }            
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
                     this.player.loadTexture("player_new", 0, false);                        
                     playerarm = 1;
@@ -642,20 +641,19 @@ CommandoZombi.Game.prototype = {
                     this.player.bullet -= 10;
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                    
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }                
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }            
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);             
                     playerarm = 0;
                 }   
-             }
+            }
         }, this);
-
 
         cb6.events.onInputDown.add(function () {
             console.log("Right arm");
@@ -669,7 +667,7 @@ CommandoZombi.Game.prototype = {
                 console.log("No shield in inventory");
                 cb6.checked = false;
             } else {
-                
+
                 if( cb6.checked ) {
                     console.log("Shield");
                     if (cb4.checked == true && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
@@ -690,11 +688,11 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_leftarm');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);              
@@ -707,12 +705,12 @@ CommandoZombi.Game.prototype = {
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }                
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);               
@@ -722,15 +720,15 @@ CommandoZombi.Game.prototype = {
             }
 
         }, this);
-        
+
         // Feet / Boot
         cb8.events.onInputDown.add(function () {
             if(this.player.inventory.indexOf("black_boot") < 0) {
                 console.log("No Boot in inventory");
                 cb8.checked = false;
             }
-        
-        
+
+
             if(this.player.inventory.indexOf("black_boot") > 0) {
                 console.log("Boot in inventory");
                 if( cb8.checked ) {
@@ -741,12 +739,12 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
                     bmd.copy('player_rightleg');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }                
                     if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerarm == 1) { bmd.copy('player_rightarm'); }             
-                
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);                 
@@ -758,19 +756,19 @@ CommandoZombi.Game.prototype = {
 
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
-                
+
                     if (playerhead == 1) { bmd.copy('player_head'); }                
                     if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
-                               
+
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
                     this.player.loadTexture("player_new", 0, false);              
                     playerleg = 0;
                 }   
             }
-            
+
         }, this);
 
         this.KKey = this.game.input.keyboard.addKey(Phaser.Keyboard.K);
@@ -778,238 +776,254 @@ CommandoZombi.Game.prototype = {
 
     },
 
-  createItems: function() {
-    this.items = this.game.add.group();
-    this.items.enableBody = true;
-    var item;
-    result = this.findObjectsByType('item', this.map, 'itemLayer');
-    result.forEach(function(element){
-      this.createFromTiledObject(element, this.items);
-    }, this);
-  },
+      createItems: function() {
+        this.items = this.game.add.group();
+        this.items.enableBody = true;
+        var item;
+        result = this.findObjectsByType('item', this.map, 'itemLayer');
+        result.forEach(function(element){
+              this.createFromTiledObject(element, this.items);
+        }, this);
+      },
 
-  buttonPUonOver: function() {
-    console.log('button pad up');
-    playerMoveUp = true;
-  },
+      buttonPUonOver: function() {
+        console.log('button pad up');
+        playerMoveUp = true;
+      },
 
-  buttonPUonOut: function() {
-    console.log('button pad up');
-    playerMoveUp = false;
-  },
+      buttonPUonOut: function() {
+        console.log('button pad up');
+        playerMoveUp = false;
+      },
 
-  buttonPDonOver: function() {
-    console.log('button pad down');
-    playerMoveDown = true;
-  },
+      buttonPDonOver: function() {
+        console.log('button pad down');
+        playerMoveDown = true;
+      },
 
-  buttonPDonOut: function() {
-    console.log('button pad down');
-    playerMoveDown = false;
-  },
+      buttonPDonOut: function() {
+        console.log('button pad down');
+        playerMoveDown = false;
+      },
 
-  buttonPLonOver: function() {
-    console.log('button pad left');
-    playerMoveLeft = true;
-  },
+      buttonPLonOver: function() {
+        console.log('button pad left');
+        playerMoveLeft = true;
+      },
 
-  buttonPLonOut: function() {
-    console.log('button pad left');
-    playerMoveLeft = false;
-  },
+      buttonPLonOut: function() {
+        console.log('button pad left');
+        playerMoveLeft = false;
+      },
 
-  buttonPRonOver: function() {
-    console.log('button pad right');
-    playerMoveRight = true;
-  },
+      buttonPRonOver: function() {
+        console.log('button pad right');
+        playerMoveRight = true;
+      },
 
-  buttonPRonOut: function() {
-    console.log('button pad right');
-    playerMoveRight = false;
-  },
+      buttonPRonOut: function() {
+        console.log('button pad right');
+        playerMoveRight = false;
+      },
 
-  actionbuttonpfOnClick: function() {
-    console.log('button pad fire');
-    this.fireBullet();
-  },
+      actionbuttonpfOnClick: function() {
+        console.log('button pad fire');
+        this.fireBullet();
+      },
 
-   actionbuttonpaOnClick: function() {
-    console.log('button pad A');
-  },
+       actionbuttonpaOnClick: function() {
+        console.log('button pad A');
+      },
 
-  actionbuttonpbOnClick: function() {
-    console.log('button pad B');
-  },
+      actionbuttonpbOnClick: function() {
+        console.log('button pad B');
+      },
 
-  actionbuttonpcOnClick: function() {
-    console.log('button pad C');
+      actionbuttonpcOnClick: function() {
+        console.log('button pad C');
 
-    console.log('Level');
-    levelJSON = this.game.cache.getJSON('level');
-    var currentObject;
+        console.log('Level');
+        levelJSON = this.game.cache.getJSON('level');
+        var currentObject;
 
-    cworldmap = nworldmap;
-    for(var i = 0; i < levelJSON.level.length; i++) {
-        levelObject = levelJSON.level[i];
+        cworldmap = nworldmap;
+        for(var i = 0; i < levelJSON.level.length; i++) {
+            levelObject = levelJSON.level[i];
 
-        if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
-            this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
-            cworldmap == levelObject.current) {
-            this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, this.player.bullet, zombi)
+            if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
+                this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
+                cworldmap == levelObject.current) {
+                this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, this.player.bullet, zombi)
+            }
         }
-    }
 
-  },
- 
+      },
 
-        //create NPC's
-        createEnemies: function() {
-            this.enemies = this.game.add.group();
-            this.enemies.enableBody = true;
-            this.enemies.physicsBodyType = Phaser.Physics.ARCADE;
-            var enemy;
 
-            //devil!
-            result = this.findObjectsByType('devil', this.map, 'basicEnemyLayer');
-            result.forEach(function(element) {
-                this.devil = this.enemies.create(element.x, element.y, 'devil');
-                this.devil.anchor.setTo(0.5, 0.5);
-                this.devil.animations.add('right', [3, 4, 5], 6, true);
-                this.devil.animations.add('left', [9, 10, 11], 6, true);
-                this.devil.prevX = this.devil.x;
-                this.devil.body.moves = false;
-                this.devil.anchor.x = 0.5;
-                this.devil.anchor.y = 0.5;
-                this.devil.health = 1;
-                this.tween = this.game.add.tween(this.devil).to( { x: this.devil.x+randomIntFromInterval(80,100) }, randomIntFromInterval(7000,20000), Phaser.Easing.Linear.None, true, 0, 1000, true);
-            }, this);
+    //create NPC's
+    createEnemies: function() {
+        this.enemies = this.game.add.group();
+        this.enemies.enableBody = true;
+        this.enemies.physicsBodyType = Phaser.Physics.ARCADE;
+        var enemy;
 
-            //guard
-            result = this.findObjectsByType('guard', this.map, 'basicEnemyLayer');
-            result.forEach(function(element) {
-                this.guard = this.enemies.create(element.x, element.y, 'guard');
-                this.guard.anchor.setTo(0.5, 0.5);
-                this.guard.animations.add('down', [6, 7, 8], 10, true);
-                this.guard.animations.add('up', [0, 1, 2], 10, true);
-                this.guard.prevY = this.guard.y;
-                this.guard.body.moves = false;
-                this.guard.anchor.x = 0.5;
-                this.guard.anchor.y = 0.5;
-                this.guard.health = 5;
-                this.tween = this.game.add.tween(this.guard).to( { y: this.guard.y+randomIntFromInterval(60,80) }, randomIntFromInterval(800,1000), Phaser.Easing.Linear.None, true, 0, 1000, true);
-            }, this);
+        //devil!
+        result = this.findObjectsByType('devil', this.map, 'basicEnemyLayer');
+        result.forEach(function(element) {
+            this.devil = this.enemies.create(element.x, element.y, 'devil');
+            this.devil.anchor.setTo(0.5, 0.5);
+            this.devil.animations.add('right', [3, 4, 5], 6, true);
+            this.devil.animations.add('left', [9, 10, 11], 6, true);
+            this.devil.prevX = this.devil.x;
+            this.devil.body.moves = false;
+            this.devil.anchor.x = 0.5;
+            this.devil.anchor.y = 0.5;
+            this.devil.health = 1;
+            this.tween = this.game.add.tween(this.devil).to( { x: this.devil.x+randomIntFromInterval(80,100) }, randomIntFromInterval(7000,20000), Phaser.Easing.Linear.None, true, 0, 1000, true);
+        }, this);
 
-        },
+        //guard
+        result = this.findObjectsByType('guard', this.map, 'basicEnemyLayer');
+        result.forEach(function(element) {
+            this.guard = this.enemies.create(element.x, element.y, 'guard');
+            this.guard.anchor.setTo(0.5, 0.5);
+            this.guard.animations.add('down', [6, 7, 8], 10, true);
+            this.guard.animations.add('up', [0, 1, 2], 10, true);
+            this.guard.prevY = this.guard.y;
+            this.guard.body.moves = false;
+            this.guard.anchor.x = 0.5;
+            this.guard.anchor.y = 0.5;
+            this.guard.health = 5;
+            this.tween = this.game.add.tween(this.guard).to( { y: this.guard.y+randomIntFromInterval(60,80) }, randomIntFromInterval(800,1000), Phaser.Easing.Linear.None, true, 0, 1000, true);
+        }, this);
 
-        // Create a sprite from an object
-        createFromTiledObject: function(element, group) {
-            var sprite = group.create(element.x, element.y, element.properties.sprite);
+    },
 
-            // Copy all properties to the sprite
-            Object.keys(element.properties).forEach(function(key){
-                sprite[key] = element.properties[key];
-            });
-        },
+    // Create a sprite from an object
+    createFromTiledObject: function(element, group) {
+        var sprite = group.create(element.x, element.y, element.properties.sprite);
 
-        // Places sprite in designated area
-        findObjectsByType: function(type, map, layer) {
-            var result = new Array();
-                map.objects[layer].forEach(function(element) {
-                    if(element.properties.type === type) {
-                        element.y -= map.tileHeight;
-                        element.id = result.length + 1;
-                        result.push(element);
-                    }
-                });
-            return result;
-        },
+        // Copy all properties to the sprite
+        Object.keys(element.properties).forEach(function(key){
+            sprite[key] = element.properties[key];
+        });
+    },
 
-        // Bullets
-        // Player bullets
-        createPlayerBullets: function() {
-            this.playerBullets = this.game.add.group();
-            this.playerBullets.enableBody = true;
-            this.playerBullets.physicsBodyType = Phaser.Physics.ARCADE;
-            this.playerBullets.createMultiple(40, 'playerBullet');
-            this.playerBullets.setAll('anchor.x', 0.5);
-            this.playerBullets.setAll('anchor.y', 1);
-            this.playerBullets.setAll('outOfBoundsKill', true);
-            this.playerBullets.setAll('checkWorldBounds', true);
-        },
+    // Places sprite in designated area
+    findObjectsByType: function(type, map, layer) {
+        var result = new Array();
+        map.objects[layer].forEach(function(element) {
+            if(element.properties.type === type) {
+                element.y -= map.tileHeight;
+                element.id = result.length + 1;
+                result.push(element);
+            }
+        });
+        return result;
+    },
 
-        // Boss bullets
-        createBlacklordBullets: function() {
-            this.blacklordBullets = this.game.add.group();
-            this.blacklordBullets.enableBody = true;
-            this.blacklordBullets.physicsBodyType = Phaser.Physics.ARCADE;
-            this.blacklordBullets.createMultiple(200, 'blacklordBullet');
-            this.blacklordBullets.setAll('anchor.x', 0.5);
-            this.blacklordBullets.setAll('anchor.y', 1);
-            this.blacklordBullets.setAll('outOfBoundsKill', true);
-            this.blacklordBullets.setAll('checkWorldBounds', true);
-        },
+    // Bullets
+    // Player bullets
+    createPlayerBullets: function() {
+        this.playerBullets = this.game.add.group();
+        this.playerBullets.enableBody = true;
+        this.playerBullets.physicsBodyType = Phaser.Physics.ARCADE;
+        this.playerBullets.createMultiple(40, 'playerBullet');
+        this.playerBullets.setAll('anchor.x', 0.5);
+        this.playerBullets.setAll('anchor.y', 1);
+        this.playerBullets.setAll('outOfBoundsKill', true);
+        this.playerBullets.setAll('checkWorldBounds', true);
+    },
 
-        // Fire player bullets
-        fireBullet: function() {
-            if (this.game.time.now > this.playerBulletTime) {
-                // Grab the first bullet we can from the pool
-                this.playerBullet = this.playerBullets.getFirstExists(false);
-                if (this.playerBullet) {
-                    this.player.bullet -= 1;
-                    // And fire it
-                    if (this.player.facing == "right") {
-                        this.playerBullets.callAllExists('play', false, 'right');
-                        this.playerBullet.reset(this.player.x + 30, this.player.y + 60);
-                        this.playerBullet.body.velocity.x = 200;
-                        this.playerBulletTime = this.game.time.now + 200;
-                        this.playerBullet.lifespan = 1000;
-                    } else if (this.player.facing == "up") {
-                        this.playerBullets.callAllExists('play', false, 'up');
-                        this.playerBullet.reset(this.player.x + 25, this.player.y + 20);
-                        this.playerBullet.body.velocity.y = -200;
-                        this.playerBulletTime = this.game.time.now + 200;
-                        this.playerBullet.lifespan = 1000;
-                    } else if (this.player.facing == "left") {
-                        this.playerBullets.callAllExists('play', false, 'left');
-                        this.playerBullet.reset(this.player.x + 5, this.player.y + 60);
-                        this.playerBullet.body.velocity.x = -200;
-                        this.playerBulletTime = this.game.time.now + 200;
-                        this.playerBullet.lifespan = 1000;
-                    } else if (this.player.facing == "down") {
-                        this.playerBullets.callAllExists('play', false, 'down');
-                        this.playerBullet.reset(this.player.x + 25, this.player.y + 60);
-                        this.playerBullet.body.velocity.y = 200;
-                        this.playerBulletTime = this.game.time.now + 200;
-                        this.playerBullet.lifespan = 1000;
-                    }
+    // Boss bullets
+    createBlacklordBullets: function() {
+        this.blacklordBullets = this.game.add.group();
+        this.blacklordBullets.enableBody = true;
+        this.blacklordBullets.physicsBodyType = Phaser.Physics.ARCADE;
+        this.blacklordBullets.createMultiple(200, 'blacklordBullet');
+        this.blacklordBullets.setAll('anchor.x', 0.5);
+        this.blacklordBullets.setAll('anchor.y', 1);
+        this.blacklordBullets.setAll('outOfBoundsKill', true);
+        this.blacklordBullets.setAll('checkWorldBounds', true);
+    },
+
+    // Fire player bullets
+    fireBullet: function() {
+        if (this.game.time.now > this.playerBulletTime) {
+            // Grab the first bullet we can from the pool
+            this.playerBullet = this.playerBullets.getFirstExists(false);
+            if (this.playerBullet) {
+                this.player.bullet -= 1;
+                // And fire it
+                if (this.player.facing == "right") {
+                    this.playerBullets.callAllExists('play', false, 'right');
+                    this.playerBullet.reset(this.player.x + 30, this.player.y + 60);
+                    this.playerBullet.body.velocity.x = 200;
+                    this.playerBulletTime = this.game.time.now + 200;
+                    this.playerBullet.lifespan = 1000;
+                } else if (this.player.facing == "up") {
+                    this.playerBullets.callAllExists('play', false, 'up');
+                    this.playerBullet.reset(this.player.x + 25, this.player.y + 20);
+                    this.playerBullet.body.velocity.y = -200;
+                    this.playerBulletTime = this.game.time.now + 200;
+                    this.playerBullet.lifespan = 1000;
+                } else if (this.player.facing == "left") {
+                    this.playerBullets.callAllExists('play', false, 'left');
+                    this.playerBullet.reset(this.player.x + 5, this.player.y + 60);
+                    this.playerBullet.body.velocity.x = -200;
+                    this.playerBulletTime = this.game.time.now + 200;
+                    this.playerBullet.lifespan = 1000;
+                } else if (this.player.facing == "down") {
+                    this.playerBullets.callAllExists('play', false, 'down');
+                    this.playerBullet.reset(this.player.x + 25, this.player.y + 60);
+                    this.playerBullet.body.velocity.y = 200;
+                    this.playerBulletTime = this.game.time.now + 200;
+                    this.playerBullet.lifespan = 1000;
                 }
             }
-        },
+        }
+    },
 
-        // Fire boss bullets
-        fireBlacklordBullet: function() {
-            if (this.game.time.now > this.blacklordBulletTime) {
-                //  Grab the first bullet we can from the pool
-                this.blacklordBullet = this.blacklordBullets.getFirstExists(false);
-                if (this.blacklord.health <= 0) {
-                  this.blacklordBullet = false;
-                }
-                if (this.blacklordBullet) {
-                    this.blacklordBullets.callAllExists('play', false, 'shoot');
-                    this.blacklordBullet.reset(this.blacklord.x+20, this.blacklord.y + 30);
-                    this.blacklordBullet.body.velocity.y = 200;
-
-                    this.blacklordBullet.lifespan = 770;
-                    this.blacklordBulletTime = this.game.time.now + randomIntFromInterval(1500,3000);
-                }
+    // Fire boss bullets
+    fireBlacklordBullet: function() {
+        if (this.game.time.now > this.blacklordBulletTime) {
+            //  Grab the first bullet we can from the pool
+            this.blacklordBullet = this.blacklordBullets.getFirstExists(false);
+            if (this.blacklord.health <= 0) {
+                this.blacklordBullet = false;
             }
-        },
+            if (this.blacklordBullet) {
+                this.blacklordBullets.callAllExists('play', false, 'shoot');
+                this.blacklordBullet.reset(this.blacklord.x+20, this.blacklord.y + 30);
+                this.blacklordBullet.body.velocity.y = 200;
 
-        // Remove enemy from map
-        enemyKiller: function(playerBullet, enemy) {
+                this.blacklordBullet.lifespan = 770;
+                this.blacklordBulletTime = this.game.time.now + randomIntFromInterval(1500,3000);
+            }
+        }
+    },
+
+    // Remove enemy from map
+    enemyKiller: function(playerBullet, enemy) {
+        this.playerBullet.kill();
+
+        if (enemy.key == "devil") {
+            this.explosion = this.explosions.getFirstExists(false);
+            this.explosion.reset(enemy.body.x, enemy.body.y);
+            this.explosion.play('kaboom', 30, false, true);
+
+            this.sound.play('kaboom');
+            this.sound.play('playerLaugh');
+
+            zombi = zombi + 1;
+            enemy.kill();
+        } else if (enemy.key == "guard") {
+            enemy.health -=1;
             this.playerBullet.kill();
 
-            if (enemy.key == "devil") {
+            if(enemy.health <= 0){
+                zombi = zombi + 1;
+                enemy.kill();
                 this.explosion = this.explosions.getFirstExists(false);
                 this.explosion.reset(enemy.body.x, enemy.body.y);
                 this.explosion.play('kaboom', 30, false, true);
@@ -1017,144 +1031,128 @@ CommandoZombi.Game.prototype = {
                 this.sound.play('kaboom');
                 this.sound.play('playerLaugh');
 
+            }
+        } else if (enemy.key == "blacklord") {
+            enemy.health -=1;
+            console.log(enemy.health);
+            this.playerBullet.kill();
+            if(enemy.health <= 0){
                 zombi = zombi + 1;
                 enemy.kill();
-            } else if (enemy.key == "guard") {
-                enemy.health -=1;
-                this.playerBullet.kill();
+                this.explosion = this.explosions.getFirstExists(false);
+                this.explosion.reset(enemy.body.x, enemy.body.y);
+                this.explosion.play('kaboom', 30, false, true);
 
-                if(enemy.health <= 0){
-                    zombi = zombi + 1;
-                    enemy.kill();
-                    this.explosion = this.explosions.getFirstExists(false);
-                    this.explosion.reset(enemy.body.x, enemy.body.y);
-                    this.explosion.play('kaboom', 30, false, true);
+                this.sound.play('kaboom');
+                this.sound.play('playerLaugh');
 
-                    this.sound.play('kaboom');
-                    this.sound.play('playerLaugh');
-
-                }
-            } else if (enemy.key == "blacklord") {
-                enemy.health -=1;
-                console.log(enemy.health);
-                this.playerBullet.kill();
-                if(enemy.health <= 0){
-                    zombi = zombi + 1;
-                    enemy.kill();
-                    this.explosion = this.explosions.getFirstExists(false);
-                    this.explosion.reset(enemy.body.x, enemy.body.y);
-                    this.explosion.play('kaboom', 30, false, true);
-
-                    this.sound.play('kaboom');
-                    this.sound.play('playerLaugh');
-
-                }
             }
-        },
+        }
+    },
 
-        // Remove player from map
-        playerKiller: function(player, enemy) {
-            this.xdirection = this.player.body.x - enemy.body.x;
-            this.ydirection = enemy.body.y - this.player.body.y;
-            this.xbounceVelocity = this.xdirection * 40;
-            this.ybounceVelocity = this.ydirection * -40;
-            this.player.body.velocity.y = this.ybounceVelocity;
-            this.player.body.velocity.x = this.xbounceVelocity;
+    // Remove player from map
+    playerKiller: function(player, enemy) {
+        this.xdirection = this.player.body.x - enemy.body.x;
+        this.ydirection = enemy.body.y - this.player.body.y;
+        this.xbounceVelocity = this.xdirection * 40;
+        this.ybounceVelocity = this.ydirection * -40;
+        this.player.body.velocity.y = this.ybounceVelocity;
+        this.player.body.velocity.x = this.xbounceVelocity;
 
-            if (enemy.key == "blacklordBullet") {
-              player.health -= 10;
-              health -= 1;
-            }
+        if (enemy.key == "blacklordBullet") {
+            player.health -= 10;
+            health -= 1;
+        }
 
+        if (enemy.key == "devil") {
+            player.health -= 3;
+            health -= 3;
+        }
+
+        if (enemy.key == "guard") {
+            player.health -= 5;
+            health -= 5;
+        }
+
+        if(player.health <=0) {
+            this.player.kill();
+            this.explosion = this.explosions.getFirstExists(false);
+            this.explosion.reset(this.player.body.x, this.player.body.y);
+            this.explosion.play('kaboom', 30, false, true);
+
+            this.sound.play('kaboom');
+
+            this.fireButton = [];
+            this.gameOver();
+        }
+    },
+
+    // Animation for death
+    createExplosions: function() {
+        this.explosions = this.game.add.group();
+        this.explosions.createMultiple(30, 'kaboom');
+    },
+
+    // Remove bullet if offscreen
+    resetPlayerBullet: function() {
+        this.playerBullet.kill();
+    },
+
+    // Remove bullet if offscreen
+    resetBlacklordBullet: function() {
+        this.blacklordBullet.kill();
+    },
+
+    // Updates devils animation. First, we search for all devils and put them in array. 
+    // Then, we see which direction they're moving and set the animation.
+    updateDevilAnimation: function() {
+        var devilsArray = [];
+        this.enemies.forEach(function(enemy) {
             if (enemy.key == "devil") {
-              player.health -= 3;
-              health -= 3;
+                  devilsArray.push(enemy);
             }
+        });
 
-            if (enemy.key == "guard") {
-              player.health -= 5;
-              health -= 5;
-            }
-
-            if(player.health <=0) {
-              this.player.kill();
-              this.explosion = this.explosions.getFirstExists(false);
-              this.explosion.reset(this.player.body.x, this.player.body.y);
-              this.explosion.play('kaboom', 30, false, true);
-
-              this.sound.play('kaboom');
-
-              this.fireButton = [];
-              this.gameOver();
-            }
-        },
-
-        // Animation for death
-        createExplosions: function() {
-            this.explosions = this.game.add.group();
-            this.explosions.createMultiple(30, 'kaboom');
-        },
-
-        // Remove bullet if offscreen
-        resetPlayerBullet: function() {
-          this.playerBullet.kill();
-        },
-
-        // Remove bullet if offscreen
-        resetBlacklordBullet: function() {
-            this.blacklordBullet.kill();
-        },
-
-        // Updates devils animation. First, we search for all devils and put them in array. 
-        // Then, we see which direction they're moving and set the animation.
-        updateDevilAnimation: function() {
-          var devilsArray = [];
-          this.enemies.forEach(function(enemy) {
-            if (enemy.key == "devil") {
-              devilsArray.push(enemy);
-            }
-          });
-
-          devilsArray.forEach(function(devil) {
+        devilsArray.forEach(function(devil) {
             if (devil.x > devil.prevX) {
-              devil.play('right');
+                  devil.play('right');
             } else {
-              devil.play('left');
+                  devil.play('left');
             }
             devil.prevX = devil.x;
-          });
-        },
+        });
+    },
 
-        // Updates guards animation. First, we search for all guards and put them in array. 
-        // Then, we see which direction they're moving and set the animation.
-        updateGuardAnimation: function() {
-          var guardsArray = [];
-          this.enemies.forEach(function(enemy) {
+    // Updates guards animation. First, we search for all guards and put them in array. 
+    // Then, we see which direction they're moving and set the animation.
+    updateGuardAnimation: function() {
+        var guardsArray = [];
+        this.enemies.forEach(function(enemy) {
             if (enemy.key == "guard") {
-              guardsArray.push(enemy);
+                  guardsArray.push(enemy);
             }
-          });
+        });
 
-          guardsArray.forEach(function(guard) {
+        guardsArray.forEach(function(guard) {
             if (guard.y > guard.prevY) {
-              guard.play('down');
+                  guard.play('down');
             } else {
-              guard.play('up');
+                  guard.play('up');
             }
             guard.prevY = guard.y;
-          });
-        },
+        });
+    },
 
-        gameOver: function() {
-          var text = "Zombis eat you!!!"
-          var text2 = "press SPACE to restart!";
-          var style = { font: "30px Arial", fill: "#fff", align: "center" };
-          var t = this.game.add.text(this.player.x, this.player.y, text, style);
-          var t2 = this.game.add.text(this.player.x, this.player.y+50, text2, style);
-          t.anchor.set(0.5);
-          t2.anchor.set(0.5);
-          this.restartButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        },
+    gameOver: function() {
+        var text = "Zombis eat you!!!"
+        var text2 = "press SPACE to restart!";
+        var style = { font: "30px Arial", fill: "#fff", align: "center" };
+        var t = this.game.add.text(this.player.x, this.player.y, text, style);
+        var t2 = this.game.add.text(this.player.x, this.player.y+50, text2, style);
+        t.anchor.set(0.5);
+        t2.anchor.set(0.5);
+        this.restartButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+    },
 
     update: function() {
         // Player movement
@@ -1164,7 +1162,7 @@ CommandoZombi.Game.prototype = {
         this.fireBlacklordBullet();
 
         if(this.restartButton.isDown) {
-          this.game.state.start('MainMenu', true, false);
+              this.game.state.start('MainMenu', true, false);
         }
 
         if(this.cursors.up.isDown || playerMoveUp == true) {
@@ -1192,7 +1190,7 @@ CommandoZombi.Game.prototype = {
                 this.fireBullet();
             } else {
                 console.log("No more ammo");
-                
+
             }
         }else {
             this.player.animations.stop();
@@ -1242,18 +1240,19 @@ CommandoZombi.Game.prototype = {
         }
 
     },
-  collect: function(player, collectable) {
-    if(this.player.inventory.length < 6) {
-        // Can take only 2 items
-        // In inventory, there are always 2 same items
-        if(this.player.inventory.indexOf(collectable.key) == this.player.inventory.lastIndexOf(collectable.key) ) {
-            console.log('Item taken');
-            console.log(collectable.key);
-            this.player.inventory.push(collectable.key);
-            console.log( this.player.inventory);
-            inventory = this.player.inventory;
-            collectable.destroy();
+
+      collect: function(player, collectable) {
+        if(this.player.inventory.length < 6) {
+            // Can take only 2 items
+            // In inventory, there are always 2 same items
+            if(this.player.inventory.indexOf(collectable.key) == this.player.inventory.lastIndexOf(collectable.key) ) {
+                console.log('Item taken');
+                console.log(collectable.key);
+                this.player.inventory.push(collectable.key);
+                console.log( this.player.inventory);
+                inventory = this.player.inventory;
+                collectable.destroy();
+            }
         }
-    }
-  },
+      },
 }
