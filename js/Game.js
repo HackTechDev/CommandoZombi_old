@@ -779,13 +779,10 @@ CommandoZombi.Game.prototype = {
     },
 
   createItems: function() {
-    //console.log("CreateItems()");
-    //create items
     this.items = this.game.add.group();
     this.items.enableBody = true;
     var item;
     result = this.findObjectsByType('item', this.map, 'itemLayer');
-    //console.log(result);
     result.forEach(function(element){
       this.createFromTiledObject(element, this.items);
     }, this);
@@ -795,6 +792,7 @@ CommandoZombi.Game.prototype = {
     console.log('button pad up');
     playerMoveUp = true;
   },
+
   buttonPUonOut: function() {
     console.log('button pad up');
     playerMoveUp = false;
@@ -804,6 +802,7 @@ CommandoZombi.Game.prototype = {
     console.log('button pad down');
     playerMoveDown = true;
   },
+
   buttonPDonOut: function() {
     console.log('button pad down');
     playerMoveDown = false;
@@ -813,6 +812,7 @@ CommandoZombi.Game.prototype = {
     console.log('button pad left');
     playerMoveLeft = true;
   },
+
   buttonPLonOut: function() {
     console.log('button pad left');
     playerMoveLeft = false;
@@ -822,6 +822,7 @@ CommandoZombi.Game.prototype = {
     console.log('button pad right');
     playerMoveRight = true;
   },
+
   buttonPRonOut: function() {
     console.log('button pad right');
     playerMoveRight = false;
@@ -831,12 +832,15 @@ CommandoZombi.Game.prototype = {
     console.log('button pad fire');
     this.fireBullet();
   },
+
    actionbuttonpaOnClick: function() {
     console.log('button pad A');
   },
+
   actionbuttonpbOnClick: function() {
     console.log('button pad B');
   },
+
   actionbuttonpcOnClick: function() {
     console.log('button pad C');
 
@@ -851,10 +855,6 @@ CommandoZombi.Game.prototype = {
         if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
             this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
             cworldmap == levelObject.current) {
-            //console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
-            //console.log('Change Level');
-            //console.log('Current worldmap: ' + nworldmap);
-            //console.log('Next worldmap: ' + levelObject.next);
             this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, this.player.bullet, zombi)
         }
     }
@@ -911,18 +911,18 @@ CommandoZombi.Game.prototype = {
             });
         },
 
-            // Places sprite in designated area
-            findObjectsByType: function(type, map, layer) {
-                var result = new Array();
-                    map.objects[layer].forEach(function(element) {
-                        if(element.properties.type === type) {
-                            element.y -= map.tileHeight;
-                            element.id = result.length + 1;
-                            result.push(element);
-                        }
-                    });
-                return result;
-            },
+        // Places sprite in designated area
+        findObjectsByType: function(type, map, layer) {
+            var result = new Array();
+                map.objects[layer].forEach(function(element) {
+                    if(element.properties.type === type) {
+                        element.y -= map.tileHeight;
+                        element.id = result.length + 1;
+                        result.push(element);
+                    }
+                });
+            return result;
+        },
 
         // Bullets
         // Player bullets
@@ -1208,7 +1208,6 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
         this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
-
         // Player interactions (magic, running into enemies, etc)
         this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
         this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
@@ -1216,13 +1215,10 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
         this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
-    
         t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
         t5.setText("Health: " + health);
         t6.setText("Bullet: " + this.player.bullet);
         t7.setText("Zombi: " + zombi);
-
-
 
         if(this.LKey.isDown) {
             console.log('Level');
