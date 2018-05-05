@@ -1,16 +1,16 @@
 var CommandoZombi = CommandoZombi || {};
 
-//Title
+// Title
 CommandoZombi.MainMenu = function(){};
 
 CommandoZombi.MainMenu.prototype = {
   create: function() {
-    //show map scrolling in background
+    // Show map scrolling in background
     this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'map');
     this.background.autoScroll(-20, -20);
 
-    //Start game
-    //logo
+    // Start game
+    // Logo
     this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
     this.splash.anchor.setTo(0.5);
 
@@ -20,16 +20,20 @@ CommandoZombi.MainMenu.prototype = {
 
     this.startButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   },
+
   actionsniperOnClick: function() {
     console.log('button sniper');
     this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Lucien", "Sniper", 40, 200, 0);
   },
+
   actionbreacherOnClick: function() {
     console.log('button breacher');
     this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Marcel", "Breacher", 60, 150, 0);
   },
+
   actionmedicOnClick: function() {
     console.log('button medic');
     this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Rene", "Medic", 80, 100, 0);
   },
+
 }
