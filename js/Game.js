@@ -1192,7 +1192,7 @@ CommandoZombi.Game.prototype = {
                 console.log("No more ammo");
 
             }
-        }else {
+        } else {
             this.player.animations.stop();
         }
 
@@ -1246,12 +1246,16 @@ CommandoZombi.Game.prototype = {
             // Can take only 2 items
             // In inventory, there are always 2 same items
             if(this.player.inventory.indexOf(collectable.key) == this.player.inventory.lastIndexOf(collectable.key) ) {
-                console.log('Item taken');
-                console.log(collectable.key);
+                console.log('Item taken:' + collectable.key);
                 this.player.inventory.push(collectable.key);
                 console.log( this.player.inventory);
                 inventory = this.player.inventory;
                 collectable.destroy();
+
+				if (collectable.key == "magazine") {
+					 this.player.bullet += 20;	
+				}
+
             }
         }
       },
