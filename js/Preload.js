@@ -42,6 +42,7 @@ CommandoZombi.Preload.prototype = {
         this.load.image('black_shield', 'assets/images/black_shield.png', 32, 32);
         this.load.image('black_helmet', 'assets/images/black_helmet.png', 32, 32);
         this.load.image('black_sword', 'assets/images/black_sword.png', 50, 26);
+		this.load.image('magazine', 'assets/images/magazine.png', 15, 20);
 
 
         this.load.spritesheet('guard', 'assets/images/guard.png', 48, 64);
@@ -63,7 +64,9 @@ CommandoZombi.Preload.prototype = {
         this.load.spritesheet('buttonBreacher', 'assets/buttons/button_breacher.png', 129, 40);
         this.load.spritesheet('buttonMedic', 'assets/buttons/button_medic.png', 101, 40);
         this.load.spritesheet('buttonMission', 'assets/buttons/button_mission.png', 117, 40);
-
+		this.load.spritesheet('buttonOption', 'assets/buttons/button_option.png', 108, 40);
+		this.load.spritesheet('buttonHelp', 'assets/buttons/button_help.png', 84, 40);
+	    this.load.spritesheet('buttonAbout', 'assets/buttons/button_about.png', 102, 40);
 
         slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
         this.game.load.image('menu-button', 'assets/ui/menu.png');

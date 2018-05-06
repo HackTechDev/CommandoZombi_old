@@ -18,6 +18,10 @@ CommandoZombi.MainMenu.prototype = {
     	buttonBreacher = this.game.add.button(144, 10, 'buttonBreacher', this.actionbreacherOnClick, this, 0);
     	buttonMedic = this.game.add.button(293, 10, 'buttonMedic', this.actionmedicOnClick, this, 0);
 
+    	buttonOption = this.game.add.button(20, 400, 'buttonOption', this.actionoptionOnClick, this, 0);
+    	buttonHelp = this.game.add.button(170, 400, 'buttonHelp', this.actionhelpOnClick, this, 0);
+		buttonAbout = this.game.add.button(293, 400, 'buttonAbout', this.actionaboutOnClick, this, 0);
+
     	this.startButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
   	},
 
@@ -35,5 +39,18 @@ CommandoZombi.MainMenu.prototype = {
     	console.log('button medic');
     	this.game.state.start('Mission', true, false, "intro", "worldmap1", "gameTiles", "Rene", "Medic", 80, 100, 0);
   	},
+
+  	actionoptionOnClick: function() {
+    	console.log('button option');
+  	},
+
+  	actionhelpOnClick: function() {
+    	console.log('button help');
+  	},
+
+  	actionaboutOnClick: function() {
+    	console.log('button about');
+  	},
+
 
 }
