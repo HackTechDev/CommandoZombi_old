@@ -67,6 +67,10 @@ CommandoZombi.Preload.prototype = {
 		this.load.spritesheet('buttonOption', 'assets/buttons/button_option.png', 108, 40);
 		this.load.spritesheet('buttonHelp', 'assets/buttons/button_help.png', 84, 40);
 	    this.load.spritesheet('buttonAbout', 'assets/buttons/button_about.png', 102, 40);
+ 		this.load.spritesheet('buttonMainMenu', 'assets/buttons/button_main-menu.png', 154, 40);
+
+		
+
 
         slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
         this.game.load.image('menu-button', 'assets/ui/menu.png');

@@ -42,14 +42,17 @@ CommandoZombi.MainMenu.prototype = {
 
   	actionoptionOnClick: function() {
     	console.log('button option');
+		this.game.state.start('Option');
   	},
 
   	actionhelpOnClick: function() {
     	console.log('button help');
+		this.game.state.start('Help');
   	},
 
   	actionaboutOnClick: function() {
     	console.log('button about');
+    	this.game.state.start('About');
   	},
 
 
