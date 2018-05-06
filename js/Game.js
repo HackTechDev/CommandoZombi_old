@@ -13,6 +13,8 @@ var agent, operator, health, bullet, zombi;
 
 var t1, t2, t3, t4, t5, t6, t7;
 
+var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
+        
 var panel, textField, button, menuButton;
 
 var basePosition;
@@ -281,9 +283,6 @@ CommandoZombi.Game.prototype = {
             menuButton.visible = true;
         });
 
-
-
-        var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
 
         // Head
         panel.add(cb1 = new SlickUI.Element.Checkbox(240,75, SlickUI.Element.Checkbox.TYPE_RADIO));
@@ -611,6 +610,7 @@ CommandoZombi.Game.prototype = {
             } else {
                 if( cb7.checked ) {
                     console.log("sword");
+
                     if (cb5.checked == true && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
                         console.log("2 sword in inventory, another 1 sword wear");
                     }
@@ -622,6 +622,7 @@ CommandoZombi.Game.prototype = {
                     if (cb5.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
                         console.log("2 sword in inventory, 1 of 2 sword wear");
                     } 
+                    
                     console.log("Sword");
                     this.player.bullet += 10;
 
@@ -1186,12 +1187,19 @@ CommandoZombi.Game.prototype = {
             this.player.animations.play('right');
 
         } else if (this.fireButton.isDown) {
-            if( this.player.bullet > 0 ) {
-                this.fireBullet();
-            } else {
-                console.log("No more ammo");
 
+            if (cb5.checked == true || cb7.checked == true) {
+                console.log("Firegun");        
+                if( this.player.bullet > 0 ) {
+                    this.fireBullet();
+                } else {
+                    console.log("No more ammo");
+                }
+            } else {
+                console.log("No firegun in hand");
             }
+           
+            
         } else {
             this.player.animations.stop();
         }
