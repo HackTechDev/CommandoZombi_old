@@ -34,9 +34,12 @@ CommandoZombi.Mission.prototype = {
     	this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
     	this.splash.anchor.setTo(0.5);
 
-    	var text = "Kill all Zombis !!";
-    	var style = { font: "30px Arial", fill: "#fff", align: "center" };
-    	var t = this.game.add.text(this.game.width/2, (this.game.height/2)+75, text, style);
+    	var text = "- Take weapons\n- Take magazines\n-Place a rifle in your hand\n- And shoot all zombis!";
+    	var style = { font: "30px Arial", fill: "#000", align: "center" };
+    	var ts = this.game.add.text( (this.game.width/2) + 2, (this.game.height/2) + 2, text, style);
+    	ts.anchor.set(0.5);
+    	var style = { font: "30px Arial", fill: "#005400", align: "center" };
+    	var t = this.game.add.text(this.game.width/2, (this.game.height/2), text, style);
     	t.anchor.set(0.5);
 
     	buttonMission = this.game.add.button(160, 10, 'buttonMission', this.actionmissionOnClick, this, 0);
