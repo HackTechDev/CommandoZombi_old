@@ -43,6 +43,7 @@ CommandoZombi.Preload.prototype = {
         this.load.image('black_helmet', 'assets/images/black_helmet.png', 32, 32);
         this.load.image('black_sword', 'assets/images/black_sword.png', 50, 26);
 		this.load.image('magazine', 'assets/images/magazine.png', 15, 20);
+		this.load.image('firstaidkit', 'assets/images/firstaidkit.png', 32, 28);
 
 
         this.load.spritesheet('guard', 'assets/images/guard.png', 48, 64);

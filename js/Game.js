@@ -1222,7 +1222,7 @@ CommandoZombi.Game.prototype = {
         this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
         t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
-        t5.setText("Health: " + health);
+        t5.setText("Health: " + this.player.health);
         t6.setText("Bullet: " + this.player.bullet);
         t7.setText("Zombi: " + zombi);
 
@@ -1262,6 +1262,11 @@ CommandoZombi.Game.prototype = {
 
 				if (collectable.key == "magazine") {
 					 this.player.bullet += 20;	
+				}
+
+				if (collectable.key == "firstaidkit") {
+					console.log(this.player.health);
+					 this.player.health += 20;	
 				}
 
             }
