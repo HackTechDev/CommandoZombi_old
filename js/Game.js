@@ -4,6 +4,7 @@ var CommandoZombi = CommandoZombi || {};
 CommandoZombi.Game = function(){};
 
 var displayGamepad = false;
+var music = false;
 
 var music, playerSpellSound;
 
@@ -16,6 +17,7 @@ var t1, t2, t3, t4, t5, t6, t7;
 var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
         
 var panel, textField, button, menuButton;
+var invpanel, invtextField, invbutton, invmenuButton;
 
 var basePosition;
 
@@ -50,8 +52,10 @@ CommandoZombi.Game.prototype = {
         this.map = this.game.add.tilemap(nworldmap);
 
         // Add music
-        music = this.add.audio('zombieAmbiance');
-        music.play();
+        if ( music == true) {
+			bgmusic = this.add.audio('zombieAmbiance');
+			bgmusic.play();
+		}
 
         // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
         this.map.addTilesetImage('tileset', ngametiles);
@@ -223,7 +227,6 @@ CommandoZombi.Game.prototype = {
         this.world.add(slickUI.container.displayGroup);
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
-
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
         textField.events.onOK.add(function () {
             arg = textField.value.split(" ");
@@ -247,9 +250,11 @@ CommandoZombi.Game.prototype = {
                 alert('Command unknown: ' + textField.value);
             }
         });
+
         textField.events.onToggle.add(function (open) {
             console.log('Virtual Keyboard ' + (open ? 'opened' : 'closed'));
         });
+
         textField.events.onKeyPress.add(function(key) {
             console.log('Key pressed: ' + key);
         });
