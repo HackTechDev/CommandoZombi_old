@@ -58,17 +58,91 @@ CommandoZombi.Game.prototype = {
 		}
 
         // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
-        this.map.addTilesetImage('tileset', ngametiles);
+      
+		this.map.addTilesetImage('indoor\/tiles', 'indoor_tiles');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/castle.png', 'tileset_building_castle.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/ground.png', 'tileset_ground_ground.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/ground_2.png', 'tileset_ground_ground_2.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/wall\/wall_brown.png', 'tileset_building_wall_wall_brown.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/banner.png', 'tileset_building_decoration_banner.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/brown_paving.png', 'tileset_ground_brown_paving.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/water\/dungeon_water.png', 'tileset_ground_water_dungeon_water.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/water\/pool.png', 'tileset_ground_water_pool.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/roof\/blue.png', 'tileset_building_roof_blue.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/roof\/yellow.png', 'tileset_building_roof_yellow.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/wall\/stone.png', 'tileset_building_wall_stone.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/roof\/green.png', 'tileset_building_roof_green.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/wall\/wood.png', 'tileset_building_wall_wood.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/roof\/red.png', 'tileset_building_roof_red.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/flower\/daisy_white.png', 'tileset_plant_flower_daisy_white.png');
+		this.map.addTilesetImage('green_stone', 'green_stone');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/cobbled_paving.png', 'tileset_ground_cobbled_paving.png');
+		this.map.addTilesetImage('statue\/bird', 'statue_bird');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/fence\/fence_chunky.png', 'tileset_building_fence_fence_chunky.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/grasses.png', 'tileset_plant_grasses.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/bush\/hedge.png', 'tileset_plant_bush_hedge.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/flower\/daisy_blue.png', 'tileset_plant_flower_daisy_blue.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/flower\/daisy_red.png', 'tileset_plant_flower_daisy_red.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/flower\/daisy_yellow.png', 'tileset_plant_flower_daisy_yellow.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/bush\/bushes.png', 'tileset_plant_bush_bushes.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/tree\/tree_green.png', 'tileset_plant_tree_tree_green.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/window\/window_long.png', 'tileset_building_window_window_long.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/window\/window_left.png', 'tileset_building_window_window_left.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/door\/closed_with_key.png', 'tileset_building_door_closed_with_key.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/window\/window_right.png', 'tileset_building_window_window_right.png');
+		this.map.addTilesetImage('..\/..\/tileset\/furniture\/chair\/wooden_pale.png', 'tileset_furniture_chair_wooden_pale.png');
+		this.map.addTilesetImage('..\/..\/tileset\/furniture\/table\/wooden_pale.png', 'tileset_furniture_table_wooden_pale.png');
+		this.map.addTilesetImage('..\/..\/tileset\/item\/statue\/grey_stone.png', 'tileset_item_statue_grey_stone.png');
+		this.map.addTilesetImage('..\/..\/tileset\/item\/statue\/fairypool.png', 'tileset_item_statue_fairypool.png');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/eye.png', 'tileset_ground_eye.png');
+		this.map.addTilesetImage('..\/..\/tileset\/item\/sign_large.png', 'tileset_item_sign_large.png');
+		this.map.addTilesetImage('..\/..\/tileset\/plant\/stump\/small_stump.png', 'tileset_plant_stump_small_stump.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/door\/door_n.png', 'tileset_building_door_door_n.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/chimney.png', 'tileset_building_decoration_chimney.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/door\/closed.png', 'tileset_building_door_closed.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/orbpedestal.png', 'tileset_building_decoration_orbpedestal.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/longhorn_skull.png', 'tileset_building_decoration_longhorn_skull.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/church.png', 'tileset_building_church.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/entrance\/int_iron_bars.png', 'tileset_building_entrance_int_iron_bars.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/chimney_big.png', 'tileset_building_decoration_chimney_big.png');
+		this.map.addTilesetImage('..\/..\/tileset\/item\/statue\/green_stone_2.png', 'tileset_item_statue_green_stone_2.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/decoration\/library_banner.png', 'tileset_building_decoration_library_banner.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/door\/door_e.png', 'tileset_building_door_door_e.png');
+		this.map.addTilesetImage('..\/..\/tileset\/building\/door\/door_w.png', 'tileset_building_door_door_w.png');
+		this.map.addTilesetImage('collision', 'collision');
+		this.map.addTilesetImage('stick', 'stick');
+		this.map.addTilesetImage('numbers', 'numbers');
+		this.map.addTilesetImage('deep pool', 'deep_pool');
+		this.map.addTilesetImage('suspension bridge', 'suspension_bridge');
+		this.map.addTilesetImage('animal', 'animal');
+		this.map.addTilesetImage('mutant', 'mutant');
+		this.map.addTilesetImage('stairs', 'stairs');
+		this.map.addTilesetImage('board walk', 'board_walk');
+		this.map.addTilesetImage('log vertical', 'log_vertical');
+		this.map.addTilesetImage('stump vertical', 'stump_vertical');
+		this.map.addTilesetImage('..\/..\/tileset\/ground\/green_paving.png', 'tileset_ground_green_paving.png');
+		this.map.addTilesetImage('light5x5', 'light5x5');
+		this.map.addTilesetImage('door light', 'door_light');
+		this.map.addTilesetImage('lamp', 'lamp');
+		this.map.addTilesetImage('dim light 7x5', 'dim_light_7x5');
+		this.map.addTilesetImage('huts', 'huts');
+
 
 
         // Map
         // Create map
+        /*
         this.blockedLayer = this.map.createLayer('waterLayer');
         this.backgroundLayer = this.map.createLayer('groundLayer1');
         this.backgroundLayer = this.map.createLayer('groundLayer2');
         this.backgroundLayer = this.map.createLayer('groundLayer3');
         this.backgroundLayer = this.map.createLayer('pathLayer1');
         this.backgroundLayer = this.map.createLayer('pathLayer2');
+		*/
+	    this.backgroundLayer = this.map.createLayer('0_floor');
+        this.backgroundLayer = this.map.createLayer('1_terrain');
+        this.backgroundLayer = this.map.createLayer('2_object');
+	
 
         // Create player
         var result = this.findObjectsByType('playerStart', this.map, 'playerStart');
@@ -88,29 +162,27 @@ CommandoZombi.Game.prototype = {
 
         this.player.bullet = bullet;
 
-        this.blockedLayer = this.map.createLayer('CANTGOHERE');
-        this.foregroundLayer = this.map.createLayer('topLayer1');
-        this.foregroundLayer = this.map.createLayer('topLayer2');
-        this.foregroundLayer = this.map.createLayer('topLayer3');
-        this.foregroundLayer = this.map.createLayer('topLayer4');
+        this.blockedLayer = this.map.createLayer('collision');
+        this.foregroundLayer = this.map.createLayer('3_roof');
+        this.foregroundLayer = this.map.createLayer('4_roof_add');
 
         this.foregroundLayer.bringToTop();
 
         // Resizes game world to match the layer dimensions
         this.backgroundLayer.resizeWorld();
 
-        this.createItems();
+        //this.createItems();
 
         // Collisions
         // Collision on blocked layer. 2000 is the number of bricks we can collide into - this is found in the json file for the map
-        this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
-        this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
+        //this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
+        //this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
 
         this.createPlayerBullets();
         this.createBlacklordBullets();
         this.createExplosions();
 
-        this.createEnemies();
+        //this.createEnemies();
 
         // Player
 
@@ -139,12 +211,13 @@ CommandoZombi.Game.prototype = {
 
         // Non-Playable Characters
         // Create boss
+        /*
         var blacklordResult = this.findObjectsByType('nonnagStart', this.map, 'basicEnemyLayer');
         this.blacklord = this.game.add.sprite(blacklordResult[0].x-15, blacklordResult[0].y, 'blacklord');
         this.game.physics.arcade.enable(this.blacklord);
         this.blacklord.health = 10;
         this.game.add.tween(this.blacklord).to( { x: this.blacklord.x+randomIntFromInterval(30,50) }, randomIntFromInterval(400,800), Phaser.Easing.Linear.None, true, 0, 1000, true);
-
+		*/
         // Add non-player spritesheets
         this.playerBullet = this.game.add.sprite('playerBullet');
         this.blacklordBullet = this.game.add.sprite('blacklordBullet');
@@ -1165,7 +1238,7 @@ CommandoZombi.Game.prototype = {
         this.player.body.velocity.y = 0;
         this.player.body.velocity.x = 0;
 
-        this.fireBlacklordBullet();
+        //this.fireBlacklordBullet();
 
         if(this.restartButton.isDown) {
               this.game.state.start('MainMenu', true, false);
@@ -1210,21 +1283,21 @@ CommandoZombi.Game.prototype = {
         }
 
         // Update NPC animations
-        this.updateDevilAnimation();
-        this.updateGuardAnimation();
+        //this.updateDevilAnimation();
+        //this.updateGuardAnimation();
 
         // Collision
         this.game.physics.arcade.collide(this.player, this.blockedLayer);
-        this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
-        this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
-        this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
+        //this.game.physics.arcade.collide(this.blacklordBullet, this.blockedLayer, this.resetBlacklordBullet, null, this);
+        //this.game.physics.arcade.collide(this.playerBullet, this.blockedLayer, this.resetPlayerBullet, null, this);
+        //this.game.physics.arcade.overlap(this.player, this.items, this.collect, null, this);
 
         // Player interactions (magic, running into enemies, etc)
-        this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
-        this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
-        this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
-        this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
-        this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
+        //this.game.physics.arcade.overlap(this.playerBullet, this.guard, this.guardKiller, null, this);
+        //this.game.physics.arcade.overlap(this.player, this.blacklordBullet, this.playerKiller, null, this);
+        //this.game.physics.arcade.overlap(this.playerBullet, this.enemies.children, this.enemyKiller, null, this);
+        //this.game.physics.arcade.overlap(this.player, this.enemies.children, this.playerKiller, null, this);
+        //this.game.physics.arcade.overlap(this.playerBullet, this.blacklord, this.enemyKiller, null, this);
 
         t4.setText("Position: " + Math.round(this.player.x) + "/" + Math.round(this.player.y));
         t5.setText("Health: " + this.player.health);
