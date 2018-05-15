@@ -1,11 +1,12 @@
 <?php
 
-$map = "../assets/tilemaps/Level 0/ados/city.json";
+$mapPath = "../assets/tilemaps/Level 0/ados/";
+$mapName = "city.json";
 
-$file = fopen($map, "r") or exit("Unable to open file!");
+$file = fopen($mapPath . $mapName, "r") or exit("Unable to open file!");
 
-$filePreload = "preload.txt";
-$fileGame = "game.txt";
+$filePreload = "preload.js";
+$fileGame = "game.js";
 
 $process = false;
 
@@ -30,8 +31,8 @@ while(!feof($file)) {
 			
 			$dataPreload = "\t\tthis.load.image('" . $name6 . "', '" . $image4 . "');\n";
 			$dataGame = "\t\tthis.map.addTilesetImage('" . $name2 . "', '" . $name6 . "');\n";
-			file_put_contents($filePreload, $dataPreload, FILE_APPEND | LOCK_EX);
-			file_put_contents($fileGame, $dataGame, FILE_APPEND | LOCK_EX);
+			file_put_contents($mapPath . $filePreload, $dataPreload, FILE_APPEND | LOCK_EX);
+			file_put_contents($mapPath . $fileGame, $dataGame, FILE_APPEND | LOCK_EX);
 		}
 	}
 
