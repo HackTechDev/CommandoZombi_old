@@ -62,20 +62,18 @@ CommandoZombi.Game.prototype = {
          include ("../assets/tilemaps/Level 0/ados/game.js");                                                                                                      
         ?> 
 
-        // Map
         // Create map
-        /*
-        this.blockedLayer = this.map.createLayer('waterLayer');
-        this.backgroundLayer = this.map.createLayer('groundLayer1');
-        this.backgroundLayer = this.map.createLayer('groundLayer2');
-        this.backgroundLayer = this.map.createLayer('groundLayer3');
-        this.backgroundLayer = this.map.createLayer('pathLayer1');
-        this.backgroundLayer = this.map.createLayer('pathLayer2');
-		*/
+		this.blockedLayer = this.map.createLayer('CANTGOHERE');
 	    this.backgroundLayer = this.map.createLayer('0_floor');
         this.backgroundLayer = this.map.createLayer('1_terrain');
         this.backgroundLayer = this.map.createLayer('2_object');
 	
+		//this.backgroundLayer = this.map.createLayer('blend_roof');
+		//this.backgroundLayer = this.map.createLayer('blend_ground');
+
+		this.backgroundLayer = this.map.createLayer('protection');
+		this.backgroundLayer = this.map.createLayer('objects');
+
 
         // Create player
         var result = this.findObjectsByType('playerStart', this.map, 'playerStart');
@@ -95,7 +93,6 @@ CommandoZombi.Game.prototype = {
 
         this.player.bullet = bullet;
 
-        this.blockedLayer = this.map.createLayer('collision');
         this.foregroundLayer = this.map.createLayer('3_roof');
         this.foregroundLayer = this.map.createLayer('4_roof_add');
 
@@ -109,7 +106,7 @@ CommandoZombi.Game.prototype = {
         // Collisions
         // Collision on blocked layer. 2000 is the number of bricks we can collide into - this is found in the json file for the map
         //this.map.setCollisionBetween(1, 2000, true, 'waterLayer');
-        //this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
+        this.map.setCollisionBetween(1, 2000, true, 'CANTGOHERE');
 
         this.createPlayerBullets();
         this.createBlacklordBullets();
