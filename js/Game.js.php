@@ -230,26 +230,65 @@ CommandoZombi.Game.prototype = {
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
+        
+		var inv0 = new SlickUI.Element.Text(12,75, "0-");
+		panel.add(inv0);
+
+		var inv1 = new SlickUI.Element.Text(12,95, "1-");
+		panel.add(inv1);
+
+		var inv2 = new SlickUI.Element.Text(12,115, "2-");
+		panel.add(inv2);
+
+		var inv3 = new SlickUI.Element.Text(12,135, "3-");
+		panel.add(inv3);
+
+		var inv4 = new SlickUI.Element.Text(12,155, "4-");
+		panel.add(inv4);
+
+		var inv5 = new SlickUI.Element.Text(12,175, "5-");
+		panel.add(inv5);
+
         textField.events.onOK.add(function () {
             arg = textField.value.split(" ");
             if( arg[0] == "inv") {
                 console.log("inventory");
-                result = "";
                 for(i=0;i<inventory.length;i++) {
                     result += i + ": " + inventory[i] + "\n";
+                    if(i==0) { inv0.value = "0- " + inventory[i]; }
+ 	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
+ 	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
+ 	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
+ 	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
+					if(i==5) { inv5.value = "5- " + inventory[i]; }
                 }
-                alert("== Inventory ==\n" + result);  
             } else if (arg[0]  == "rem") {
                 console.log("remove");
                 inventory.splice(arg[1], 1);
-                result = "";
+
+     			inv0.value = "0-";
+ 	 	 	 	inv1.value = "1-";
+ 	 	 	 	inv2.value = "2-";
+ 	 	 	 	inv3.value = "3-";
+ 	 	 	 	inv4.value = "4-";
+				inv5.value = "5-";
+
                 for(i=0; i < inventory.length; i++) {
                     result += i + ": " + inventory[i] + "\n";
+                    if(i==0) { inv0.value = "0- " + inventory[i]; }
+ 	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
+ 	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
+ 	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
+ 	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
+					if(i==5) { inv5.value = "5- " + inventory[i]; }
                 }
-                alert("== Inventory ==\n" + result);  
-
             } else {
-                alert('Command unknown: ' + textField.value);
+				inv0.value = "0- Command unknown";
+ 	 	 	 	inv1.value = "1-";
+ 	 	 	 	inv2.value = "2-";
+ 	 	 	 	inv3.value = "3-";
+ 	 	 	 	inv4.value = "4-";
+				inv5.value = "5-";
             }
         });
 
@@ -263,6 +302,9 @@ CommandoZombi.Game.prototype = {
 
 
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
+
+
+
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
@@ -292,24 +334,24 @@ CommandoZombi.Game.prototype = {
 
 
         // Head
-        panel.add(cb1 = new SlickUI.Element.Checkbox(240,75, SlickUI.Element.Checkbox.TYPE_RADIO));
+        panel.add(cb1 = new SlickUI.Element.Checkbox(300,75, SlickUI.Element.Checkbox.TYPE_RADIO));
 
         // Body
-        panel.add(cb2 = new SlickUI.Element.Checkbox(240,115, SlickUI.Element.Checkbox.TYPE_RADIO));
+        panel.add(cb2 = new SlickUI.Element.Checkbox(300,115, SlickUI.Element.Checkbox.TYPE_RADIO));
 
         // Leg
-        panel.add(cb3 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb3 = new SlickUI.Element.Checkbox(300,155, SlickUI.Element.Checkbox.TYPE_CROSS));
 
         // Boot
-        panel.add(cb8 = new SlickUI.Element.Checkbox(240,195, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb8 = new SlickUI.Element.Checkbox(300,195, SlickUI.Element.Checkbox.TYPE_CROSS));
 
         // Left arm
-        panel.add(cb4 = new SlickUI.Element.Checkbox(160,130, SlickUI.Element.Checkbox.TYPE_CROSS));
-        panel.add(cb5 = new SlickUI.Element.Checkbox(200,115));
+        panel.add(cb4 = new SlickUI.Element.Checkbox(240,155, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb5 = new SlickUI.Element.Checkbox(260,115));
 
         // Right arm
-        panel.add(cb7 = new SlickUI.Element.Checkbox(280,115));
-        panel.add(cb6 = new SlickUI.Element.Checkbox(320,130, SlickUI.Element.Checkbox.TYPE_CROSS));
+        panel.add(cb7 = new SlickUI.Element.Checkbox(340,115));
+        panel.add(cb6 = new SlickUI.Element.Checkbox(360,155, SlickUI.Element.Checkbox.TYPE_CROSS));
 
 
         // Head / Helmet        
