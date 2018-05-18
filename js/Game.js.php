@@ -59,8 +59,7 @@ CommandoZombi.Game.prototype = {
 
         // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
         <?php
-         include ("../assets/tilemaps/Level 0/ados/game.js");                                                                                                      
-        ?> 
+         include ("../assets/tilemaps/Level 0/ados/game.js");                                                                                                      	  ?> 
 
         // Create map
 		this.blockedLayer = this.map.createLayer('CANTGOHERE');
