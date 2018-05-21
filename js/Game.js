@@ -63,6 +63,7 @@ CommandoZombi.Game.prototype = {
         str = asset.level[0].tiled;
         for (i in asset.level) {
 			str = asset.level[i].tiled;
+			console.log(str + " " + asset.level[i].key);
             this.map.addTilesetImage(str, asset.level[i].key);
         }
 
