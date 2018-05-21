@@ -7,6 +7,7 @@ var slickUI;
 
 CommandoZombi.Preload.prototype = {
     preload: function() {
+
         //show loading screen
         this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
         this.splash.anchor.setTo(0.5);
@@ -74,9 +75,6 @@ CommandoZombi.Preload.prototype = {
 		this.load.spritesheet('buttonHelp', 'assets/buttons/button_help.png', 84, 40);
 	    this.load.spritesheet('buttonAbout', 'assets/buttons/button_about.png', 102, 40);
  		this.load.spritesheet('buttonMainMenu', 'assets/buttons/button_main-menu.png', 154, 40);
-
-		
-
 
         slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
         this.game.load.image('menu-button', 'assets/ui/menu.png');

@@ -11,7 +11,7 @@ CommandoZombi.Boot.prototype = {
     },
     create: function() {
         // Loading screen has white background:
-        this.game.stage.backgroundColor = "#fff";
+        this.game.stage.backgroundColor = "#000";
 
         // Physics system
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
