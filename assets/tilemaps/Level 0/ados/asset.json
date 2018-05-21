@@ -1,0 +1,473 @@
+{
+	"level": [
+		{
+			"type": "image", 
+			"key": "indoor_tiles",
+			"url": "assets/tileset/ground/indoor/tiles.png",
+			"tiled": "indoor\/tiles",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_castle.png",
+			"url": "assets/tileset/building/castle.png",
+			"tiled": "..\/..\/tileset\/building\/castle.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_ground.png",
+			"url": "assets/tileset/ground/ground.png",
+			"tiled": "..\/..\/tileset\/ground\/ground.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_ground_2.png",
+			"url": "assets/tileset/ground/ground_2.png",
+			"tiled": "..\/..\/tileset\/ground\/ground_2.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_wall_wall_brown.png",
+			"url": "assets/tileset/building/wall/wall_brown.png",
+			"tiled": "..\/..\/tileset\/building\/wall\/wall_brown.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_banner.png",
+			"url": "assets/tileset/building/decoration/banner.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/banner.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_brown_paving.png",
+			"url": "assets/tileset/ground/brown_paving.png",
+			"tiled": "..\/..\/tileset\/ground\/brown_paving.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_water_dungeon_water.png",
+			"url": "assets/tileset/ground/water/dungeon_water.png",
+			"tiled": "..\/..\/tileset\/ground\/water\/dungeon_water.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_water_pool.png",
+			"url": "assets/tileset/ground/water/pool.png",
+			"tiled": "..\/..\/tileset\/ground\/water\/pool.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_roof_blue.png",
+			"url": "assets/tileset/building/roof/blue.png",
+			"tiled": "..\/..\/tileset\/building\/roof\/blue.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_roof_yellow.png",
+			"url": "assets/tileset/building/roof/yellow.png",
+			"tiled": "..\/..\/tileset\/building\/roof\/yellow.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_wall_stone.png",
+			"url": "assets/tileset/building/wall/stone.png",
+			"tiled": "..\/..\/tileset\/building\/wall\/stone.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_roof_green.png",
+			"url": "assets/tileset/building/roof/green.png",
+			"tiled": "..\/..\/tileset\/building\/roof\/green.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_wall_wood.png",
+			"url": "assets/tileset/building/wall/wood.png",
+			"tiled": "..\/..\/tileset\/building\/wall\/wood.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_roof_red.png",
+			"url": "assets/tileset/building/roof/red.png",
+			"tiled": "..\/..\/tileset\/building\/roof\/red.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_flower_daisy_white.png",
+			"url": "assets/tileset/plant/flower/daisy_white.png",
+			"tiled": "..\/..\/tileset\/plant\/flower\/daisy_white.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "green_stone",
+			"url": "assets/tileset/item/statue/green_stone.png",
+			"tiled": "green_stone",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_cobbled_paving.png",
+			"url": "assets/tileset/ground/cobbled_paving.png",
+			"tiled": "..\/..\/tileset\/ground\/cobbled_paving.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "statue_bird",
+			"url": "assets/tileset/item/statue/bird.png",
+			"tiled": "statue\/bird",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_fence_fence_chunky.png",
+			"url": "assets/tileset/building/fence/fence_chunky.png",
+			"tiled": "..\/..\/tileset\/building\/fence\/fence_chunky.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_grasses.png",
+			"url": "assets/tileset/plant/grasses.png",
+			"tiled": "..\/..\/tileset\/plant\/grasses.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_bush_hedge.png",
+			"url": "assets/tileset/plant/bush/hedge.png",
+			"tiled": "..\/..\/tileset\/plant\/bush\/hedge.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_flower_daisy_blue.png",
+			"url": "assets/tileset/plant/flower/daisy_blue.png",
+			"tiled": "..\/..\/tileset\/plant\/flower\/daisy_blue.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_flower_daisy_red.png",
+			"url": "assets/tileset/plant/flower/daisy_red.png",
+			"tiled": "..\/..\/tileset\/plant\/flower\/daisy_red.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_flower_daisy_yellow.png",
+			"url": "assets/tileset/plant/flower/daisy_yellow.png",
+			"tiled": "..\/..\/tileset\/plant\/flower\/daisy_yellow.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_bush_bushes.png",
+			"url": "assets/tileset/plant/bush/bushes.png",
+			"tiled": "..\/..\/tileset\/plant\/bush\/bushes.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_tree_tree_green.png",
+			"url": "assets/tileset/plant/tree/tree_green.png",
+			"tiled": "..\/..\/tileset\/plant\/tree\/tree_green.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_window_window_long.png",
+			"url": "assets/tileset/building/window/window_long.png",
+			"tiled": "..\/..\/tileset\/building\/window\/window_long.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_window_window_left.png",
+			"url": "assets/tileset/building/window/window_left.png",
+			"tiled": "..\/..\/tileset\/building\/window\/window_left.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_door_closed_with_key.png",
+			"url": "assets/tileset/building/door/closed_with_key.png",
+			"tiled": "..\/..\/tileset\/building\/door\/closed_with_key.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_window_window_right.png",
+			"url": "assets/tileset/building/window/window_right.png",
+			"tiled": "..\/..\/tileset\/building\/window\/window_right.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_furniture_chair_wooden_pale.png",
+			"url": "assets/tileset/furniture/chair/wooden_pale.png",
+			"tiled": "..\/..\/tileset\/furniture\/chair\/wooden_pale.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_furniture_table_wooden_pale.png",
+			"url": "assets/tileset/furniture/table/wooden_pale.png",
+			"tiled": "..\/..\/tileset\/furniture\/table\/wooden_pale.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_item_statue_grey_stone.png",
+			"url": "assets/tileset/item/statue/grey_stone.png",
+			"tiled": "..\/..\/tileset\/item\/statue\/grey_stone.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_item_statue_fairypool.png",
+			"url": "assets/tileset/item/statue/fairypool.png",
+			"tiled": "..\/..\/tileset\/item\/statue\/fairypool.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_eye.png",
+			"url": "assets/tileset/ground/eye.png",
+			"tiled": "..\/..\/tileset\/ground\/eye.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_item_sign_large.png",
+			"url": "assets/tileset/item/sign_large.png",
+			"tiled": "..\/..\/tileset\/item\/sign_large.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_plant_stump_small_stump.png",
+			"url": "assets/tileset/plant/stump/small_stump.png",
+			"tiled": "..\/..\/tileset\/plant\/stump\/small_stump.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_door_door_n.png",
+			"url": "assets/tileset/building/door/door_n.png",
+			"tiled": "..\/..\/tileset\/building\/door\/door_n.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_chimney.png",
+			"url": "assets/tileset/building/decoration/chimney.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/chimney.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_door_closed.png",
+			"url": "assets/tileset/building/door/closed.png",
+			"tiled": "..\/..\/tileset\/building\/door\/closed.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_orbpedestal.png",
+			"url": "assets/tileset/building/decoration/orbpedestal.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/orbpedestal.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_longhorn_skull.png",
+			"url": "assets/tileset/building/decoration/longhorn_skull.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/longhorn_skull.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_church.png",
+			"url": "assets/tileset/building/church.png",
+			"tiled": "..\/..\/tileset\/building\/church.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_entrance_int_iron_bars.png",
+			"url": "assets/tileset/building/entrance/int_iron_bars.png",
+			"tiled": "..\/..\/tileset\/building\/entrance\/int_iron_bars.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_chimney_big.png",
+			"url": "assets/tileset/building/decoration/chimney_big.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/chimney_big.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_item_statue_green_stone_2.png",
+			"url": "assets/tileset/item/statue/green_stone_2.png",
+			"tiled": "..\/..\/tileset\/item\/statue\/green_stone_2.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_decoration_library_banner.png",
+			"url": "assets/tileset/building/decoration/library_banner.png",
+			"tiled": "..\/..\/tileset\/building\/decoration\/library_banner.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_door_door_e.png",
+			"url": "assets/tileset/building/door/door_e.png",
+			"tiled": "..\/..\/tileset\/building\/door\/door_e.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_building_door_door_w.png",
+			"url": "assets/tileset/building/door/door_w.png",
+			"tiled": "..\/..\/tileset\/building\/door\/door_w.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "collision",
+			"url": "assets/tileset/logic/collision.png",
+			"tiled": "collision",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "stick",
+			"url": "assets/tileset/furniture/other/stick.png",
+			"tiled": "stick",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "numbers",
+			"url": "assets/tileset/building/decoration/numbers.png",
+			"tiled": "numbers",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "deep_pool",
+			"url": "assets/tileset/ground/water/pool_deep.png",
+			"tiled": "deep pool",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "suspension_bridge",
+			"url": "assets/tileset/object/suspension_bridge.png",
+			"tiled": "suspension bridge",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "animal",
+			"url": "assets/tileset/logic/creature/animal.png",
+			"tiled": "animal",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "mutant",
+			"url": "assets/tileset/logic/creature/mutant.png",
+			"tiled": "mutant",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "stairs",
+			"url": "assets/tileset/building/stairs/stairs.png",
+			"tiled": "stairs",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "board_walk",
+			"url": "assets/tileset/object/boardwalk.png",
+			"tiled": "board walk",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "log_vertical",
+			"url": "assets/tileset/plant/stump/log_vertical.png",
+			"tiled": "log vertical",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "stump_vertical",
+			"url": "assets/tileset/plant/stump/stump_vertical.png",
+			"tiled": "stump vertical",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "tileset_ground_green_paving.png",
+			"url": "assets/tileset/ground/green_paving.png",
+			"tiled": "..\/..\/tileset\/ground\/green_paving.png",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "light5x5",
+			"url": "assets/tileset/light/light_5x5.png",
+			"tiled": "light5x5",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "door_light",
+			"url": "assets/tileset/light/door_light.png",
+			"tiled": "door light",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "lamp",
+			"url": "assets/tileset/furniture/light/lamp_bronze.png",
+			"tiled": "lamp",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "dim_light_7x5",
+			"url": "assets/tileset/light/dim_light_7x5.png",
+			"tiled": "dim light 7x5",
+			"overwrite": false
+		},
+		{
+			"type": "image", 
+			"key": "huts",
+			"url": "assets/tileset/building/huts.png",
+			"tiled": "huts",
+			"overwrite": false
+		}
+	]
+}

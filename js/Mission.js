@@ -24,6 +24,10 @@ CommandoZombi.Mission.prototype = {
         zombi = param8;
     },
 
+    preload: function() {
+    	this.game.load.text('mission', 'assets/tilemaps/Level 0/ados/mission.txt');
+    },
+
   	create: function() {
     	// Show map scrolling in background
     	this.background = this.game.add.tileSprite(0, 0, this.game.width, this.game.height, 'map');
@@ -34,9 +38,7 @@ CommandoZombi.Mission.prototype = {
     	this.splash = this.add.sprite(this.game.world.centerX, this.game.world.centerY, 'logo');
     	this.splash.anchor.setTo(0.5);
 
-        <?php
-         	include ("../assets/tilemaps/Level 0/ados/mission.js"); 
-        ?> 
+		var text = this.game.cache.getText('mission');
 
     	var style = { font: "30px Arial", fill: "#000", align: "center" };
     	var ts = this.game.add.text( (this.game.width/2) + 2, (this.game.height/2) + 2, text, style);
