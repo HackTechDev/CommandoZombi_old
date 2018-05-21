@@ -18,7 +18,7 @@ CommandoZombi.Preload.prototype = {
         this.load.setPreloadSprite(this.preloadBar);
 
         //load game assets
-    	this.load.tilemap('worldmap1', 'assets/tilemaps/Level 0/ados/city.json', null, Phaser.Tilemap.TILED_JSON);
+        this.load.tilemap('worldmap1', 'assets/tilemaps/Level 0/ados/city.json', null, Phaser.Tilemap.TILED_JSON);
         //this.load.tilemap('worldmap1', 'assets/tilemaps/world_map/worldmap1.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.tilemap('worldmap2', 'assets/tilemaps/world_map/worldmap2.json', null, Phaser.Tilemap.TILED_JSON);
         this.load.tilemap('worldmap3', 'assets/tilemaps/world_map/worldmap3.json', null, Phaser.Tilemap.TILED_JSON);
@@ -27,8 +27,8 @@ CommandoZombi.Preload.prototype = {
 
         this.load.image('gameTiles', 'assets/tilemaps/world_map/tileset.png');
         this.load.image('map', 'assets/images/map.png');
- 
-		this.game.load.json('asset', 'assets/tilemaps/Level 0/ados/asset.json', null, this);
+
+        this.game.load.json('asset', 'assets/tilemaps/Level 0/ados/asset.json', null, this);
 
         this.load.spritesheet('player', 'assets/images/player.png', 48, 64);
         this.load.spritesheet('player_head', 'assets/images/player_head.png', 48, 64);
@@ -46,8 +46,8 @@ CommandoZombi.Preload.prototype = {
         this.load.image('black_shield', 'assets/images/black_shield.png', 32, 32);
         this.load.image('black_helmet', 'assets/images/black_helmet.png', 32, 32);
         this.load.image('black_sword', 'assets/images/black_sword.png', 50, 26);
-		this.load.image('magazine', 'assets/images/magazine.png', 15, 20);
-		this.load.image('firstaidkit', 'assets/images/firstaidkit.png', 32, 28);
+        this.load.image('magazine', 'assets/images/magazine.png', 15, 20);
+        this.load.image('firstaidkit', 'assets/images/firstaidkit.png', 32, 28);
 
 
         this.load.spritesheet('guard', 'assets/images/guard.png', 48, 64);
@@ -69,10 +69,10 @@ CommandoZombi.Preload.prototype = {
         this.load.spritesheet('buttonBreacher', 'assets/buttons/button_breacher.png', 129, 40);
         this.load.spritesheet('buttonMedic', 'assets/buttons/button_medic.png', 101, 40);
         this.load.spritesheet('buttonMission', 'assets/buttons/button_mission.png', 117, 40);
-		this.load.spritesheet('buttonOption', 'assets/buttons/button_option.png', 108, 40);
-		this.load.spritesheet('buttonHelp', 'assets/buttons/button_help.png', 84, 40);
-	    this.load.spritesheet('buttonAbout', 'assets/buttons/button_about.png', 102, 40);
- 		this.load.spritesheet('buttonMainMenu', 'assets/buttons/button_main-menu.png', 154, 40);
+        this.load.spritesheet('buttonOption', 'assets/buttons/button_option.png', 108, 40);
+        this.load.spritesheet('buttonHelp', 'assets/buttons/button_help.png', 84, 40);
+        this.load.spritesheet('buttonAbout', 'assets/buttons/button_about.png', 102, 40);
+        this.load.spritesheet('buttonMainMenu', 'assets/buttons/button_main-menu.png', 154, 40);
 
         slickUI = this.game.plugins.add(Phaser.Plugin.SlickUI);
         this.game.load.image('menu-button', 'assets/ui/menu.png');
@@ -89,9 +89,9 @@ CommandoZombi.Preload.prototype = {
         this.state.start('MainMenu');
         asset = this.game.cache.getJSON('asset');
         for (i in asset.level) {
-        	key = asset.level[i].key;
-        	url = asset.level[i].url;
-			this.load.image(key, url);
+            key = asset.level[i].key;
+            url = asset.level[i].url;
+            this.load.image(key, url);
         }
 
     }
