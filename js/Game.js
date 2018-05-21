@@ -58,8 +58,16 @@ CommandoZombi.Game.prototype = {
 		}
 
         // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
-        <?php
-         include ("../assets/tilemaps/Level 0/ados/game.js");                                                                                                      	  ?> 
+
+        asset = this.game.cache.getJSON('asset');
+        str = asset.level[0].tiled;
+        for (i in asset.level) {
+            //console.log(str.replace(asset.level[i].tiled) + " " + asset.level[i].key);
+			str = asset.level[i].tiled;
+			//str1 = str.replace(new RegExp('/', 'g'), '\\/');
+			console.log(str + " " + asset.level[i].key);
+            this.map.addTilesetImage(str, asset.level[i].key);
+        }
 
         // Create map
 		this.blockedLayer = this.map.createLayer('CANTGOHERE');
@@ -67,8 +75,6 @@ CommandoZombi.Game.prototype = {
         this.backgroundLayer = this.map.createLayer('1_terrain');
         this.backgroundLayer = this.map.createLayer('2_object');
 	
-		//this.backgroundLayer = this.map.createLayer('blend_roof');
-		//this.backgroundLayer = this.map.createLayer('blend_ground');
 
 		this.backgroundLayer = this.map.createLayer('protection');
 		this.backgroundLayer = this.map.createLayer('objects');

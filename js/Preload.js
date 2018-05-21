@@ -28,9 +28,7 @@ CommandoZombi.Preload.prototype = {
         this.load.image('gameTiles', 'assets/tilemaps/world_map/tileset.png');
         this.load.image('map', 'assets/images/map.png');
  
-		<?php
-		 include ("../assets/tilemaps/Level 0/ados/preload.js");
-		?>
+		this.game.load.json('asset', 'assets/tilemaps/Level 0/ados/asset.json', null, this);
 
         this.load.spritesheet('player', 'assets/images/player.png', 48, 64);
         this.load.spritesheet('player_head', 'assets/images/player_head.png', 48, 64);
@@ -89,5 +87,13 @@ CommandoZombi.Preload.prototype = {
 
     create: function() {
         this.state.start('MainMenu');
+        console.log("asset");
+        asset = this.game.cache.getJSON('asset');
+        for (i in asset.level) {
+        	key = asset.level[i].key;
+        	url = asset.level[i].url;
+			this.load.image(key, url);
+        }
+
     }
 };

@@ -5,8 +5,12 @@ $mapName = "city.json";
 
 $file = fopen($mapPath . $mapName, "r") or exit("Unable to open file!");
 
-$filePreload = "preload.js";
-$fileGame = "game.js";
+$fileAssetPack = "asset.json";
+
+unlink($mapPath . $fileAssetPack);
+
+
+$dataAssetPack = "{\n\t\"level\": [";
 
 $process = false;
 
@@ -29,19 +33,32 @@ while(!feof($file)) {
 			$name5 = str_replace("../../", "", $name4);
 			$name6 = str_replace("/", "_", $name5);
 			
-			$dataPreload = "\t\tthis.load.image('" . $name6 . "', '" . $image4 . "');\n";
-			$dataGame = "\t\tthis.map.addTilesetImage('" . $name2 . "', '" . $name6 . "');\n";
-			file_put_contents($mapPath . $filePreload, $dataPreload, FILE_APPEND | LOCK_EX);
-			file_put_contents($mapPath . $fileGame, $dataGame, FILE_APPEND | LOCK_EX);
+			$dataAssetPack .= "
+\t\t{
+\t\t\t\"type\": \"image\", 
+\t\t\t\"key\": \"" . $name6 . "\",
+\t\t\t\"url\": \"" . $image4 . "\",
+\t\t\t\"tiled\": \"" . $name2 . "\",
+\t\t\t\"overwrite\": false
+\t\t},";
+
 		}
 	}
-
 
 	if (preg_match("/blend_roof/", $line)) {
 		$process = true;
 	}
 
-
 }
+
+$dataAssetPack = substr($dataAssetPack, 0, -1); 
+
+$dataAssetPack .= "
+\t]
+}
+";
+
+file_put_contents($mapPath . $fileAssetPack,  $dataAssetPack, FILE_APPEND | LOCK_EX);
+
 fclose($file);
 ?>
