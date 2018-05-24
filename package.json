@@ -1,0 +1,28 @@
+{
+  "name": "commandozombi",
+  "version": "1.0.0",
+  "description": "Commando Zombi   ==============",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nekrofage/CommandoZombi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nekrofage/CommandoZombi/issues"
+  },
+  "homepage": "https://github.com/Nekrofage/CommandoZombi#readme",
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-open": "^0.2.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.5"
+  }
+}
