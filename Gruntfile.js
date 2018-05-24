@@ -2,7 +2,9 @@ module.exports = function(grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-open');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-sftp-deploy');
+
 
     // Configuration de Grunt
     grunt.initConfig({
@@ -22,12 +24,30 @@ module.exports = function(grunt) {
             }
         },      
 
-    	watch: {
-      	  scripts: {
-        	files: '**/*.js',
-        	//tasks: ['concat:dist']
-      	  }
-    	}
+        watch: {
+            scripts: {
+                files: '**/*.js',
+            }
+        },
+
+        'sftp-deploy': {
+            build: {
+                auth: {
+                    host: 'sftp.sd5.gpaas.net',
+                    port: 22,
+                    authKey: 'privateKeyCustom'
+                },
+                cache: 'sftpCache.json',
+                src: 'source',
+                dest: '/lamp0/web/vhosts/jeulibre.saventurier.science/htdocs/commandozombi',
+                exclusions: ['source/tmp'],
+                serverSep: '/',
+                localSep: '/',
+                concurrency: 4,
+                progress: true
+            }
+        }
+
 
     });
 
