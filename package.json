@@ -24,6 +24,6 @@
     "grunt-sftp-deploy": "^0.2.5"
   },
   "dependencies": {
-    "lodash": "^4.17.5"
+    "lodash": "^4.17.10"
   }
 }
