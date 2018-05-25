@@ -18,6 +18,7 @@
   "homepage": "https://github.com/Nekrofage/CommandoZombi#readme",
   "devDependencies": {
     "grunt": "^1.0.2",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-watch": "^1.1.0",
     "grunt-open": "^0.2.3",
