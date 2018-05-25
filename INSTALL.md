@@ -15,3 +15,11 @@ $ grunt
 * SFTP deploy
 
 $ grunt sftp-deploy
+
+
+* Livereload
+
+Livereload extension:
+http://livereload.com/extensions/
+
+

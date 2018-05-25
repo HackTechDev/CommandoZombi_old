@@ -11,7 +11,7 @@ module.exports = function(grunt) {
         connect: {
             server: {
                 options: {
-                    port: 9000,
+                    port: 3017,
                     base: 'source',
                     keepalive: true           
                 }
@@ -20,14 +20,18 @@ module.exports = function(grunt) {
 
         open: {
             server: {
-                path: 'http://localhost:9000'
+                path: 'http://localhost:3017'
             }
         },      
 
         watch: {
-            scripts: {
-                files: '**/*.js',
-            }
+                files: ['source/css.**/*.css',
+                		'source/**/*.html',
+                		'source/js/**/*.js',
+                		'!**/node_modules/**'],
+                options: {
+                    livereload: 3018,
+                }
         },
 
         'sftp-deploy': {
@@ -54,6 +58,7 @@ module.exports = function(grunt) {
     // Définition des tâches Grunt
     grunt.registerTask("default", [
         'connect',
-        'open'      
+        'open',
+        'watch'
     ]);
 };
