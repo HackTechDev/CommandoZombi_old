@@ -261,24 +261,52 @@ CommandoZombi.Game.prototype = {
 					if(i==5) { inv5.value = "5- " + inventory[i]; }
                 }
             } else if (arg[0]  == "rem") {
-                console.log("remove");
-                inventory.splice(arg[1], 1);
+            	candeleteitem = false;
+                console.log("remove item: " + inventory[arg[1]]);
 
-     			inv0.value = "0-";
- 	 	 	 	inv1.value = "1-";
- 	 	 	 	inv2.value = "2-";
- 	 	 	 	inv3.value = "3-";
- 	 	 	 	inv4.value = "4-";
-				inv5.value = "5-";
+				if(inventory[arg[1]] == "black_gun" && (cb5.checked == false || cb7.checked == false) ) {
+					candeleteitem = true;
+				}
 
-                for(i=0; i < inventory.length; i++) {
-                    result += i + ": " + inventory[i] + "\n";
-                    if(i==0) { inv0.value = "0- " + inventory[i]; }
- 	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
- 	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
- 	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
- 	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
-					if(i==5) { inv5.value = "5- " + inventory[i]; }
+				if(inventory[arg[1]] == "black_shield" && (cb7.checked == false || cb6.checked == false) ) {
+					candeleteitem = true;
+				}
+
+				if(inventory[arg[1]] == "black_helmet" && cb1.checked == false ) {
+					candeleteitem = true;
+				}
+
+				if(inventory[arg[1]] == "black_armor" && cb2.checked == false ) {
+					candeleteitem = true;
+				}
+
+				if(inventory[arg[1]] == "black_pant" && cb3.checked == false ) {
+					candeleteitem = true;
+				}
+
+				if(inventory[arg[1]] == "black_boot" && cb8.checked == false ) {
+					candeleteitem = true;
+				}
+
+				if(candeleteitem == true) {
+                	inventory.splice(arg[1], 1);
+
+     				inv0.value = "0-";
+ 	 	 	 		inv1.value = "1-";
+ 	 	 	 		inv2.value = "2-";
+ 	 	 	 		inv3.value = "3-";
+ 	 	 	 		inv4.value = "4-";
+					inv5.value = "5-";
+
+                	for(i=0; i < inventory.length; i++) {
+                    	result += i + ": " + inventory[i] + "\n";
+                    	if(i==0) { inv0.value = "0- " + inventory[i]; }
+ 	 	 	 	 		if(i==1) { inv1.value = "1- " + inventory[i]; }
+ 	 	 	 	 		if(i==2) { inv2.value = "2- " + inventory[i]; }
+ 	 	 	 	 		if(i==3) { inv3.value = "3- " + inventory[i]; }
+ 	 	 	 	 		if(i==4) { inv4.value = "4- " + inventory[i]; }
+						if(i==5) { inv5.value = "5- " + inventory[i]; }
+                	}
                 }
             } else {
 				inv0.value = "0- Command unknown";
