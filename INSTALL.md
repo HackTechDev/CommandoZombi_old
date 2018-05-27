@@ -23,3 +23,6 @@ Livereload extension:
 http://livereload.com/extensions/
 
 
+* Atom.io
+
+grunt-runner
