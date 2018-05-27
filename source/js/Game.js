@@ -53,9 +53,9 @@ CommandoZombi.Game.prototype = {
 
         // Add music
         if ( music == true) {
-			bgmusic = this.add.audio('zombieAmbiance');
-			bgmusic.play();
-		}
+            bgmusic = this.add.audio('zombieAmbiance');
+            bgmusic.play();
+        }
 
         // First argument: the tileset name as specified in Tiled; Second argument: the key to the asset
         this.map.addTilesetImage('tileset', ngametiles);
@@ -229,23 +229,23 @@ CommandoZombi.Game.prototype = {
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
 
-		var inv0 = new SlickUI.Element.Text(12,75, "0-");
-		panel.add(inv0);
+        var inv0 = new SlickUI.Element.Text(12,75, "0-");
+        panel.add(inv0);
 
-		var inv1 = new SlickUI.Element.Text(12,95, "1-");
-		panel.add(inv1);
+        var inv1 = new SlickUI.Element.Text(12,95, "1-");
+        panel.add(inv1);
 
-		var inv2 = new SlickUI.Element.Text(12,115, "2-");
-		panel.add(inv2);
+        var inv2 = new SlickUI.Element.Text(12,115, "2-");
+        panel.add(inv2);
 
-		var inv3 = new SlickUI.Element.Text(12,135, "3-");
-		panel.add(inv3);
+        var inv3 = new SlickUI.Element.Text(12,135, "3-");
+        panel.add(inv3);
 
-		var inv4 = new SlickUI.Element.Text(12,155, "4-");
-		panel.add(inv4);
+        var inv4 = new SlickUI.Element.Text(12,155, "4-");
+        panel.add(inv4);
 
-		var inv5 = new SlickUI.Element.Text(12,175, "5-");
-		panel.add(inv5);
+        var inv5 = new SlickUI.Element.Text(12,175, "5-");
+        panel.add(inv5);
 
         textField.events.onOK.add(function () {
             arg = textField.value.split(" ");
@@ -254,67 +254,67 @@ CommandoZombi.Game.prototype = {
                 for(i=0;i<inventory.length;i++) {
                     result += i + ": " + inventory[i] + "\n";
                     if(i==0) { inv0.value = "0- " + inventory[i]; }
-           	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
-           	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
-           	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
-           	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
-          					if(i==5) { inv5.value = "5- " + inventory[i]; }
+                    if(i==1) { inv1.value = "1- " + inventory[i]; }
+                    if(i==2) { inv2.value = "2- " + inventory[i]; }
+                    if(i==3) { inv3.value = "3- " + inventory[i]; }
+                    if(i==4) { inv4.value = "4- " + inventory[i]; }
+                    if(i==5) { inv5.value = "5- " + inventory[i]; }
                 }
             } else if (arg[0]  == "rem") {
-            	candeleteitem = false;
-              console.log("remove item: " + inventory[arg[1]]);
+                candeleteitem = false;
+                console.log("remove item: " + inventory[arg[1]]);
 
-      				if(inventory[arg[1]] == "black_gun" && (cb5.checked == false || cb7.checked == false) ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_gun" && (cb5.checked == false || cb7.checked == false) ) {
+                    candeleteitem = true;
+                }
 
-      				if(inventory[arg[1]] == "black_shield" && (cb7.checked == false || cb6.checked == false) ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_shield" && (cb7.checked == false || cb6.checked == false) ) {
+                    candeleteitem = true;
+                }
 
-      				if(inventory[arg[1]] == "black_helmet" && cb1.checked == false ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_helmet" && cb1.checked == false ) {
+                    candeleteitem = true;
+                }
 
-      				if(inventory[arg[1]] == "black_armor" && cb2.checked == false ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_armor" && cb2.checked == false ) {
+                    candeleteitem = true;
+                }
 
-      				if(inventory[arg[1]] == "black_pant" && cb3.checked == false ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_pant" && cb3.checked == false ) {
+                    candeleteitem = true;
+                }
 
-      				if(inventory[arg[1]] == "black_boot" && cb8.checked == false ) {
-      					candeleteitem = true;
-      				}
+                if(inventory[arg[1]] == "black_boot" && cb8.checked == false ) {
+                    candeleteitem = true;
+                }
 
-				      if(candeleteitem == true) {
-                	inventory.splice(arg[1], 1);
+                if(candeleteitem == true) {
+                    inventory.splice(arg[1], 1);
 
-             			inv0.value = "0-";
-         	 	 	 		inv1.value = "1-";
-         	 	 	 		inv2.value = "2-";
-         	 	 	 		inv3.value = "3-";
-         	 	 	 		inv4.value = "4-";
-        					inv5.value = "5-";
+                    inv0.value = "0-";
+                    inv1.value = "1-";
+                    inv2.value = "2-";
+                    inv3.value = "3-";
+                    inv4.value = "4-";
+                    inv5.value = "5-";
 
-                	for(i=0; i < inventory.length; i++) {
-                    	result += i + ": " + inventory[i] + "\n";
-                    	if(i==0) { inv0.value = "0- " + inventory[i]; }
-           	 	 	 	 		if(i==1) { inv1.value = "1- " + inventory[i]; }
-           	 	 	 	 		if(i==2) { inv2.value = "2- " + inventory[i]; }
-           	 	 	 	 		if(i==3) { inv3.value = "3- " + inventory[i]; }
-           	 	 	 	 		if(i==4) { inv4.value = "4- " + inventory[i]; }
-          						if(i==5) { inv5.value = "5- " + inventory[i]; }
-                	}
+                    for(i=0; i < inventory.length; i++) {
+                        result += i + ": " + inventory[i] + "\n";
+                        if(i==0) { inv0.value = "0- " + inventory[i]; }
+                        if(i==1) { inv1.value = "1- " + inventory[i]; }
+                        if(i==2) { inv2.value = "2- " + inventory[i]; }
+                        if(i==3) { inv3.value = "3- " + inventory[i]; }
+                        if(i==4) { inv4.value = "4- " + inventory[i]; }
+                        if(i==5) { inv5.value = "5- " + inventory[i]; }
+                    }
                 }
             } else {
-      				inv0.value = "0- Command unknown";
-       	 	 	 	inv1.value = "1-";
-       	 	 	 	inv2.value = "2-";
-       	 	 	 	inv3.value = "3-";
-       	 	 	 	inv4.value = "4-";
-      				inv5.value = "5-";
+                inv0.value = "0- Command unknown";
+                inv1.value = "1-";
+                inv2.value = "2-";
+                inv3.value = "3-";
+                inv4.value = "4-";
+                inv5.value = "5-";
             }
         });
 
@@ -479,7 +479,7 @@ CommandoZombi.Game.prototype = {
                     this.player.loadTexture("player_new", 0, false);
                     playerbody = 0;
                 }
-               }
+            }
         }, this);
 
         // Leg / Pant
@@ -845,70 +845,70 @@ CommandoZombi.Game.prototype = {
 
     },
 
-      createItems: function() {
+    createItems: function() {
         this.items = this.game.add.group();
         this.items.enableBody = true;
         var item;
         result = this.findObjectsByType('item', this.map, 'itemLayer');
         result.forEach(function(element){
-              this.createFromTiledObject(element, this.items);
+            this.createFromTiledObject(element, this.items);
         }, this);
-      },
+    },
 
-      buttonPUonOver: function() {
+    buttonPUonOver: function() {
         console.log('button pad up');
         playerMoveUp = true;
-      },
+    },
 
-      buttonPUonOut: function() {
+    buttonPUonOut: function() {
         console.log('button pad up');
         playerMoveUp = false;
-      },
+    },
 
-      buttonPDonOver: function() {
+    buttonPDonOver: function() {
         console.log('button pad down');
         playerMoveDown = true;
-      },
+    },
 
-      buttonPDonOut: function() {
+    buttonPDonOut: function() {
         console.log('button pad down');
         playerMoveDown = false;
-      },
+    },
 
-      buttonPLonOver: function() {
+    buttonPLonOver: function() {
         console.log('button pad left');
         playerMoveLeft = true;
-      },
+    },
 
-      buttonPLonOut: function() {
+    buttonPLonOut: function() {
         console.log('button pad left');
         playerMoveLeft = false;
-      },
+    },
 
-      buttonPRonOver: function() {
+    buttonPRonOver: function() {
         console.log('button pad right');
         playerMoveRight = true;
-      },
+    },
 
-      buttonPRonOut: function() {
+    buttonPRonOut: function() {
         console.log('button pad right');
         playerMoveRight = false;
-      },
+    },
 
-      actionbuttonpfOnClick: function() {
+    actionbuttonpfOnClick: function() {
         console.log('button pad fire');
         this.fireBullet();
-      },
+    },
 
-       actionbuttonpaOnClick: function() {
+    actionbuttonpaOnClick: function() {
         console.log('button pad A');
-      },
+    },
 
-      actionbuttonpbOnClick: function() {
+    actionbuttonpbOnClick: function() {
         console.log('button pad B');
-      },
+    },
 
-      actionbuttonpcOnClick: function() {
+    actionbuttonpcOnClick: function() {
         console.log('button pad C');
 
         console.log('Level');
@@ -926,7 +926,7 @@ CommandoZombi.Game.prototype = {
             }
         }
 
-      },
+    },
 
 
     //create NPC's
@@ -1178,15 +1178,15 @@ CommandoZombi.Game.prototype = {
         var devilsArray = [];
         this.enemies.forEach(function(enemy) {
             if (enemy.key == "devil") {
-                  devilsArray.push(enemy);
+                devilsArray.push(enemy);
             }
         });
 
         devilsArray.forEach(function(devil) {
             if (devil.x > devil.prevX) {
-                  devil.play('right');
+                devil.play('right');
             } else {
-                  devil.play('left');
+                devil.play('left');
             }
             devil.prevX = devil.x;
         });
@@ -1198,15 +1198,15 @@ CommandoZombi.Game.prototype = {
         var guardsArray = [];
         this.enemies.forEach(function(enemy) {
             if (enemy.key == "guard") {
-                  guardsArray.push(enemy);
+                guardsArray.push(enemy);
             }
         });
 
         guardsArray.forEach(function(guard) {
             if (guard.y > guard.prevY) {
-                  guard.play('down');
+                guard.play('down');
             } else {
-                  guard.play('up');
+                guard.play('up');
             }
             guard.prevY = guard.y;
         });
@@ -1231,7 +1231,7 @@ CommandoZombi.Game.prototype = {
         this.fireBlacklordBullet();
 
         if(this.restartButton.isDown) {
-              this.game.state.start('MainMenu', true, false);
+            this.game.state.start('MainMenu', true, false);
         }
 
         if(this.cursors.up.isDown || playerMoveUp == true) {
@@ -1317,7 +1317,7 @@ CommandoZombi.Game.prototype = {
 
     },
 
-      collect: function(player, collectable) {
+    collect: function(player, collectable) {
         if(this.player.inventory.length < 6) {
             // Can take only 2 items
             // In inventory, there are always 2 same items
@@ -1328,16 +1328,16 @@ CommandoZombi.Game.prototype = {
                 inventory = this.player.inventory;
                 collectable.destroy();
 
-				if (collectable.key == "magazine") {
-					 this.player.bullet += 20;
-				}
+                if (collectable.key == "magazine") {
+                    this.player.bullet += 20;
+                }
 
-				if (collectable.key == "firstaidkit") {
-					console.log(this.player.health);
-					 this.player.health += 20;
-				}
+                if (collectable.key == "firstaidkit") {
+                    console.log(this.player.health);
+                    this.player.health += 20;
+                }
 
             }
         }
-      },
+    },
 }
