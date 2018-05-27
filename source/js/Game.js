@@ -10,12 +10,12 @@ var music, playerSpellSound;
 
 var pworldmap, nworldmap, ngametiles;
 
-var agent, operator, health, bullet, zombi; 
+var agent, operator, health, bullet, zombi;
 
 var t1, t2, t3, t4, t5, t6, t7;
 
 var cb1, cb2, cb3, cb4, cb5, cb6, cb7, cb8, cb9, cb10, cb11;
-        
+
 var panel, textField, button, menuButton;
 var invpanel, invtextField, invbutton, invmenuButton;
 
@@ -228,7 +228,7 @@ CommandoZombi.Game.prototype = {
         slickUI.add(panel = new SlickUI.Element.Panel(16, 8, 420, this.game.height - 170));
 
         textField = panel.add(new SlickUI.Element.TextField(10,30, 385, 40));
-        
+
 		var inv0 = new SlickUI.Element.Text(12,75, "0-");
 		panel.add(inv0);
 
@@ -254,67 +254,67 @@ CommandoZombi.Game.prototype = {
                 for(i=0;i<inventory.length;i++) {
                     result += i + ": " + inventory[i] + "\n";
                     if(i==0) { inv0.value = "0- " + inventory[i]; }
- 	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
- 	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
- 	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
- 	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
-					if(i==5) { inv5.value = "5- " + inventory[i]; }
+           	 	 	 	 	if(i==1) { inv1.value = "1- " + inventory[i]; }
+           	 	 	 	 	if(i==2) { inv2.value = "2- " + inventory[i]; }
+           	 	 	 	 	if(i==3) { inv3.value = "3- " + inventory[i]; }
+           	 	 	 	 	if(i==4) { inv4.value = "4- " + inventory[i]; }
+          					if(i==5) { inv5.value = "5- " + inventory[i]; }
                 }
             } else if (arg[0]  == "rem") {
             	candeleteitem = false;
-                console.log("remove item: " + inventory[arg[1]]);
+              console.log("remove item: " + inventory[arg[1]]);
 
-				if(inventory[arg[1]] == "black_gun" && (cb5.checked == false || cb7.checked == false) ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_gun" && (cb5.checked == false || cb7.checked == false) ) {
+      					candeleteitem = true;
+      				}
 
-				if(inventory[arg[1]] == "black_shield" && (cb7.checked == false || cb6.checked == false) ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_shield" && (cb7.checked == false || cb6.checked == false) ) {
+      					candeleteitem = true;
+      				}
 
-				if(inventory[arg[1]] == "black_helmet" && cb1.checked == false ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_helmet" && cb1.checked == false ) {
+      					candeleteitem = true;
+      				}
 
-				if(inventory[arg[1]] == "black_armor" && cb2.checked == false ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_armor" && cb2.checked == false ) {
+      					candeleteitem = true;
+      				}
 
-				if(inventory[arg[1]] == "black_pant" && cb3.checked == false ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_pant" && cb3.checked == false ) {
+      					candeleteitem = true;
+      				}
 
-				if(inventory[arg[1]] == "black_boot" && cb8.checked == false ) {
-					candeleteitem = true;
-				}
+      				if(inventory[arg[1]] == "black_boot" && cb8.checked == false ) {
+      					candeleteitem = true;
+      				}
 
-				if(candeleteitem == true) {
+				      if(candeleteitem == true) {
                 	inventory.splice(arg[1], 1);
 
-     				inv0.value = "0-";
- 	 	 	 		inv1.value = "1-";
- 	 	 	 		inv2.value = "2-";
- 	 	 	 		inv3.value = "3-";
- 	 	 	 		inv4.value = "4-";
-					inv5.value = "5-";
+             			inv0.value = "0-";
+         	 	 	 		inv1.value = "1-";
+         	 	 	 		inv2.value = "2-";
+         	 	 	 		inv3.value = "3-";
+         	 	 	 		inv4.value = "4-";
+        					inv5.value = "5-";
 
                 	for(i=0; i < inventory.length; i++) {
                     	result += i + ": " + inventory[i] + "\n";
                     	if(i==0) { inv0.value = "0- " + inventory[i]; }
- 	 	 	 	 		if(i==1) { inv1.value = "1- " + inventory[i]; }
- 	 	 	 	 		if(i==2) { inv2.value = "2- " + inventory[i]; }
- 	 	 	 	 		if(i==3) { inv3.value = "3- " + inventory[i]; }
- 	 	 	 	 		if(i==4) { inv4.value = "4- " + inventory[i]; }
-						if(i==5) { inv5.value = "5- " + inventory[i]; }
+           	 	 	 	 		if(i==1) { inv1.value = "1- " + inventory[i]; }
+           	 	 	 	 		if(i==2) { inv2.value = "2- " + inventory[i]; }
+           	 	 	 	 		if(i==3) { inv3.value = "3- " + inventory[i]; }
+           	 	 	 	 		if(i==4) { inv4.value = "4- " + inventory[i]; }
+          						if(i==5) { inv5.value = "5- " + inventory[i]; }
                 	}
                 }
             } else {
-				inv0.value = "0- Command unknown";
- 	 	 	 	inv1.value = "1-";
- 	 	 	 	inv2.value = "2-";
- 	 	 	 	inv3.value = "3-";
- 	 	 	 	inv4.value = "4-";
-				inv5.value = "5-";
+      				inv0.value = "0- Command unknown";
+       	 	 	 	inv1.value = "1-";
+       	 	 	 	inv2.value = "2-";
+       	 	 	 	inv3.value = "3-";
+       	 	 	 	inv4.value = "4-";
+      				inv5.value = "5-";
             }
         });
 
@@ -326,11 +326,7 @@ CommandoZombi.Game.prototype = {
             console.log('Key pressed: ' + key);
         });
 
-
         panel.add(new SlickUI.Element.Text(10,0, "Menu")).centerHorizontally().text.alpha = 0.5;
-
-
-
 
         panel.add(button = new SlickUI.Element.Button(0, 220, 140, 40));
         button.add(new SlickUI.Element.Text(0,0, "Close")).center();
@@ -380,7 +376,7 @@ CommandoZombi.Game.prototype = {
         panel.add(cb6 = new SlickUI.Element.Checkbox(360,155, SlickUI.Element.Checkbox.TYPE_CROSS));
 
 
-        // Head / Helmet        
+        // Head / Helmet
         cb1.events.onInputDown.add(function () {
 
             if(this.player.inventory.indexOf("black_helmet") < 0) {
@@ -432,11 +428,10 @@ CommandoZombi.Game.prototype = {
 
                     this.player.loadTexture("player_new", 0, false);
                     playerhead = 0;
-                }   
+                }
             }
 
         }, this);
-
 
         // Body / Armor
         cb2.events.onInputDown.add(function () {
@@ -447,7 +442,7 @@ CommandoZombi.Game.prototype = {
             }
 
             if(this.player.inventory.indexOf("black_armor") >= 0) {
-                console.log("Armor in inventory");            
+                console.log("Armor in inventory");
                 if( cb2.checked ) {
                     console.log("Armor");
                     health += 20;
@@ -457,13 +452,13 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
                     bmd.copy('player_body');
 
-                    if (playerhead == 1) { bmd.copy('player_head'); }           
+                    if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);              
+                    this.player.loadTexture("player_new", 0, false);
                     playerbody = 1;
                 } else {
                     console.log("No armor");
@@ -481,12 +476,11 @@ CommandoZombi.Game.prototype = {
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);             
+                    this.player.loadTexture("player_new", 0, false);
                     playerbody = 0;
-                }   
-               }     
+                }
+               }
         }, this);
-
 
         // Leg / Pant
         cb3.events.onInputDown.add(function () {
@@ -494,7 +488,6 @@ CommandoZombi.Game.prototype = {
                 console.log("No pant in inventory");
                 cb3.checked = false;
             }
-
 
             if(this.player.inventory.indexOf("black_pant") >= 0) {
                 console.log("Pant in inventory");
@@ -507,13 +500,13 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
                     bmd.copy('player_body');
 
-                    if (playerhead == 1) { bmd.copy('player_head'); }           
+                    if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }             
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);                  
+                    this.player.loadTexture("player_new", 0, false);
                     playerbody = 1;
                 } else {
                     console.log("No Pant");
@@ -527,13 +520,13 @@ CommandoZombi.Game.prototype = {
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerarm == 1) { bmd.copy('player_rightarm'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);                
+                    this.player.loadTexture("player_new", 0, false);
                     playerbody = 0;
-                }   
+                }
             }
 
         }, this);
@@ -545,7 +538,7 @@ CommandoZombi.Game.prototype = {
             if (cb6.checked == true && this.player.inventory.indexOf( "black_shield" ) >= 0 && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
                 console.log("1 shield in inventory, Shield is already wear");
                 cb4.checked = false;
-            } 
+            }
 
             if ( this.player.inventory.indexOf( "black_shield" ) < 0 ) {
                 console.log("No shield in inventory");
@@ -560,11 +553,11 @@ CommandoZombi.Game.prototype = {
 
                     if (cb6.checked == false && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
                         console.log("1 shield in inventory, unique shield wear");
-                    } 
+                    }
 
                     if (cb6.checked == false && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
                         console.log("2 shield in inventory, 1 of 2 Shield wear");
-                    } 
+                    }
                     console.log("Shield");
                     health += 20;
                     this.player.health = health;
@@ -579,7 +572,7 @@ CommandoZombi.Game.prototype = {
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);                 
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 1;
 
                 } else {
@@ -591,13 +584,13 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);               
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 0;
                 }
 
@@ -612,7 +605,7 @@ CommandoZombi.Game.prototype = {
             if (cb7.checked == true && this.player.inventory.indexOf( "black_gun" ) >= 0 && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
                 console.log("1 gun in inventory, gun is already wear");
                 cb5.checked = false;
-            } 
+            }
 
 
             if(this.player.inventory.indexOf("black_gun") < 0) {
@@ -627,11 +620,11 @@ CommandoZombi.Game.prototype = {
 
                     if (cb7.checked == false && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
                         console.log("1 gun in inventory, unique gun wear");
-                    } 
+                    }
 
                     if (cb7.checked == false && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
                         console.log("2 gun in inventory, 1 of 2 gun wear");
-                    } 
+                    }
 
                     console.log("gun");
                     this.player.bullet += 10;
@@ -642,11 +635,11 @@ CommandoZombi.Game.prototype = {
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }         
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);               
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 1;
                 } else {
                     console.log("No gun");
@@ -656,15 +649,15 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);               
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 0;
-                }   
+                }
             }
         }, this);
 
@@ -677,7 +670,7 @@ CommandoZombi.Game.prototype = {
             if (cb5.checked == true && this.player.inventory.indexOf( "black_gun" ) >= 0 && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
                 console.log("1 gun in inventory, gun is already wear");
                 cb7.checked = false;
-            } 
+            }
 
             if(this.player.inventory.indexOf("black_gun") < 0) {
                 console.log("No gun in inventory");
@@ -692,12 +685,12 @@ CommandoZombi.Game.prototype = {
 
                     if (cb5.checked == false && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
                         console.log("1 gun in inventory, unique gun wear");
-                    } 
+                    }
 
                     if (cb5.checked == false && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
                         console.log("2 gun in inventory, 1 of 2 gun wear");
-                    } 
-                    
+                    }
+
                     console.log("gun");
                     this.player.bullet += 10;
 
@@ -707,10 +700,10 @@ CommandoZombi.Game.prototype = {
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) {bmd.copy('player_leftleg'); }            
+                    if (playerleg == 1) {bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
-                    this.player.loadTexture("player_new", 0, false);                        
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 1;
                 } else {
                     console.log("No gun");
@@ -719,15 +712,15 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
-                    if (playerleg == 1) { bmd.copy('player_leftleg'); }            
+                    if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);             
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 0;
-                }   
+                }
             }
         }, this);
 
@@ -737,7 +730,7 @@ CommandoZombi.Game.prototype = {
             if (cb4.checked == true && this.player.inventory.indexOf( "black_shield" ) >= 0 && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
                 console.log("1 shield in inventory, Shield is already wear");
                 cb6.checked = false;
-            } 
+            }
 
             if ( this.player.inventory.indexOf( "black_shield" ) < 0 ) {
                 console.log("No shield in inventory");
@@ -752,11 +745,11 @@ CommandoZombi.Game.prototype = {
 
                     if (cb4.checked == false && (this.player.inventory.indexOf("black_shield") == this.player.inventory.lastIndexOf("black_shield"))) {
                         console.log("1 shield in inventory, unique shield wear");
-                    } 
+                    }
 
                     if (cb4.checked == false && (this.player.inventory.indexOf("black_shield") != this.player.inventory.lastIndexOf("black_shield"))) {
                         console.log("2 shield in inventory, 1 of 2 Shield wear");
-                    } 
+                    }
                     console.log("Shield");
                     health += 20;
                     this.player.health = health;
@@ -771,7 +764,7 @@ CommandoZombi.Game.prototype = {
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);              
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 1;
 
                 } else {
@@ -783,13 +776,13 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
 
                     if (playerhead == 1) { bmd.copy('player_head'); }
-                    if (playerbody == 1) { bmd.copy('player_body'); }                
+                    if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerleg == 1) { bmd.copy('player_rightleg'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);               
+                    this.player.loadTexture("player_new", 0, false);
                     playerarm = 0;
                 }
 
@@ -816,14 +809,14 @@ CommandoZombi.Game.prototype = {
                     bmd.copy('player');
                     bmd.copy('player_rightleg');
 
-                    if (playerhead == 1) { bmd.copy('player_head'); }                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
-                    if (playerarm == 1) { bmd.copy('player_rightarm'); }             
+                    if (playerarm == 1) { bmd.copy('player_rightarm'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);                 
+                    this.player.loadTexture("player_new", 0, false);
                     playerleg = 1;
                 } else {
                     console.log("No Boot");
@@ -833,16 +826,16 @@ CommandoZombi.Game.prototype = {
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
 
-                    if (playerhead == 1) { bmd.copy('player_head'); }                
+                    if (playerhead == 1) { bmd.copy('player_head'); }
                     if (playerbody == 1) { bmd.copy('player_body'); }
                     if (playerarm == 1) { bmd.copy('player_leftarm'); }
                     if (playerleg == 1) { bmd.copy('player_leftleg'); }
 
                     this.game.cache.addSpriteSheet("player_new", null, bmd.canvas, 48, 64);
 
-                    this.player.loadTexture("player_new", 0, false);              
+                    this.player.loadTexture("player_new", 0, false);
                     playerleg = 0;
-                }   
+                }
             }
 
         }, this);
@@ -926,7 +919,7 @@ CommandoZombi.Game.prototype = {
         for(var i = 0; i < levelJSON.level.length; i++) {
             levelObject = levelJSON.level[i];
 
-            if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
+            if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 &&
                 this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
                 cworldmap == levelObject.current) {
                 this.game.state.start('Game', true, false, cworldmap, levelObject.next, ngametiles, agent, operator, health, this.player.bullet, zombi)
@@ -1179,7 +1172,7 @@ CommandoZombi.Game.prototype = {
         this.blacklordBullet.kill();
     },
 
-    // Updates devils animation. First, we search for all devils and put them in array. 
+    // Updates devils animation. First, we search for all devils and put them in array.
     // Then, we see which direction they're moving and set the animation.
     updateDevilAnimation: function() {
         var devilsArray = [];
@@ -1199,7 +1192,7 @@ CommandoZombi.Game.prototype = {
         });
     },
 
-    // Updates guards animation. First, we search for all guards and put them in array. 
+    // Updates guards animation. First, we search for all guards and put them in array.
     // Then, we see which direction they're moving and set the animation.
     updateGuardAnimation: function() {
         var guardsArray = [];
@@ -1264,7 +1257,7 @@ CommandoZombi.Game.prototype = {
         } else if (this.fireButton.isDown) {
 
             if (cb5.checked == true || cb7.checked == true) {
-                console.log("Firegun");        
+                console.log("Firegun");
                 if( this.player.bullet > 0 ) {
                     this.fireBullet();
                 } else {
@@ -1273,8 +1266,8 @@ CommandoZombi.Game.prototype = {
             } else {
                 console.log("No firegun in hand");
             }
-           
-            
+
+
         } else {
             this.player.animations.stop();
         }
@@ -1310,7 +1303,7 @@ CommandoZombi.Game.prototype = {
             for(var i = 0; i < levelJSON.level.length; i++) {
                 levelObject = levelJSON.level[i];
 
-                if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 && 
+                if (this.player.x > levelObject.x - 100 && this.player.x < levelObject.x + 100 &&
                     this.player.y > levelObject.y - 100 && this.player.y < levelObject.y + 100 &&
                     cworldmap == levelObject.current) {
                     console.log(levelObject.current + " " + levelObject.x + " " + levelObject.y + " " + levelObject.next);
@@ -1336,12 +1329,12 @@ CommandoZombi.Game.prototype = {
                 collectable.destroy();
 
 				if (collectable.key == "magazine") {
-					 this.player.bullet += 20;	
+					 this.player.bullet += 20;
 				}
 
 				if (collectable.key == "firstaidkit") {
 					console.log(this.player.health);
-					 this.player.health += 20;	
+					 this.player.health += 20;
 				}
 
             }
