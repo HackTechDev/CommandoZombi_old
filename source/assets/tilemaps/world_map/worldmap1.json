@@ -162,7 +162,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,
@@ -196,7 +196,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,
@@ -230,7 +230,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,
@@ -264,7 +264,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,
@@ -281,7 +281,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,
@@ -315,7 +315,7 @@
                  "name":"",
                  "properties":
                     {
-                     "sprite":"black_sword",
+                     "sprite":"black_gun",
                      "type":"item"
                     },
                  "rotation":0,

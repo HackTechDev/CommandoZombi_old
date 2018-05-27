@@ -580,32 +580,32 @@ CommandoZombi.Game.prototype = {
         cb5.events.onInputDown.add(function () {
 
             console.log("Left arm");
-            console.log(this.player.inventory.indexOf( "black_sword"));
-            if (cb7.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
-                console.log("1 sword in inventory, sword is already wear");
+            console.log(this.player.inventory.indexOf( "black_gun"));
+            if (cb7.checked == true && this.player.inventory.indexOf( "black_gun" ) >= 0 && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
+                console.log("1 gun in inventory, gun is already wear");
                 cb5.checked = false;
             } 
 
 
-            if(this.player.inventory.indexOf("black_sword") < 0) {
-                console.log("No sword in inventory");
+            if(this.player.inventory.indexOf("black_gun") < 0) {
+                console.log("No gun in inventory");
                 cb5.checked = false;
             } else {
                 if( cb5.checked ) {
-                    console.log("sword");
-                    if (cb7.checked == true && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("2 sword in inventory, another 1 sword wear");
+                    console.log("gun");
+                    if (cb7.checked == true && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("2 gun in inventory, another 1 gun wear");
                     }
 
-                    if (cb7.checked == false && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("1 sword in inventory, unique sword wear");
+                    if (cb7.checked == false && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("1 gun in inventory, unique gun wear");
                     } 
 
-                    if (cb7.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("2 sword in inventory, 1 of 2 sword wear");
+                    if (cb7.checked == false && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("2 gun in inventory, 1 of 2 gun wear");
                     } 
 
-                    console.log("Sword");
+                    console.log("gun");
                     this.player.bullet += 10;
 
                     var bmd = this.game.add.bitmapData(144, 256);
@@ -621,7 +621,7 @@ CommandoZombi.Game.prototype = {
                     this.player.loadTexture("player_new", 0, false);               
                     playerarm = 1;
                 } else {
-                    console.log("No Sword");
+                    console.log("No gun");
                     this.player.bullet -= 10;
 
                     var bmd = this.game.add.bitmapData(144, 256);
@@ -645,32 +645,32 @@ CommandoZombi.Game.prototype = {
         cb7.events.onInputDown.add(function () {
 
             console.log("Right arm");
-            console.log(this.player.inventory.indexOf( "black_sword"));
-            if (cb5.checked == true && this.player.inventory.indexOf( "black_sword" ) >= 0 && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
-                console.log("1 sword in inventory, sword is already wear");
+            console.log(this.player.inventory.indexOf( "black_gun"));
+            if (cb5.checked == true && this.player.inventory.indexOf( "black_gun" ) >= 0 && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
+                console.log("1 gun in inventory, gun is already wear");
                 cb7.checked = false;
             } 
 
-            if(this.player.inventory.indexOf("black_sword") < 0) {
-                console.log("No sword in inventory");
+            if(this.player.inventory.indexOf("black_gun") < 0) {
+                console.log("No gun in inventory");
                 cb7.checked = false;
             } else {
                 if( cb7.checked ) {
-                    console.log("sword");
+                    console.log("gun");
 
-                    if (cb5.checked == true && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("2 sword in inventory, another 1 sword wear");
+                    if (cb5.checked == true && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("2 gun in inventory, another 1 gun wear");
                     }
 
-                    if (cb5.checked == false && (this.player.inventory.indexOf("black_sword") == this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("1 sword in inventory, unique sword wear");
+                    if (cb5.checked == false && (this.player.inventory.indexOf("black_gun") == this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("1 gun in inventory, unique gun wear");
                     } 
 
-                    if (cb5.checked == false && (this.player.inventory.indexOf("black_sword") != this.player.inventory.lastIndexOf("black_sword"))) {
-                        console.log("2 sword in inventory, 1 of 2 sword wear");
+                    if (cb5.checked == false && (this.player.inventory.indexOf("black_gun") != this.player.inventory.lastIndexOf("black_gun"))) {
+                        console.log("2 gun in inventory, 1 of 2 gun wear");
                     } 
                     
-                    console.log("Sword");
+                    console.log("gun");
                     this.player.bullet += 10;
 
                     var bmd = this.game.add.bitmapData(144, 256);
@@ -685,7 +685,7 @@ CommandoZombi.Game.prototype = {
                     this.player.loadTexture("player_new", 0, false);                        
                     playerarm = 1;
                 } else {
-                    console.log("No Sword");
+                    console.log("No gun");
                     this.player.bullet -= 10;
                     var bmd = this.game.add.bitmapData(144, 256);
                     bmd.copy('player');
