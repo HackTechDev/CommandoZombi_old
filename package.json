@@ -1,7 +1,7 @@
 {
   "name": "commandozombi",
   "version": "1.0.0",
-  "description": "Commando Zombi   ==============",
+  "description": "Commando Zombi",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

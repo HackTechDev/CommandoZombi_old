@@ -43,7 +43,7 @@ module.exports = function(grunt) {
                 },
                 cache: 'sftpCache.json',
                 src: 'source',
-                dest: '/lamp0/web/vhosts/jeulibre.saventurier.science/htdocs/commandozombi',
+                dest: '/lamp0/web/vhosts/jeulibre.labak.xyz/htdocs/commandozombi',
                 exclusions: ['source/tmp'],
                 serverSep: '/',
                 localSep: '/',
